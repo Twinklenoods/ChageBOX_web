@@ -258,6 +258,23 @@
 			$(reader).on("load",loadendHandler);
 	    }
 	    
+	    /*window.onresize = function(){
+		if(document.body.offsetWidth >600){
+			console.log('YORK');
+		}else{
+			console.log('seed');
+		}
+	}
+	var file = undefined;
+    var reader = undefined;
+    $(document).ready(init);
+    function init(){	
+		file = $("#fileInput")[0];
+		$("#fileInput").change(fileChangeHandler);
+		reader = new FileReader();
+		$(reader).on("load",loadendHandler);
+    }*/
+	    
 	    function fileChangeHandler(){
 			
 			if( file.files.length > 0 ){
@@ -342,7 +359,7 @@
        				<textarea id="comment1" name="comment1" placeholder="商品敘述 最多100個字" maxlength="100"></textarea><br>
      				<span style="color:red">*</span>
      				<label for="fileInput">遊戲圖片上傳</label><br>
-     				<input type="file" id="fileInput" value="" accept="image/png,image/jpeg" required>
+     				<input type="file" id="fileInput" value="" name="img" accept="image/png,image/jpeg" required>
      				<div id="status"></div>
     				<img id="preview" alt=""><br>
     				<label for="origin">物品所在地</label>
