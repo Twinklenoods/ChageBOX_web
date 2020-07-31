@@ -8,25 +8,29 @@
 <title></title>
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <style>
-	.divBG{background:url("registered/png/bg.png") center top no-repeat ;
+	.divBG{
+	background:url("registered/png/bg02.png") center top no-repeat ;
 	color: white;
-	width:100%;		
-	height: 2800px;
+	width:100%;
+			
+	height: 2000px;
 	position: absolute;
 	top:0;
 	left:0;
 	}
 	
+	
 	#main {
-		height: 300px;
+		width:100%;
+		max-width:1950px;
 		margin: 0px;
 		padding: 0px;
 		display: flex;
-		height:1400px;
+		height:1600px;
 	}
 	#main > article,#main > nav,#main > aside,footer {
-		margin: 5px;
-		padding: 5px;
+		margin: 0px;
+		padding: 0px;
 		position:relative;
 		top:114px;
 		
@@ -47,14 +51,21 @@
 		flex-grow: 1;
 	}
 
-	header, footer {
-		display: block;
-		height: 50px;
-		background-color: lightgreen;
+	footer{
+	background:url("testbg/05.png") center top no-repeat ,	
+				url("testbg/foot.png") center top no-repeat;
+		position:relative;
+		top:-450px;
+		background-size: 100%;
+		width: 100%;
+		height: 770px;
+		
+		
 	}
+	
 	header{
 	background: url("psd/bg03.png") center top no-repeat;
-					
+		display: block;			
 		position: fixed;
 		background-size: 100% 100%;
 		width: 100%;
@@ -153,19 +164,30 @@
 	}	
 	@media screen and (max-width: 800px){
 	
-	.formSpan1, .formSpan2{
+	.formSpan1
+	{
 	top:10%;
-	left:10%;
+		left:10%;
 	}
+	 .formSpan2{
+	 	
+	 	top:9%;
+		left:25%;
+	}
+	 
+	
 	.article{
 	
 	}
 	.article-1, .article-2{
 		position: static;
-		
+		 text-align: left;
 		}
 	.article-2{
 		display:;
+		position:relative;
+	 	top:-200px;
+	 	left:-20px;
 		}
 	#toggle{
 	display: block;
@@ -215,6 +237,7 @@
 		display:block;
 	}
 	
+	
 
 </style>
  <script type="text/javascript" src="jquery.js"></script>
@@ -255,7 +278,7 @@
     <div class="divBG">
     <header>header中文
     <ul>
-		<li><a href="http://www.apple.com">Home</a></li>
+		<li><a href="index.html">Home</a></li>
 		<li><a href=#>Products</a></li>
 		<li><a href=#>Service</a></li>
 		<li id="lastLi"><a href=#>Support</a></li>
