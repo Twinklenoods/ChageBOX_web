@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<style>
+	.divBG {
+	background: url("testbg/01.png") left top no-repeat,
+			url("testbg/02.png") right top no-repeat,
+			url("testbg/0.png") center top no-repeat ;
+	color: white;
+	width:100%;		
+	height: 2800px;
+	position: absolute;
+	top:0;
+	left:0;
+	
+}
+
+	#main {
+		height: 2050px;
+		margin: 0px;
+		padding: 0px;
+		display: flex;
+		margin: 100px 0 0 0 ;
+	}
+	#main > article,#main > nav,#main > aside{
+		margin: 5px;
+		padding: 5px;
+		
+	}
+	#main > article {
+		
+		flex-grow: 2;
+		opacity:1;
+		
+	}
+	#article-1, #article-2{
+	background: rgba(250,250,250,0.9);
+	border:2px solid rgb(0,0,0);
+	filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+   	box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    margin:50px 0 0 0;
+    font-size: 40px;
+    text-align: center;
+    line-height: 120px;
+	height:300px;
+	color:black;
+	}
+	#article-1{
+	background: url("psd/ad1-02.png") center no-repeat;
+	background-size: 90%;
+	opacity:1;
+	padding-top:0px;
+	border:none;
+	box-shadow:none
+	}
+	
+	#article-2{
+	height:400px;
+	
+	}
+
+	#main > nav {
+		
+		flex-grow: 0;
+		
+	}
+	#nav-1{
+	padding:50px 0 0 0;
+	height:250px;
+		
+	}
+	#nav-2{
+	height:550px;
+
+	
+	}
+	#nav-1 img {
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+	
+	transform-origin: center bottom;
+	/*write code here*/
+	opacity: 1;
+	transition: transform 0.333s;
+	transition: all 0.333s;
+	transition: transform 0.333s, opacity 0.333s;
+	}
+	
+	#nav-1 img:hover{
+	opacity: 1;
+	transform: scale(1.1, 1.1);
+	}
+
+	#main > aside {
+		
+		flex-grow: 1;	
+	}
+
+	#aside-1, #aside-2{
+		background: rgba(0,0,0,0.9);
+		border:2px solid rgb(195,0,0);
+
+	filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+   	box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    margin:60px 0px 0 30px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 120px;
+	height:400px;
+		
+		
+	}
+	#aside-1{
+		background: url("psd/d01.png") no-repeat top right;
+		background-size: 100%;
+		height:300px;
+		opacity:1;
+		margin: 60px 0px 0px 30px;
+		border:none;
+		box-shadow:none
+	}
+	header, footer , .taible{
+		display: block;
+		height: 50px;
+		background-color: lightgreen;
+	}
+	
+	header {
+		background: url("psd/bg03.png") center top no-repeat;
+					
+		position: fixed;
+		background-size: 100% 100%;
+		width: 100%;
+		height: 100px;
+		margin:about;
+		z-index:99;
+	}
+	.taible{
+	background:url("psd/title.png") center no-repeat;
+	margin:114px 0 0 0;
+	height: 500px;
+	width: 100%;
+	}
+	@media screen and (max-width: 1200px){
+		#main{
+			flex-direction: column;
+			
+		}
+		#main > aside {
+			order: 2;
+		}
+		#aside-1{
+			display:none
+		}
+		
+		#main > article {
+			order: 3;
+			
+		}
+	
+		#main > nav {
+			order: 1;
+		}
+		#nav-2{
+		display:none
+		}
+		.taible{
+		display:none;
+		}
+		
+	}
+	@media screen and (min-width: 1200px) and (max-width: 1600px){
+		#main > aside {
+			order: 2;
+			flex-grow:2
+		}
+		
+		#main > article {
+			
+			display:none;
+		}
+	
+		#main > nav {
+			order: 1;
+			flex-grow:1
+		}
+		.taible{
+		display:none;
+		}
+	}
+	a {
+	text-decoration: underline;
+	text-decoration: overline;
+	text-decoration: line-through;
+	text-decoration: none;
+}
+a:link {
+	color: white;
+	
+	
+}
+
+a:visited {
+	color: white;
+}
+
+a:hover {
+	color: red;
+}
+
+a:active {
+	color: rgb(195,0,0);
+}
+
+ a.non-action:hover {
+      opacity: 1;
+    }
+	
+	@media screen and (min-width: 1600px){
+	}
+	
+	#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:url("psd/TOP-1.png") center;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	
+}
+
+#tabs{
+	padding:0;
+	margin:0;
+	
+}
+
+#tabs li{
+	list-style:none;
+	float:left;
+	margin-right:5px;
+	
+}
+
+a.tab{
+	text-decoration:none;
+	background:url("psd/myWork.png");
+	padding:5px;
+	color:white;
+	position:relative;
+	top:50px;
+	left:50px;
+	border:2px solid rgb(195,0,0);
+}
+
+
+
+#container{
+	clear:both;
+	position:relative;
+}
+
+#container h1{
+	font:26px Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	color:#069;
+	margin:0;
+	margin-bottom:5px;
+	
+}
+
+.tab_content , .tab_content2{
+	
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	background-color:rgba(0,0,0,0.9);
+	border:2px solid rgb(195,0,0);
+	filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+   	box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+	margin:50px;
+    text-align: center;
+    
+	
+	color: white;
+	padding: 80px;
+}
+.tab_content2{
+	background-color:rgba(250,250,250,0.9);
+	border:2px solid rgb(0,0,0);
+}
+.tab_content:target{
+	z-index: 1;
+}
+.tab_content2:target{
+	z-index: 1;
+}
+
+ header ul {
+	margin: 0px;
+	list-style: none;
+	width: 280px;
+	margin: auto;
+}
+
+header li {
+	float: left;
+	padding: 5px 10px;
+	border-left: 1px solid white;
+	
+}
+#name{
+position:relative;
+	top:-50px;
+	left:0px;
+	height: 30px;
+	width: 240px;
+}
+#password{
+position:relative;
+	top:-120px;
+	left:0px;
+	height: 30px;
+	width: 240px;
+}
+.customer{
+position:relative;
+	top:-120px;
+	height: 40px;
+	width: 240px;
+	font-size: 20px;
+	
+}
+.coust-1{
+font-size: 10px;
+height: 10px;
+position:relative;
+top:-200px;
+border:2px solid rgb(0,0,0) double;
+}
+
+.coust-2{
+	border:2px solid rgb(0,0,0) double;
+	
+}
+
+	</style>
+	 <script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+		$(function() {
+		    /* 按下GoTop按鈕時的事件 */
+		    $('#gotop').click(function(){
+		        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+		        return false;
+		    });
+		    
+		    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+		    $(window).scroll(function() {
+		        if ( $(this).scrollTop() > 400){
+		            $('#gotop').fadeIn(333);
+		        } else {
+		            $('#gotop').fadeOut('slow');
+		        }
+		    });
+		});
+		
+		$(function() {
+		    /* 按下GoTop按鈕時的事件 */
+		    $('#tab0,#tab-a, #tab-b').click(function(){
+		        $('html,body').animate({ scrollTop: 300 }, 'slow');   /* 返回到最頂上 */
+		        
+		    });
+		});
+			</script> 
+	</head>
+	<body>
+	    <div class="divBG">
+	    <a href="#" id="gotop" title="Go To Top" data-tracking="nav,jump,top">
+   					<i class="gototop"></i></a>	
+	    	<header>
+	    	<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href=#>Products</a></li>
+			<li><a href=#>Service</a></li>
+			<li id="lastLi"><a href=#>Support</a></li>
+		</ul>
+	    	</header>
+	    	<div class="taible">taible</div>
+			<div id="main">
+				<nav>
+					<nav id="nav-2">
+						nav-2 NEW 黑板
+						<ul id="tabs">
+	        				<li><a href="#tab1" id="tab0" class="tab" title="最新交換">最新交換</a></li>
+	        				<li><a href="#tab2" id="tab-b" class="tab" title="最新交易">最新交易</a></li>
+	       					<li><a href="#tab3" id="tab-a" class="tab">TAB 3</a></li>
+	    				</ul>
+   						<div id="container">
+    						<div id="tab1" class="tab_content">
+           					<h1>Use The Logo</h1>
+                            	 You have HTML5 on the brain. Tell the world.
+        					</div>
+        					<div id="tab2" class="tab_content tab_content2">
+            				<h1>Show Some Love</h1>
+            					This HTML5 logo is licensed under Creative Commons Attribution 3.0 — all are free to use and reimagine as they see fit. Stickers and T-Shirts are available now; more stuff to come.
+        					</div>
+        					<div id="tab3" class="tab_content">
+            				<h1>HTML5 in the Wild</h1>
+            					The HTML5 logo gallery (below) shows off community creativity. We invite you to submit your sightings, whether screen shots or movies or cupcakes.
+        					</div>
+   					 	</div>
+					</nav><br>					
+					<nav id="nav-1">
+						<img id="mywork" src="psd/myWork.png" title="我的管理">
+						<img id="masage" src="psd/masage.png" title="悄悄話">
+						<img id="buy" src="psd/buy.png" title="買賣">
+						<img id="pand" src="psd/pand.png" title="許願池">
+						<img id="change01" src="psd/change01.png" title="交換">
+					</nav>
+					
+				</nav>
+				<article>
+					<article id="article-1">article-1 廣告區</article><br>
+					<article id="article-2">article-2 排行榜</article>
+				</article>
+				<aside>
+					<aside id="aside-1">aside-1 公告區
+					</aside><br>
+					<aside id="aside-2">aside-2 會員登入區<br>
+						<form autocomplete="off">
+						<span class="formSpan">
+						  		  <label for="name"></label>
+                                  <input type="text" id="name" autofocus required placeHolder="ID/帳號""><br>
+                                  <label for="search"></label>
+                                  <input type="password" id="password" required placeHolder="passwod/密碼" minlength="6" maxlength="8"><br>
+                                  <input type="submit" value="會員登入" class="customer">
+                                  
+                                  <li class="coust-1">還不是會員?<a href="register.html" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a></li>
+	        					</span>
+	        			</form>	
+					</aside>
+				</aside>
+			</div>
+			<footer>footer</footer>
+	    </div>
+	</body>
+	</html>

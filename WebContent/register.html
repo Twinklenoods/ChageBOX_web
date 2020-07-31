@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<style>
+	.divBG{background:url("registered/png/bg.png") center top no-repeat ;
+	color: white;
+	width:100%;		
+	height: 2800px;
+	position: absolute;
+	top:0;
+	left:0;
+	}
+	
+	#main {
+		height: 300px;
+		margin: 0px;
+		padding: 0px;
+		display: flex;
+		height:1400px;
+	}
+	#main > article,#main > nav,#main > aside,footer {
+		margin: 5px;
+		padding: 5px;
+		position:relative;
+		top:114px;
+		
+		
+	}
+	#main > article {
+		
+		
+		flex-grow: 5;
+	}
+
+	#main > nav {
+		
+		flex-grow: 1;
+	}
+
+	#main > aside {
+		flex-grow: 1;
+	}
+
+	header, footer {
+		display: block;
+		height: 50px;
+		background-color: lightgreen;
+	}
+	header{
+	background: url("psd/bg03.png") center top no-repeat;
+					
+		position: fixed;
+		background-size: 100% 100%;
+		width: 100%;
+		height: 100px;
+		margin:about;
+		z-index:99;
+	}
+	
+	.article-1, .article-2{
+		max-width: 600px;
+		min-width:400px;
+		height: 600px;
+		
+		
+	}
+	.article-1{
+	margin: 0px 0px 0 0;
+	position: relative;
+	top:200px;
+	left:40%;
+	background: url("registered/png/page1.png") top center no-repeat;
+	background-size: 100%;
+	}
+	
+	.article-2{
+	position: relative;
+	left:10%;
+	background: url("registered/png/page2.png") top center no-repeat;
+	background-size: 100%;
+	color:black;
+	}
+	
+	
+ 	header ul {
+	margin: 0px;
+	list-style: none;
+	width: 280px;
+	margin: auto;
+	}
+
+	header li {
+	float: left;
+	padding: 5px 10px;
+	border-left: 1px solid white;
+	}
+	
+	a {
+	text-decoration: underline;
+	text-decoration: overline;
+	text-decoration: line-through;
+	text-decoration: none;
+	}
+	a:link {
+		color: white;
+		
+		
+	}
+	
+	a:visited {
+		color: white;
+	}
+	
+	a:hover {
+		color: red;
+	}
+	
+	a:active {
+		color: rgb(195,0,0);
+	}
+	
+	 a.non-action:hover {
+	      opacity: 1;
+	    }
+	
+	inputㄝ, select{
+	
+	 font-size: 18px;
+	 margin: 5px;
+	}
+	    
+	 .formSpan1{
+	 position: relative;
+	 top:150px;
+	 left:120px;
+	 color:white;
+	 }
+	 
+	  .formSpan2{
+	 position: relative;
+	 top:90px;
+	 left:170px;
+	 
+	 }
+	 #toggle{
+	display: none;
+	}	
+	@media screen and (max-width: 800px){
+	
+	.formSpan1, .formSpan2{
+	top:10%;
+	left:10%;
+	}
+	.article{
+	
+	}
+	.article-1, .article-2{
+		position: static;
+		
+		}
+	.article-2{
+		display:;
+		}
+	#toggle{
+	display: block;
+	position: relative;
+	top:310px;
+	left:455px;
+	}	
+		#main{
+			flex-direction: column;
+			
+		}
+		#main > aside {
+			display:none;
+		}
+		#main > nav {
+			display:none;
+		}
+		
+	}
+	
+	
+	@media screen and (min-width: 1200px){
+	.article-1, .article-2{
+		display: block;
+		}
+	.article-1{
+		display: block;
+		}
+		}
+	
+	#tabs{
+	padding:0;
+	margin:0;
+	
+	
+}
+
+	#tabs li{
+	list-style:none;
+	float:left;
+	margin-right:5px;
+	}
+	.show{
+		display:none;
+	}
+	.show2{
+		display:block;
+	}
+	
+
+</style>
+ <script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+	/*	$(document).ready(init);
+		function init()
+		{
+			$("#add").click(addHandler);
+			$("#remove").click(removeHandler);
+			$("#toggle").click(toggleHandler);
+			$("#submit01").click(btn1Handler);
+		}
+		
+		function toggleHandler(){
+			$(".article-1").toggleClass("show");
+			$(".article-2").toggleClass("show2");
+			
+			   
+			
+		}
+		function addHandler(){
+			$(".article-1").addClass("show");
+			$(".article-2").addClass("show2");
+		}
+		function removeHandler(){
+			$(".article-1").removeClass("show");
+			$(".article-2").removeClass("show2");
+		}
+		<input type="button" value="換頁" id="toggle"/>
+		<input type="button" value="下一頁" id="add"/>
+      	<input type="button" value="上一頁" id="remove"/>*/
+		function btn1Handler(){
+		$(".myDiv1").text("上一頁表單尚未完成");
+		}
+		</script>
+</head>
+<body>
+    <div class="divBG">
+    <header>header中文
+    <ul>
+		<li><a href="http://www.apple.com">Home</a></li>
+		<li><a href=#>Products</a></li>
+		<li><a href=#>Service</a></li>
+		<li id="lastLi"><a href=#>Support</a></li>
+	</ul>
+    </header>
+    <div id="main">
+        <nav>nav</nav>
+        <article>
+        	
+		<form autocomplete="off">
+     		<article class="article-1"><br>
+        	<span class="formSpan1">
+      
+  		<label for="id">帳號:*</label>
+  		<input type="text" id="id" minlength="8" maxlength="16" placeHolder="帳號/ID" required ><br><br>
+  		<label for="name">姓名:*</label>
+  		<input type="text" id="name" autofocus tabindex="1" required placeHolder="姓名/NAME"><br><br>
+  		<label for="password">密碼:*</label>
+  		<input type="password" id="password" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
+  		<label for="email">信箱:*</label>
+  		<input type="email" id="email" autocomplete="on" tabindex="2" required placeHolder="信箱/E-MAIL"><br><br>
+  		</span>
+  		
+        </article>
+        <article class="article-2"><br>
+        <span class="formSpan2">
+        <label for="mySelect">地址:*</label>
+        <select id="mySelect" required>
+			<optgroup label="台北市">
+	   			<option value="北投區">北投區</option>
+	  			<option value="Canada">Canada</option>
+  			</optgroup>
+   			<optgroup label="新北市">
+	  			<option value="China">China</option>
+	  			<option value="Japan">Japan</option>
+	  			<option value="Taiwan">Taiwan</option>
+	  			<option value="Thailand">Thailand</option>
+	  		</optgroup>
+  		</select><br><br>
+        		<label for="birthday">生日:*</label>
+  				<input type="date" id="birthday" required><br><br>
+  				<label for="phone">電話: </label>
+  				<input type="tel" id="phone"><br><br>
+  				 <label for="gender1">性別:*</label>
+  				 <input type="radio" id="gender1" name="gender" value="M" required>
+				 <label for="gender1">男</label>
+				 <input type="radio" id="gender2" name="gender" value="F" required>
+				 <label for="gender2">女</label><br><br>
+  				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
+  			
+  				</span>
+        </article>
+     </form>
+        </article>
+        <aside>aside</aside>
+    </div>
+    <footer>footer</footer>
+    </div>
+</body>
+</html>
