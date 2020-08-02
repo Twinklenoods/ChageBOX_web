@@ -1,62 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
-<title></title>
+<title>排行榜</title>
 <meta name="viewport" content="width=device-width, user-scalable=no">
+<LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
 <style>
-	.divBG{
-	background: url("testbg/01.png") left top no-repeat,
-			url("testbg/02.png") right top no-repeat,
-			url("testbg/0.png") center top no-repeat ;
-	color: white;
-	width:100%;		
-	height: 2950px;
-	position: absolute;
-	top:0;
-	left:0;
-	}
-.divBG01{
-	background: url("pha/002.jpg") center top no-repeat ;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-	#main {
-		height: 300px;
-		margin: 0px;
-		padding: 0px;
-		display: flex;
-		
-	}
-	#main > article,#main > nav,#main > aside, header, footer{
-	
-		border: 1px solid black;
-		border-radius: 5pt;
-	}
-	#main > article {
-		
-		flex-grow: 3;
-	}
-
-	#main > nav {
-		
-		flex-grow: 1;
-	}
-
-	#main > aside {
-		
-		flex-grow: 1;
-	}
-
-	header, footer {
-		display: block;
-		height: 50px;
-		
-	}
+	 nav {
+	 background: rgba(255,0,0,0.5);
+	 }
+	 article {
+	 background: rgba(0,255,0,0.5);
+	 }
+	 aside {
+	 background: rgba(0,0,255,0.5);
+	 }
 	
 	@media screen and (max-width: 600px){
 		#main{
@@ -81,16 +39,30 @@
 	@media screen and (min-width: 800px){
 	}
 </style>
+<script type="text/javascript" src="jquery.js"></script>
+			<script type="text/javascript" src="js/IndexJs.js">
+			</script><script type="text/javascript">
+	
+			</script> 
 </head>
 <body>
-    <div class="divBG01"></div>
+    
     <div class="divBG">
-
-	    <header>header中文</header>
+ 		<a href="#" id="gotop" title="Go To Top" data-tracking="nav,jump,top">
+   			<i class="gototop"></i></a>	
+	    <header>  
+		    <ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href=#>Products</a></li>
+				<li><a href=#>Service</a></li>
+				<li id="lastLi"><a href=#>Support</a></li>
+			</ul>
+		</header>
+	  
 	    <div id="main">
-	        <nav>nav</nav>
+	       	<nav>nav</nav>
 	        <article>article</article>
-	        <aside>aside</aside>
+	       	<aside>aside</aside>
 	    </div>
 	    <footer>footer</footer>
 	
