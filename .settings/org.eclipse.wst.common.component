@@ -2,6 +2,9 @@
     <wb-module deploy-name="ChangeBox_Web">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="ChageBOX_Lib.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ChageBOX_Lib/ChageBOX_Lib">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="CB"/>
         <property name="java-output-path" value="/ChangeBox_Web/build/classes"/>
     </wb-module>

@@ -3,6 +3,7 @@
 	<name>ChangeBox_Web</name>
 	<comment></comment>
 	<projects>
+		<project>ChageBOX_Lib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

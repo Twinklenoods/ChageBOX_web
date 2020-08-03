@@ -6,8 +6,12 @@
 <title>Index</title>
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
+<LINK href="css/ad01.css" rel="stylesheet" type="text/css">
 <style>
 	@media screen and (max-width: 1200px){
+		#article-2 a{
+				margin:-14px 10px 10px 10px;
+		}
 		#main{
 			flex-direction: column;
 			
@@ -99,14 +103,21 @@
 	.class2{
 	display: block;
 	text-align: right,justify;
+	margin: -100px;
+	}
+	
+	#article-2{
+	border: double 18px;
 	}
 	
 	</style>
+	
 	 <script type="text/javascript" src="jquery.js"></script>
 			<script type="text/javascript" src="js/IndexJs.js">
 			</script><script type="text/javascript">
 	
-			</script> 
+			</script>
+			<meta http-equiv="refresh" content="50;url=http://www.uuu.com.tw">
 	</head>
 	<body>
 	    <div class="divBG">
@@ -114,7 +125,7 @@
    					<i class="gototop"></i></a>	
 	    	<header>
 	    		<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="/CB">Home</a></li>
 					<li><a href=#>Products</a></li>
 					<li><a href=#>Service</a></li>
 					<li id="lastLi"><a href=#>Support</a></li>
@@ -155,14 +166,39 @@
 					
 				</nav>
 				<article>
-					<article id="article-1">article-1 廣告區</article><br>
+					<article id="article-1"><div class="rwd_slider_container_wrapper">
+    <div class="rwd_slider_container">  
+        <div class="slider_container">
+            <div>
+                <img src="NewPa/top01.jpg" alt="pure css slider" width="400" height="280" />
+                <span class="info">《對馬戰鬼》（PS4）</span>
+            </div>
+            <div>
+                <img src="NewPa/top02.jpg" alt="pure css slider" width="400" height="280" />
+                <span class="info">《紙片瑪利歐：摺紙國王》</span>
+            </div>
+            <div>
+                <img src="NewPa/top03.jpg" alt="pure css slider" width="400" height="280" />
+                <span class="info">《集合啦！動物森友會》</span>
+            </div>
+            <div>
+                <img src="NewPa/top04.jpg" alt="pure css slider" width="400" height="280" />
+                <span class="info">《瑪利歐賽車 8 豪華版》</span>
+            </div>
+            <div>
+                <img src="NewPa/top05.jpg" alt="pure css slider" width="400" height="280" />
+                <span class="info">《健身環大冒險》</span>
+            </div>
+        </div>
+    </div>
+</div></article><br>
 					<article id="article-2">
-					<h1>hot Top 10<h1>
-					<p>top1《對馬戰鬼》（PS4）</p><br>
-					<p>top1《紙片瑪利歐：摺紙國王》（NS Switch）</p><br> 
-					<p>top1《集合啦！動物森友會》（NS Switch）</P><br>
-					<p>top1《瑪利歐賽車 8 豪華版》（NS Switch）</P><br>
-					<P>top1《健身環大冒險》（NS Switch）</p><br>
+					<h1>Hot Top 5<h1>
+					<p>Top1《對馬戰鬼》（PS4）</p><br>
+					<p>Top2《紙片瑪利歐：摺紙國王》（NS Switch）</p><br> 
+					<p>Top3《集合啦！動物森友會》（NS Switch）</P><br>
+					<p>Top4《瑪利歐賽車 8 豪華版》（NS Switch）</P><br>
+					<P>Top5《健身環大冒險》（NS Switch）</p>
 					
 					<h4><a href="pa.html" class="class2" >...更多</a><h4>
 					
@@ -172,7 +208,7 @@
 					<aside id="aside-1">
 					</aside><br>
 					<aside id="aside-2">aside-2 會員登入區<br>
-						<form autocomplete="off">
+						<form autocomplete="off" method="post" action="login.do">
 						<span class="formSpan">
 						  		  <label for="name"></label>
                                   <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號""><br>
