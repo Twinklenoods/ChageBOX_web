@@ -8,6 +8,7 @@
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
 <LINK href="css/ad01.css" rel="stylesheet" type="text/css">
 <style>
+
 	@media screen and (max-width: 1200px){
 		#article-2 a{
 				margin:-14px 10px 10px 10px;
@@ -32,19 +33,31 @@
 		width:100%;
 		background-size: 100%;
 		}
+		#article-2{
+		position: relative;
+		top:0px;
+		margin: 0px;
 		
+		}
 		#nav-1{
 		position: relative;
-		top:-200px;
+		top:0px;
 		margin: 0px;
 		}
 		
 		#aside-2{
 		position: relative;
-		top:-150px;
+		top:0px;
 		margin:0;
 		left:0;
+		
 		}
+		#nav-1 img{
+		position: relative;
+		z-index: 98;
+		
+		}
+		
 		#main > nav {
 			order: 3;
 			width:100%;
@@ -109,15 +122,21 @@
 	#article-2{
 	border: double 18px;
 	}
-	
+	/*<meta http-equiv="refresh" content="50;url=http://www.uuu.com.tw">*/
 	</style>
 	
 	 <script type="text/javascript" src="jquery.js"></script>
 			<script type="text/javascript" src="js/IndexJs.js">
 			</script><script type="text/javascript">
-	
+		function refreshCaptcha(){
+		var captchaImg= document.getElementById("captchaImg");
+		captchaImg.src ="images/captcha.jpg?refresh="+new Date();
+		
+		}
+		
+		
 			</script>
-			<meta http-equiv="refresh" content="50;url=http://www.uuu.com.tw">
+			
 	</head>
 	<body>
 	    <div class="divBG">
@@ -208,16 +227,18 @@
 					<aside id="aside-1">
 					</aside><br>
 					<aside id="aside-2">aside-2 會員登入區<br>
-						<form autocomplete="off" method="post" action="login.do">
-						<span class="formSpan">
-						  		  <label for="name"></label>
+						<form autocomplete="off" method="post" action="login.do"style="height: 399px;">
+						<span class="formSpan"> 
+								  <label for="name"></label>
                                   <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號""><br>
-                                  <label for="search"></label>
-                                  <input type="password" id="password" name="pwd" required placeHolder="passwod/密碼" minlength="6" maxlength="8"><br>
-                                  <input type="submit" value="會員登入" class="customer">
+                                  <label for="password"></label>
+                                  <input type="password" id="password" name="pwd"  placeHolder="passwod/密碼" minlength="6" maxlength="8"><br>
+                                  <input type="text" id="captcha" name="captcha" required placeHolder="請輸入驗證碼"><br> 
+                                  <img class="t01" id="captchaImg" src="images/captcha.jpg" onclick="refreshCaptcha()"><br>
                                   
+								</span><input type="submit" value="會員登入" class="customer">
                                   <li class="coust-1">還不是會員?<a href="register.html" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a></li>
-	        					</span>
+	        				
 	        			</form>	
 					</aside>
 				</aside>

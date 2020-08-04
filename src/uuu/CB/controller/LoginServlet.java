@@ -31,20 +31,26 @@ public class LoginServlet extends HttpServlet {
     }
 
 	/**
+	 * @param captcha 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<String> errors=new ArrayList<>();//import java util
+		
+		//1.取的request請求中的FormDate(第10章),並檢查之
 		String id= request.getParameter("id");
 		String pwd=request.getParameter("pwd");
-		//1.取的request請求中的FormDate(第10章),並檢查之
+		String captcha=request.getParameter("captcha");
 		
 		if(id==null || id.length()==0) {
 		errors.add("必須輸入帳號");				
 		}
 		
-		if(pwd==null || id.length()==0) {
+		if(pwd==null || pwd.length()==0) {
 			errors.add("必須輸入密碼");
+		}
+		if(captcha==null || captcha.length()==0) {
+			errors.add("必須輸入驗證碼");
 		}
 	
 		//2.若無誤，則呼叫商業邏輯
@@ -56,8 +62,7 @@ public class LoginServlet extends HttpServlet {
 				response.setContentType("text/html");
 				response.setCharacterEncoding("utf-8");
 				try(
-				PrintWriter out = response.getWriter()
-				){
+				PrintWriter out = response.getWriter();){
 				out.println("<html>");
 				out.println("<body>");
 				out.println("<p>登入成功!"+c.getName());
@@ -67,8 +72,11 @@ public class LoginServlet extends HttpServlet {
 				}	
 				return;
 			} catch (VGBException e) {
-				errors.add(e.getMessage());
-				
+				errors.add("登入失敗"+e.getMessage());//user
+				this.log("會員登入發生錯誤",e);//開發者
+			} catch (Exception e) {
+				errors.add("登入失敗"+e.getMessage());//user
+				this.log("會員發生非預期錯誤",e);
 			}
 			
 		}
@@ -79,7 +87,8 @@ public class LoginServlet extends HttpServlet {
 		try(PrintWriter out = response.getWriter()){
 			out.println("<html>");
 			out.println("<body>");
-			out.println("<p>登入失敗!"+errors+"</P>");
+			out.println("<p>"+errors+"</P>");
+			out.println("<p>"+"<input type='button' onclick='history.back()' value='回上一頁'>"+"</P>");
 			out.println("</body>");
 			out.println("</html>");
 		}	

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
+  <style>
+
+.divBG{
+min-width: 600px;
+}
+	@media screen and (max-width: 600px){}
+	@media screen and (min-width: 600px) and (max-width: 800px){}
+
+ .block {
+    background-color: #abc;
+    border: 2px solid black;
+    width: 200px;
+    height: 800px;
+    margin: 20px;
+    position:absolute;
+	left:-570px;
+	
+	
+  }
+  
+ .block  li {
+	float: inherit;
+	padding: 15px 10px 0 10px;
+	border-top: 1px solid white;
+	
+}
+.table01, .table02{
+	display: none;
+	background: white;
+	color:black;
+}
+.n01{
+background: blue;
+width: 600px;
+display: flex;
+margin: 100px 0 0 0 ;
+}
+.n02{
+background: red;
+width: 1200px;
+height:1500px;
+margin: 20px 0 0 0 ;
+display: flex;
+}
+
+footer{
+	background: url("testbg/pa.png") center top no-repeat,
+	url("testbg/foot.png") center top no-repeat;
+	top:-770px;position:relative;
+		background-size: 100%;
+		width: 100%;
+		height: 700px;
+	}
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="js/IndexJs.js">
+</script><script type="text/javascript">
+$(document).ready(init);
+/*alert("test");*/
+function init(){
+	$("#myBtn").click(clickHandler);
+	$(".ch01").click(clickHandler1);
+	$(".ch02").click(clickHandler2);
+	$(".showin-button").click(inHandler);
+	$(".showout-button").click(outHandler);
+}
+
+function clickHandler(){
+$(".block").stop().slideToggle( 500 );
+}
+function clickHandler1(){
+	$(".table01").stop().slideToggle( 500 );
+
+	}
+function clickHandler2(){
+	$(".table02").stop().slideToggle( 500 );
+	}
+function inHandler(){
+	$(".block").animate({left:"0px"},500);
+}
+function outHandler(){
+	$(".block").animate({left:"-570px"},500);
+}
+</script>
+
+</head>
+
+<body><div id="main">
+<div class="divBG">
+ 
+<header>	<ul>
+				<li><a href="/CB">Home</a></li>
+				<li><a href=#>Products</a></li>
+				<li><a href=#>Service</a></li>
+				<li id="lastLi"><a href=#>Support</a></li>
+			</ul></header>
+<nav >
+    	
+		<nav class="n01"><input type="button" class="showin-button" value="in "/>
+		<input type="button" class="showout-button" value="out"/>
+    	<input type="button" id="myBtn" value="Click me!"/>
+			<div class="block">
+			<li>我的資訊</li><br>
+			<li>悄悄話</li><br>
+			<li>我的問答</li><br>
+			<li>我的評價</li><br>
+			<li>新增物品</li><br>
+			<li>我的物品</li><br>
+			<a class="ch01">
+			<li>交換</li><br>
+			</a>
+			<div class="table01">
+			<li>我想交換</li><br>
+			<li>想與我交換</li><br>
+			</div>
+			<div class="ch02">
+			<li>成交清單</li><br>
+			</div>
+			<div class="table02">
+			<li>交換成功清單</li><br>
+			<li>買賣成功清單</li><br>
+			</div>
+			</div>
+		</nav>
+		<div class="n02">2<br>2<br>2<br>2<br>2<br>2<br>2</div>
+	</nav>
+   	<footer style="top: 1150px;">footer</footer>
+    </div>
+    </div>
+</body>
+</html>
