@@ -7,6 +7,8 @@
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
   <style>
 
+
+
 .divBG{
 min-width: 600px;
 }
@@ -18,9 +20,9 @@ min-width: 600px;
     border: 2px solid black;
     width: 200px;
     height: 800px;
-    margin: 20px;
+    margin: 100px 0 0 30px ;
     position:absolute;
-	left:-570px;
+	left:-550px;
 	
 	
   }
@@ -37,19 +39,19 @@ min-width: 600px;
 	color:black;
 }
 .n01{
-background: blue;
+
 width: 600px;
 display: flex;
 margin: 100px 0 0 0 ;
 }
 .n02{
 background: red;
-width: 1200px;
+
 height:1500px;
-margin: 20px 0 0 0 ;
+
 display: flex;
 }
-
+.showin-button{ position:relative; }
 footer{
 	background: url("testbg/pa.png") center top no-repeat,
 	url("testbg/foot.png") center top no-repeat;
@@ -58,6 +60,21 @@ footer{
 		width: 100%;
 		height: 700px;
 	}
+	
+	.n01 img {
+	transform-origin: center bottom;
+	/*write code here*/
+	opacity: 1;
+	transition: transform 0.333s;
+	transition: all 0.333s;
+	transition: transform 0.333s, opacity 0.333s;
+	}
+	
+	.n01 img:hover{
+	opacity: 1;
+	transform: scale(1.1, 1.1);
+	}
+	
 </style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
@@ -65,16 +82,14 @@ footer{
 $(document).ready(init);
 /*alert("test");*/
 function init(){
-	$("#myBtn").click(clickHandler);
+	
 	$(".ch01").click(clickHandler1);
 	$(".ch02").click(clickHandler2);
 	$(".showin-button").click(inHandler);
-	$(".showout-button").click(outHandler);
+	
 }
 
-function clickHandler(){
-$(".block").stop().slideToggle( 500 );
-}
+
 function clickHandler1(){
 	$(".table01").stop().slideToggle( 500 );
 
@@ -82,12 +97,61 @@ function clickHandler1(){
 function clickHandler2(){
 	$(".table02").stop().slideToggle( 500 );
 	}
-function inHandler(){
-	$(".block").animate({left:"0px"},500);
+function inHandler() {
+	var op = $('.block').css('left');
+
+    if (op == '-550px')
+    	$(".block").animate({left:"0px"},500);
+
+    else if(op == '0px')
+    	$(".block").animate({left:"-550px"},500);        
+
 }
-function outHandler(){
-	$(".block").animate({left:"-570px"},500);
+
+var rector =3;
+var stopit = 0;
+var a=1;
+var zhend;
+function init2(which)
+{
+  stopit =0;
+  zhend = which;
+  zhend.style.left =0;
+  zhend.style.top =0;
 }
+function rattleimage()
+{
+  if(stopit==1)
+  {
+    return;
+  }  
+  if(a==1)
+  {
+    zhend.style.top = parseInt(zhend.style.top)+rector+"px";
+  }
+  else if(a==2)
+  {
+    zhend.style.left = parseInt(zhend.style.left)+rector+"px";
+  }
+  else if(a==3)
+  {
+    zhend.style.top = parseInt(zhend.style.top)-rector+"px";
+  }
+  else 
+  {
+    zhend.style.left = parseInt(zhend.style.left)-rector+"px";
+  }
+  if(a<4)a++;  else a =1;
+  setTimeout("rattleimage()",500);
+}
+
+function stoprattle(which)
+{
+  stopit = 1;
+  which.style.left =0;  
+  which.style.top =0;    
+}
+
 </script>
 
 </head>
@@ -103,9 +167,13 @@ function outHandler(){
 			</ul></header>
 <nav >
     	
-		<nav class="n01"><input type="button" class="showin-button" value="in "/>
-		<input type="button" class="showout-button" value="out"/>
-    	<input type="button" id="myBtn" value="Click me!"/>
+		<nav class="n01">
+		<a href=#>
+		<img class="showin-button" src="mywork/menu.png" title="選單" onmousemove="init2(this);rattleimage();"
+onmouseout="stoprattle(this);" style="
+    		padding-left: 30px;padding-top: 10px;">
+    	</a>
+		
 			<div class="block">
 			<li>我的資訊</li><br>
 			<li>悄悄話</li><br>
@@ -113,16 +181,16 @@ function outHandler(){
 			<li>我的評價</li><br>
 			<li>新增物品</li><br>
 			<li>我的物品</li><br>
-			<a class="ch01">
+			<a href=# class="ch01">
 			<li>交換</li><br>
 			</a>
 			<div class="table01">
 			<li>我想交換</li><br>
 			<li>想與我交換</li><br>
 			</div>
-			<div class="ch02">
+			<a href=# class="ch02">
 			<li>成交清單</li><br>
-			</div>
+			</a>
 			<div class="table02">
 			<li>交換成功清單</li><br>
 			<li>買賣成功清單</li><br>
