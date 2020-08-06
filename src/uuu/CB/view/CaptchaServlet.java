@@ -18,10 +18,19 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CaptchaServlet
  */
-@WebServlet("/images/captcha.jpg")
+/*@WebServlet("/images/captcha.jpg")*/
 public class CaptchaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int len = 6,  width = 16 * 2 + 12 * len,  height = 20;
+	
+	@Override
+	public void init () {
+		String len =this.getInitParameter("len");
+		if(len!=null && len.matches("\\d+")) {
+			this.len = Integer.parseInt(len);
+			 this.width = 16 * 2 + 12 * this.len;
+		}
+	}
 	
 	private BufferedImage generateImage(String rand, int width, int height) {
 

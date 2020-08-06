@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app metadata-complete="false"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>ChangeBox_Web</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 用來定義login.html要的驗證的圖片 -->
+  <servlet>
+  		<servlet-name>CaptchaServlet</servlet-name>
+  		<servlet-class>uuu.CB.view.CaptchaServlet</servlet-class>
+  		<init-param>
+  			<param-name>len</param-name>
+  			<param-value>5</param-value>
+  		</init-param>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>CaptchaServlet</servlet-name>
+  		<url-pattern>/images/captcha.jpg</url-pattern>
+  	</servlet-mapping>
+ 
+  <!-- 	 <servlet>
+  		<servlet-name>RegisterCaptchaServlet</servlet-name>
+  		<servlet-class>uuu.CB.view.CaptchaServlet</servlet-class>
+  		<init-param>
+  			<param-name>len</param-name>
+  			<param-value>4</param-value>
+  		</init-param>
+  </servlet>
+  	<servlet-mapping>
+  		<servlet-name>RegisterCaptchaServlet</servlet-name>
+  		<url-pattern>/images/register_captcha.jpeg</url-pattern>
+  		
+  
+  	</servlet-mapping>	 -->
+  	
+</web-app>
