@@ -280,23 +280,25 @@
 	    	if(which=='change'){
 	    	 	if(document.getElementById("change").checked ==true){
 	    			document.getElementById("Schange").style.display = "block";
-	    		
+	    			$('#WantChange').attr("required", "true");
 	    		}else{
 	    			document.getElementById("Schange").style.display = "none";
-	    		
+	    			$('#WantChange').removeAttr("required");
 	    		} 
 	    	}
 	    	if(which=='buy'){
 	    	 	if(document.getElementById("buy").checked ==true){
 	    			document.getElementById("Sbuy").style.display = "block";
+	    			$('#BuyPrice').attr("required", "true");
 	    		}else{
 	    			document.getElementById("Sbuy").style.display = "none";
+	    			$('#BuyPrice').removeAttr("required");
 	    		} 
 	    	}
 
 	    }
 	    
-	    
+	   
 		</script>
 </head>
 <body>
@@ -333,9 +335,9 @@
 	  						<option value="PS4">PS4</option>
   						</optgroup>
    					</select>
-   					<input type="checkbox" name="buy" id="buy" value="yes" onchange="Show('buy')">買賣
+   					<input class="add-attr" type="checkbox" name="buy" id="buy" value="yes" onchange="Show('buy')">買賣
    					
-					<input type="checkbox" name="change" id="change" value="yes" onchange="Show('change')" checked="checked">交換
+					<input class="add-attr" type="checkbox" name="change" id="change" value="yes" onchange="Show('change')" checked="checked">交換
 					<hr><br><br><br>
 					<span style="color:red">*</span>
         			<input type="text" id="name" name="name" autofocus required placeholder="遊戲名稱"><br><br>
@@ -375,9 +377,9 @@
     				
     				<div id="Sbuy" style="display: none;">
 					<div class="ap_item_title f14"><span style="color:red">*</span>直購資料（願意買賣才需要填寫）</div>
-		  			<input type="text" name="BuyPrice" size="16" class="ap_w150_h30 f12 corner_textbox" value="" placeholder="直購價格">（價格若無特別說明直購價包含運費）
+		  			<input id="BuyPrice" type="text" name="BuyPrice" size="16" class="ap_w150_h30 f12 corner_textbox" value="" placeholder="直購價格">（價格若無特別說明直購價包含運費）
   					</div>
-  					<div id="Schange" ><br>想交換物品<br><textarea  name="WantChange" id="WantChange" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多100個字" maxlength="100"></textarea><br></div>
+  					<div id="Schange" ><br>想交換物品<br><textarea  required="required" name="WantChange" id="WantChange" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多100個字" maxlength="100"></textarea><br></div>
   				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
   				</span>
   				</article>
