@@ -157,7 +157,7 @@
 						nav-2 NEW 黑板
 						<ul id="tabs">
 	        				<li><a href="#tab1" id="tab0" class="tab" title="最新交換">最新交換</a></li>
-	        				<li><a href="#tab2" id="tab-b" class="tab" title="最新交易">最新交易</a></li>
+	      				<li><a href="#tab2" id="tab-b" class="tab" title="最新交易">最新交易</a></li>
 	       					<li><a href="#tab3" id="tab-a" class="tab">TAB 3</a></li>
 	    				</ul>
    						<div id="container">
@@ -178,9 +178,9 @@
 					<nav id="nav-1">
 						<a href="mywork.jsp"><img id="mywork" src="psd/myWork.png" title="我的管理"></a>
 						<img id="masage" src="psd/masage.png" title="悄悄話">
-						<a href="buy.html"><img id="buy" src="psd/buy.png" title="買賣"></a>
-						<a href="pand.html"><img id="pand" src="psd/pand.png" title="許願池"></a>
-						<a href="change.html"><img id="change01" src="psd/change01.png" title="交換"></a>
+						<a href="buy.jsp"><img id="buy" src="psd/buy.png" title="買賣"></a>
+						<a href="pand.jsp"><img id="pand" src="psd/pand.png" title="許願池"></a>
+						<a href="change.jsp"><img id="change01" src="psd/change01.png" title="交換"></a>
 					</nav>
 					
 				</nav>
@@ -219,7 +219,7 @@
 					<p>Top4《瑪利歐賽車 8 豪華版》（NS Switch）</P><br>
 					<P>Top5《健身環大冒險》（NS Switch）</p>
 					
-					<h4><a href="pa.html" class="class2" >...更多</a><h4>
+					<h4><a href="pa.jsp" class="class2" >...更多</a><h4>
 					
 					</article>
 				</article>
