@@ -1,4 +1,4 @@
-
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -176,7 +176,7 @@
    					 	</div>
 					</nav><br>					
 					<nav id="nav-1">
-						<a href="mywork.html"><img id="mywork" src="psd/myWork.png" title="我的管理"></a>
+						<a href="mywork.jsp"><img id="mywork" src="psd/myWork.png" title="我的管理"></a>
 						<img id="masage" src="psd/masage.png" title="悄悄話">
 						<a href="buy.html"><img id="buy" src="psd/buy.png" title="買賣"></a>
 						<a href="pand.html"><img id="pand" src="psd/pand.png" title="許願池"></a>
@@ -237,7 +237,7 @@
                                   <img class="t01" id="captchaImg" src="images/captcha.jpg" onclick="refreshCaptcha()"><br>
                                   
 								</span><input type="submit" value="會員登入" class="customer">
-                                  <li class="coust-1">還不是會員?<a href="register.html" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a></li>
+                                  <li class="coust-1">還不是會員?<a href="register.jsp" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a></li>
 	        				
 	        			</form>	
 					</aside>

@@ -17,10 +17,10 @@
   <servlet>
   		<servlet-name>CaptchaServlet</servlet-name>
   		<servlet-class>uuu.CB.view.CaptchaServlet</servlet-class>
-  		<init-param>
+  		 <!-- --><init-param>
   			<param-name>len</param-name>
   			<param-value>5</param-value>
-  		</init-param>
+  		</init-param> 
   	</servlet>
   	<servlet-mapping>
   		<servlet-name>CaptchaServlet</servlet-name>

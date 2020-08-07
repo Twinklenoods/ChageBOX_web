@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@ min-width: 600px;
  .block {
     background-color: #abc;
     border: 2px solid black;
-    width: 200px;
+    width: 150px;
     height: 800px;
     margin: 100px 0 0 30px ;
     position:absolute;
@@ -46,7 +47,7 @@ margin: 100px 0 0 0 ;
 }
 .n02{
 background: red;
-
+border: 2px solid black;;
 height:1500px;
 
 display: flex;
@@ -55,7 +56,7 @@ display: flex;
 footer{
 	background: url("testbg/pa.png") center top no-repeat,
 	url("testbg/foot.png") center top no-repeat;
-	top:-770px;position:relative;
+	top:-70px;position:relative;
 		background-size: 100%;
 		width: 100%;
 		height: 700px;
@@ -170,7 +171,7 @@ function stoprattle(which)
 		<nav class="n01">
 		<a href=#>
 		<img class="showin-button" src="mywork/menu.png" title="選單" onmousemove="init2(this);rattleimage();"
-onmouseout="stoprattle(this);" style="
+			onmouseout="stoprattle(this);" style="
     		padding-left: 30px;padding-top: 10px;">
     	</a>
 		
@@ -197,9 +198,9 @@ onmouseout="stoprattle(this);" style="
 			</div>
 			</div>
 		</nav>
-		<div class="n02">2<br>2<br>2<br>2<br>2<br>2<br>2</div>
+		<nav class="n02">2<br>2<br>2<br>2<br>2<br>2<br>2</nav>
 	</nav>
-   	<footer style="top: 1150px;">footer</footer>
+   	<footer style="top: 450px;">footer</footer>
     </div>
     </div>
 </body>

@@ -1,7 +1,9 @@
+<%@page import="java.util.List"%>
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+
 <<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -76,7 +78,7 @@
 	
 	.article-1, .article-2{
 		max-width: 600px;
-		min-width:400px;
+		min-width:370px;
 		height: 600px;
 		
 		
@@ -171,8 +173,8 @@
 	}
 	 .formSpan2{
 	 	
-	 	top:9%;
-		left:25%;
+	 	top:4%;
+		left:21%;
 	}
 	 
 	
@@ -237,7 +239,10 @@
 		display:block;
 	}
 	
-	
+	.spanerror{
+	color: red;
+	font-size: 11px;
+	}
 
 </style>
  <script type="text/javascript" src="jquery.js"></script>
@@ -276,7 +281,7 @@
 </head>
 <body>
     <div class="divBG">
-    <header>header中文
+    <header>
     <ul>
 		<li><a href="/CB">Home</a></li>
 		<li><a href=#>Products</a></li>
@@ -296,7 +301,7 @@
   		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" required ><br><br>
   		<span style="color:red">*</span>
   		<label for="name">姓名:</label>
-  		<input type="text" id="name" name="name" autofocus tabindex="1" required placeHolder="姓名/NAME"><br><br>
+  		<input type="text" id="name" name="name" autofocus  required placeHolder="姓名/NAME"><br><br>
   		<span style="color:red">*</span>
   		<label for="password">密碼:</label>
   		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
@@ -305,7 +310,7 @@
   		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="確認密碼/password"><br><br>
   		<span style="color:red">*</span>
   		<label for="email">信箱:</label>
-  		<input type="email" id="email" name="email" autocomplete="on" tabindex="2" required placeHolder="信箱/E-MAIL(Gmail)"><br><br>
+  		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="信箱/E-MAIL(Gmail)"><br><br>
   		</span>
   		
         </article>
@@ -350,10 +355,13 @@
 				 <input type="radio" id="gender2" name="gender" value="F" required>
 				 <label for="gender2">女</label><br><br>
   				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
-  			
-  				</span>
+  				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
+     			<%out.print(errors!=null?errors:"");%></span>
+				</span>
+				
         </article>
-     </form>
+     </form><br>	
+     	
         </article>
         <aside>aside</aside>
     </div>

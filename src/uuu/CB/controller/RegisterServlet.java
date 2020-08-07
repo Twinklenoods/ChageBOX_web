@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,7 @@ import uuu.vgb.service.CustomerService;
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet("/register.do")
+@WebServlet("/register.do")//http://localhost8080/CB/register.do
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -39,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<String> errors=new ArrayList<>();
 		request.setCharacterEncoding("utf-8");
-		//讀取資料
+		//1.讀取資料
 		String id= request.getParameter("id");
 		
 		String name=request.getParameter("name");
@@ -83,20 +84,13 @@ public class RegisterServlet extends HttpServlet {
 				CustomerService service = new CustomerService();
 				service.register(c);
 				
-				//3.1顯示(第9章)登入成功畫面
-				response.setContentType("text/html");
-				response.setCharacterEncoding("utf-8");
-				try(
-				PrintWriter out = response.getWriter();){
-				out.println("<html>");
-				out.println("<body>");
-				out.println("<p>註冊成功!"+c.getName());
-				out.println("<p>"+"<input type='button' onclick='history.back()' value='回上一頁'>"+"</P>");
-				out.println("</body>");
-				out.println("</html>");
+				//3.1forward (內部轉交)to註冊成功畫面
+				request.setAttribute("customer", c);
+				RequestDispatcher dispatcher = 
+						request.getRequestDispatcher("register_ok.jsp");
 				
-				}	
-				return;
+			dispatcher.forward(request,response);
+			return;
 			}catch(DataInvalidException e) {
 				errors.add("註冊失敗"+e.getMessage());
 				this.log("註冊發生錯誤",e);//開發者
@@ -114,18 +108,11 @@ public class RegisterServlet extends HttpServlet {
 				
 		}
 		
-		//3.2
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		try(PrintWriter out = response.getWriter()){
-			out.println("<html>");
-			out.println("<body>");
-			out.println("<p>"+"<input type='button' onclick='history.back()' value='回上一頁'>"+"</P>");
-			out.println("<p>"+errors+"</P>");
-			out.println("</body>");
-			out.println("</html>");
+		//3.2顯示失敗畫面
+		request.setAttribute("errors", errors);
+		RequestDispatcher dispatcher = 
+				request.getRequestDispatcher("register.jsp");
 		
-			}
-
+		dispatcher.forward(request,response);
 		}
 }
