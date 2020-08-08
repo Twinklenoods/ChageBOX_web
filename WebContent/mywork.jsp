@@ -1,3 +1,5 @@
+<%@page import="uuu.vgb.entity.Customer"%>
+<%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -46,7 +48,7 @@ display: flex;
 margin: 100px 0 0 0 ;
 }
 .n02{
-background: red;
+background: ;
 border: 2px solid black;;
 height:1500px;
 
@@ -75,6 +77,7 @@ footer{
 	opacity: 1;
 	transform: scale(1.1, 1.1);
 	}
+	
 	
 </style>
 <script type="text/javascript" src="jquery.js"></script>
@@ -176,11 +179,11 @@ function stoprattle(which)
     	</a>
 		
 			<div class="block">
-			<li>我的資訊</li><br>
+			<a href="mywork.jsp"><li>我的資訊</li><br></a>
 			<li>悄悄話</li><br>
 			<li>我的問答</li><br>
 			<li>我的評價</li><br>
-			<li>新增物品</li><br>
+			<a href="Product.jsp"><li>新增物品</li><br></a>
 			<li>我的物品</li><br>
 			<a href=# class="ch01">
 			<li>交換</li><br>
@@ -198,7 +201,71 @@ function stoprattle(which)
 			</div>
 			</div>
 		</nav>
-		<nav class="n02">2<br>2<br>2<br>2<br>2<br>2<br>2</nav>
+		<nav class="n02"><form autocomplete="off" method="post" action="register.do">
+     		<nav class="n03"><br>
+        	<span class="formSpan03">
+      	<span style="color:red">*</span>
+  		<label for="id">帳號:</label>
+  		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" required ><br><br>
+  		<span style="color:red">*</span>
+  		<label for="name">姓名:<%;out.print("吳大頭");%></label>
+  		<br><br>
+  		<span style="color:red">*</span>
+  		<label for="password">密碼:</label>
+  		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
+  		<span style="color:red">*</span>
+  		<label for="password">確認:</label>
+  		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="確認密碼/password"><br><br>
+  		<span style="color:red">*</span>
+  		<label for="email">信箱:</label>
+  		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="信箱/E-MAIL(Gmail)"><br><br>
+  		</span>
+  		
+        </nav>
+        <nav class="n04"><br>
+        <span class="formSpan04">
+        <span style="color:red"></span>
+        <label for="mySelect">*地區:</label>
+       	<select name="address" id="address" class="address" onchange="changeCity(this)">  
+    				<option value="">請選擇</option>
+    				<option value="基隆市">基隆市</option>
+    				<option value="臺北市">臺北市</option>
+    				<option value="新北市">新北市</option>
+    				<option value="宜蘭縣">宜蘭縣</option>
+    				<option value="新竹市">新竹市</option>
+    				<option value="新竹縣">新竹縣</option>
+    				<option value="桃園市">桃園市</option>
+    				<option value="苗栗縣">苗栗縣</option>
+    				<option value="臺中市">臺中市</option>
+    				<option value="彰化縣">彰化縣</option>
+    				<option value="南投縣">南投縣</option>
+    				<option value="嘉義市">嘉義市</option>
+    				<option value="嘉義縣">嘉義縣</option>
+    				<option value="雲林縣">雲林縣</option>
+    				<option value="臺南市">臺南市</option>
+    				<option value="高雄市">高雄市</option>
+    				<option value="屏東縣">屏東縣</option>
+    				<option value="臺東縣">臺東縣</option>
+    				<option value="花蓮縣">花蓮縣</option>
+    				<option value="金門縣">金門縣</option>
+    				<option value="連江縣">連江縣</option>
+    				<option value="澎湖縣">澎湖縣</option>
+    	</select><br><br>
+  				<span style="color:red">*</span>
+        		<label for="birthday">生日:<%;out.print("1999-04-01");%></label>
+  				<br><br>
+  				<label for="phone">*電話: </label>
+  				<input type="tel" id="phone" name="phone"><br><br>
+  				 <span style="color:red">*</span>
+  				 <label class for="gender1">性別:<%;out.print("男");%></label>
+  				 <br><br>
+  				<input type="submit" id="submit01" value="確認修改" ><label for="submit01" class="myDiv1"></label>
+  				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
+     			<%out.print(errors!=null?errors:"");%></span>
+				</span>
+				
+        </nav>
+     </form><br>	</nav>
 	</nav>
    	<footer style="top: 450px;">footer</footer>
     </div>

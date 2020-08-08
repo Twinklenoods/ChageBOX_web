@@ -273,10 +273,30 @@
 		}
 		<input type="button" value="換頁" id="toggle"/>
 		<input type="button" value="下一頁" id="add"/>
-      	<input type="button" value="上一頁" id="remove"/>*/
+      	<input type="button" value="上一頁" id="remove"/>
 		function btn1Handler(){
 		$(".myDiv1").text("上一頁表單尚未完成");
+		}*/
+		$(document).ready(init4);
+		function init4()
+		{
+			$("#password1").mousedown(downHandler2);
+			$("#password1").mouseup(upHandler2);
+			$("#password2").mousedown(downHandler2);
+			$("#password2").mouseup(upHandler2);
 		}
+		function downHandler2(){
+		
+			$("#password1").attr("type","text");
+			$("#password2").attr("type","text");
+		
+		}
+		function upHandler2(){
+			$("#password1").attr("type","password");
+			$("#password2").attr("type","password");
+		}
+      	
+      	
 		</script>
 </head>
 <body>

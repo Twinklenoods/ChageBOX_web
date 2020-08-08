@@ -138,9 +138,9 @@ footer{
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
 </script><script type="text/javascript">
-$(document).ready(init7);
+$(document).ready(init);
 /*alert("test");*/
-function init7(){
+function init(){
 	
 	$(".ch01").click(clickHandler1);
 	$(".ch02").click(clickHandler2);
@@ -213,8 +213,8 @@ function stoprattle(which)
 
 var file = undefined;
 var reader = undefined;
-$(document).ready(init21);
-function init21(){	
+$(document).ready(init2);
+function init2(){	
 	file = $("#fileInput")[0];
 	$("#fileInput").change(fileChangeHandler);
 	reader = new FileReader();
@@ -284,11 +284,11 @@ function Show(which){
     	</a>
 		
 			<div class="block">
-			<a href="mywork.jsp"><li>我的資訊</li><br></a>
+			<li>我的資訊</li><br>
 			<li>悄悄話</li><br>
 			<li>我的問答</li><br>
 			<li>我的評價</li><br>
-			<a href="Product.jsp"><li>新增物品</li><br></a>
+			<li>新增物品</li><br>
 			<li>我的物品</li><br>
 			<a href=# class="ch01">
 			<li>交換</li><br>

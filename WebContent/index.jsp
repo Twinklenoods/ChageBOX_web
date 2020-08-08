@@ -128,13 +128,27 @@
 	 <script type="text/javascript" src="jquery.js"></script>
 			<script type="text/javascript" src="js/IndexJs.js">
 			</script><script type="text/javascript">
+			$(document).ready(init4);
 		function refreshCaptcha(){
 		var captchaImg= document.getElementById("captchaImg");
 		captchaImg.src ="images/captcha.jpg?refresh="+new Date();
 		
 		}
 		
+		function init4()
+		{
+			$("#password").mousedown(downHandler2);
+			$("#password").mouseup(upHandler2);
+		}
+		function downHandler2(){
 		
+			$("#password").attr("type","text");
+		
+		}
+		function upHandler2(){
+			
+			$("#password").attr("type","password");
+		}
 			</script>
 			
 	</head>
