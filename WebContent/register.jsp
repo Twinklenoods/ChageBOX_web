@@ -320,7 +320,7 @@
   		<label for="id">帳號:</label>
   		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" required ><br><br>
   		<span style="color:red">*</span>
-  		<label for="name">姓名:</label>
+  		<label for="name">暱稱:</label>
   		<input type="text" id="name" name="name" autofocus  required placeHolder="姓名/NAME"><br><br>
   		<span style="color:red">*</span>
   		<label for="password">密碼:</label>
@@ -337,7 +337,7 @@
         <article class="article-2"><br>
         <span class="formSpan2">
         <span style="color:red"></span>
-        <label for="mySelect">*地址:</label>
+        <label for="mySelect">*地區:</label>
        	<select name="address" id="address" class="address" onchange="changeCity(this)">  
     				<option value="">請選擇</option>
     				<option value="基隆市">基隆市</option>

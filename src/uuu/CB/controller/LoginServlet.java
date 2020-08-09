@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -82,17 +83,13 @@ public class LoginServlet extends HttpServlet {
 		}
 	
 		//3.2顯示登入失敗
-		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
-		try(PrintWriter out = response.getWriter()){
-			out.println("<html>");
-			out.println("<body>");
-			out.println("<p>"+errors+"</P>");
-			out.println("<p>"+"<input type='button' onclick='history.back()' value='回上一頁'>"+"</P>");
-			out.println("</body>");
-			out.println("</html>");
+		request.setAttribute("errors", errors);
+		RequestDispatcher dispatcher = 
+				request.getRequestDispatcher("index.jsp");
+		
+		dispatcher.forward(request,response);
 		}	
 		
 	}
 
-}
+

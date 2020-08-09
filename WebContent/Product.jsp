@@ -306,7 +306,7 @@ function Show(which){
 			</div>
 			</div>
 		</nav>
-		<nav class="n02"><form autocomplete="off">
+		<nav class="n02"><form autocomplete="off" method="post" action="Product.do">
      			<article class="article-1"><br>
         			<span class="formSpan1">
         			<span style="color:red">*</span>

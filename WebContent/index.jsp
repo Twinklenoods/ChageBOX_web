@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -122,7 +123,11 @@
 	#article-2{
 	border: double 18px;
 	}
-	/*<meta http-equiv="refresh" content="50;url=http://www.uuu.com.tw">*/
+	
+	.spanerror{
+	color: red;
+	font-size: 11px;
+	}
 	</style>
 	
 	 <script type="text/javascript" src="jquery.js"></script>
@@ -251,7 +256,10 @@
                                   <img class="t01" id="captchaImg" src="images/captcha.jpg" onclick="refreshCaptcha()"><br>
                                   
 								</span><input type="submit" value="會員登入" class="customer">
-                                  <li class="coust-1">還不是會員?<a href="register.jsp" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a></li>
+                                  <li class="coust-1">還不是會員?<a href="register.jsp" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a>
+									<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
+     									<%out.print(errors!=null?errors:"");%></span>
+										</li>
 	        				
 	        			</form>	
 					</aside>

@@ -77,15 +77,53 @@ footer{
 	opacity: 1;
 	transform: scale(1.1, 1.1);
 	}
+	.n03, .n04{
+	max-width: 600px;
+		min-width:370px;
+		height: 600px;
+	}
+	.n03{
+	margin: 0px 0px 0 0;
+	position: relative;
+	top:100px;
+	left:60%;
+	background: url("registered/png/page1.png") top center no-repeat;
+	background-size: 100%;
 	
+	}
+	.n04{
+	position: relative;
+	top:-200px;
+	left:60%;
 	
+	background: url("registered/png/page2.png") top center no-repeat;
+	background-size: 100%;
+	color:black;
+	}
+	.formSpan03{
+	 position: relative;
+	 top:60px;
+	 left:60px;
+	 color:white;
+	 }
+	 
+	  .formSpan04{
+	 position: relative;
+	 top:30px;
+	 left:70px;
+	 
+	 }
+	.spanerror{
+	color: red;
+	font-size: 11px;
+	}
 </style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
 </script><script type="text/javascript">
-$(document).ready(init);
+$(document).ready(init011);
 /*alert("test");*/
-function init(){
+function init011(){
 	
 	$(".ch01").click(clickHandler1);
 	$(".ch02").click(clickHandler2);
@@ -201,14 +239,14 @@ function stoprattle(which)
 			</div>
 			</div>
 		</nav>
-		<nav class="n02"><form autocomplete="off" method="post" action="register.do">
+		<nav class="n02"><form autocomplete="off" method="post" action="mywork.do">
      		<nav class="n03"><br>
         	<span class="formSpan03">
       	<span style="color:red">*</span>
-  		<label for="id">帳號:</label>
-  		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" required ><br><br>
+  		<label for="id">帳號:<%;out.print("A123456789");%></label>
+  		<br><br>
   		<span style="color:red">*</span>
-  		<label for="name">姓名:<%;out.print("吳大頭");%></label>
+  		<label for="name">暱稱:<%;out.print("吳大頭");%></label>
   		<br><br>
   		<span style="color:red">*</span>
   		<label for="password">密碼:</label>
@@ -262,7 +300,7 @@ function stoprattle(which)
   				<input type="submit" id="submit01" value="確認修改" ><label for="submit01" class="myDiv1"></label>
   				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
      			<%out.print(errors!=null?errors:"");%></span>
-				</span>
+			
 				
         </nav>
      </form><br>	</nav>
