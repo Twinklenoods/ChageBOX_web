@@ -1,6 +1,7 @@
 <%@page import="uuu.vgb.entity.Customer"%>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
+<%@ page errorpage="error.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 
 
 .divBG{
-min-width: 600px;
+min-width: 1200px;
 }
 	@media screen and (max-width: 600px){}
 	@media screen and (min-width: 600px) and (max-width: 800px){}
@@ -117,6 +118,123 @@ footer{
 	color: red;
 	font-size: 11px;
 	}
+	
+#tabs{
+	padding:0;
+	margin: 0  0 0 200px;
+	
+}
+
+#tabs li{
+	list-style:none;
+	float:left;
+	margin-right:5px;
+	
+}
+
+a.tab{
+	text-decoration:none;
+	background:url("../psd/myWork.png");
+	padding:5px;
+	color:white;
+	position:relative;
+	top:50px;
+	left:50px;
+	border:2px solid rgb(195,0,0);
+}
+
+
+
+#container{
+	clear:both;
+	position:relative;
+}
+
+#container h1{
+	font:26px Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	color:#069;
+	margin:0;
+	margin-bottom:5px;
+	
+}
+
+.tab_content {
+	
+	width: 700px;
+	height: 550px;
+	position: absolute;
+	background-color:rgba(0,0,0,0.9);
+	border:2px solid rgb(195,0,0);
+	filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+   	box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+	margin:120px 0 0 250px;
+    text-align: center;
+    
+	
+	color: white;
+	padding: 80px;
+}
+
+
+
+#tabs-1{
+	padding:0;
+	margin: 0  0 0 300px;
+	
+}
+
+#tabs-1 li{
+	list-style:none;
+	float:left;
+	margin-right:5px;
+	
+}
+
+a.tab1-1{
+	text-decoration:none;
+	
+	padding:5px;
+	color:white;
+	position:relative;
+	top:-50px;
+	left:-50px;
+	border:2px solid rgb(195,0,0);
+}
+
+
+
+#container-1{
+	clear:both;
+	position:relative;
+}
+
+#container-1 h1{
+	font:26px Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	color:#069;
+	margin:0;
+	margin-bottom:5px;
+	
+}
+
+.tab_content-1{
+	border: 1px solid black;
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	background:white;
+	background-repeat:no-repeat;
+	color: black;
+	padding: 80px;
+}
+.tab_content-1:target{
+	z-index: 99;
+}
+
+
+
 </style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
@@ -194,6 +312,20 @@ function stoprattle(which)
   which.style.top =0;    
 }
 
+$(document).ready();
+function refreshCaptcha(){
+var captchaImg= document.getElementById("captchaImg");
+captchaImg.src ="images/captcha.jpg?refresh="+new Date();
+
+}
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#tab01,#tab-a1, #tab-b1').click(function(){
+        $('html,body').animate({ scrollTop: 100 }, 'slow');   /* 返回到最頂上 */
+        
+    });
+});
+
 </script>
 
 </head>
@@ -239,74 +371,16 @@ function stoprattle(which)
 			</div>
 			</div>
 		</nav>
-		<nav class="n02"><form autocomplete="off" method="post" action="mywork.do">
-     		<nav class="n03"><br>
-        	<span class="formSpan03">
-      	<span style="color:red">*</span>
-  		<label for="id">帳號:<%;out.print("A123456789");%></label>
-  		<br><br>
-  		<span style="color:red">*</span>
-  		<label for="name">暱稱:<%;out.print("吳大頭");%></label>
-  		<br><br>
-  		<span style="color:red">*</span>
-  		<label for="password">密碼:</label>
-  		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
-  		<span style="color:red">*</span>
-  		<label for="password">確認:</label>
-  		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="確認密碼/password"><br><br>
-  		<span style="color:red">*</span>
-  		<label for="email">信箱:</label>
-  		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="信箱/E-MAIL(Gmail)"><br><br>
-  		</span>
-  		
-        </nav>
-        <nav class="n04"><br>
-        <span class="formSpan04">
-        <span style="color:red"></span>
-        <label for="mySelect">*地區:</label>
-       	<select name="address" id="address" class="address" onchange="changeCity(this)">  
-    				<option value="">請選擇</option>
-    				<option value="基隆市">基隆市</option>
-    				<option value="臺北市">臺北市</option>
-    				<option value="新北市">新北市</option>
-    				<option value="宜蘭縣">宜蘭縣</option>
-    				<option value="新竹市">新竹市</option>
-    				<option value="新竹縣">新竹縣</option>
-    				<option value="桃園市">桃園市</option>
-    				<option value="苗栗縣">苗栗縣</option>
-    				<option value="臺中市">臺中市</option>
-    				<option value="彰化縣">彰化縣</option>
-    				<option value="南投縣">南投縣</option>
-    				<option value="嘉義市">嘉義市</option>
-    				<option value="嘉義縣">嘉義縣</option>
-    				<option value="雲林縣">雲林縣</option>
-    				<option value="臺南市">臺南市</option>
-    				<option value="高雄市">高雄市</option>
-    				<option value="屏東縣">屏東縣</option>
-    				<option value="臺東縣">臺東縣</option>
-    				<option value="花蓮縣">花蓮縣</option>
-    				<option value="金門縣">金門縣</option>
-    				<option value="連江縣">連江縣</option>
-    				<option value="澎湖縣">澎湖縣</option>
-    	</select>/地區:<%;out.print("北投");%><br><br>
-  				<span style="color:red">*</span>
-        		<label for="birthday">生日:<%;out.print("1999-04-01");%></label>
-  				<br><br>
-  				<label for="phone">*電話: </label>
-  				<input type="tel" id="phone" name="phone"style="width: 100px;"><%;out.print("/0987654321");%><br><br>
-  				 <span style="color:red">*</span>
-  				 <label class for="gender1">性別:<%;out.print("男");%></label>
-  				 <br><br>
-  				<input type="submit" id="submit01" value="確認修改" ><label for="submit01" class="myDiv1"></label>
-  				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
-     			<%out.print(errors!=null?errors:"");%></span>
-			
-				
-        </nav>
-     </form><br>	</nav>
+		<nav class="n02">
+     	<nav>
+			<nav id="nav-2">
+			<iframe src="a.jsp" name="a"  target="a"style="width: 800px;height: 800px;margin-left: 180px;">
+			</iframe>
+		</nav>
+	</nav>
 	</nav>
    	<footer style="top: 450px;">footer</footer>
     </div>
     </div>
 </body>
-</html>
+</html></html>

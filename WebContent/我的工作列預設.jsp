@@ -1,3 +1,5 @@
+<%@page import="uuu.vgb.entity.Customer"%>
+<%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +13,7 @@
 
 
 .divBG{
-min-width: 600px;
+min-width: 1200px;
 }
 	@media screen and (max-width: 600px){}
 	@media screen and (min-width: 600px) and (max-width: 800px){}
@@ -46,70 +48,12 @@ display: flex;
 margin: 100px 0 0 0 ;
 }
 .n02{
+background: ;
+border: 2px solid black;;
 height:1500px;
 
 display: flex;
 }
-
-/*.formSpan1{
-	 position: relative;
-	 top:20%;
-	 left:50%;
-	 color:white;
-	 }*/
-	 .article{
-	
-	}
-	.article-1, .article-2{
-		position: static;
-		 text-align: left;
-		margin-left: 300px; 
-		margin-top: 15%;
-		}
-	 
-	
-	 #toggle{
-	display: none;
-	}	
-	@media screen and (max-width: 800px){
-	
-	
-
-	 
-	
-	.article{
-	
-	}
-	.article-1, .article-2{
-		position: static;
-		 text-align: left;
-		margin-left: 200px; 
-		margin-top: 15%;
-		}
-	.article-2{
-		
-		position:relative;
-	 	top:-200px;
-	 	left:-20px;
-		}
-	#toggle{
-	display: block;
-	position: relative;
-	top:310px;
-	left:455px;
-	}	
-		#main{
-			flex-direction: column;
-			
-		}
-		#main > aside {
-			display:none;
-		}
-		#main > nav {
-			display:none;
-		}
-		
-	}
 .showin-button{ position:relative; }
 footer{
 	background: url("testbg/pa.png") center top no-repeat,
@@ -133,14 +77,116 @@ footer{
 	opacity: 1;
 	transform: scale(1.1, 1.1);
 	}
+	.n03, .n04{
+	max-width: 600px;
+		min-width:370px;
+		height: 600px;
+	}
+	.n03{
+	margin: 0px 0px 0 0;
+	position: relative;
+	top:100px;
+	left:60%;
+	background: url("registered/png/page1.png") top center no-repeat;
+	background-size: 100%;
 	
+	}
+	.n04{
+	position: relative;
+	top:-200px;
+	left:60%;
+	
+	background: url("registered/png/page2.png") top center no-repeat;
+	background-size: 100%;
+	color:black;
+	}
+	.formSpan03{
+	 position: relative;
+	 top:60px;
+	 left:60px;
+	 color:white;
+	 }
+	 
+	  .formSpan04{
+	 position: relative;
+	 top:30px;
+	 left:70px;
+	 
+	 }
+	.spanerror{
+	color: red;
+	font-size: 11px;
+	}
+	
+	#tabs{
+	padding:0;
+	margin: 0  0 0 200px;
+	
+}
+
+#tabs li{
+	list-style:none;
+	float:left;
+	margin-right:5px;
+	
+}
+
+a.tab{
+	text-decoration:none;
+	background:url("../psd/myWork.png");
+	padding:5px;
+	color:white;
+	position:relative;
+	top:50px;
+	left:50px;
+	border:2px solid rgb(195,0,0);
+}
+
+
+
+#container{
+	clear:both;
+	position:relative;
+}
+
+#container h1{
+	font:26px Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	color:#069;
+	margin:0;
+	margin-bottom:5px;
+	
+}
+
+.tab_content , .tab_content2{
+	
+	width: 700px;
+	height: 550px;
+	position: absolute;
+	background-color:rgba(0,0,0,0.9);
+	border:2px solid rgb(195,0,0);
+	filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+   	box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+	margin:120px 0 0 250px;
+    text-align: center;
+    
+	
+	color: white;
+	padding: 80px;
+}
+.tab_content2{
+	background-color:rgba(250,250,250,0.9);
+	border:2px solid rgb(0,0,0);
+	color: black;
+}
 </style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
 </script><script type="text/javascript">
-$(document).ready(init);
+$(document).ready(init011);
 /*alert("test");*/
-function init(){
+function init011(){
 	
 	$(".ch01").click(clickHandler1);
 	$(".ch02").click(clickHandler2);
@@ -211,56 +257,20 @@ function stoprattle(which)
   which.style.top =0;    
 }
 
-var file = undefined;
-var reader = undefined;
-$(document).ready(init2);
-function init2(){	
-	file = $("#fileInput")[0];
-	$("#fileInput").change(fileChangeHandler);
-	reader = new FileReader();
-	$(reader).on("load",loadendHandler);
-}
-
-
-
-function fileChangeHandler(){
-	
-	if( file.files.length > 0 ){
-		var selectedFile = file.files[0];
-		
-		reader.readAsDataURL(selectedFile);
-	}else{
-		$("#status").html("No file selected!");
-	}
-}
-
-function loadendHandler(){
-   	$("#preview").attr("src",reader.result);
-	$("#preview").fadeIn(500);
-}
-
-/*show buy*/ 
-function Show(which){
-	if(which=='change'){
-	 	if(document.getElementById("change").checked ==true){
-			document.getElementById("Schange").style.display = "block";
-			$('#WantChange').attr("required", "true");
-		}else{
-			document.getElementById("Schange").style.display = "none";
-			$('#WantChange').removeAttr("required");
-		} 
-	}
-	if(which=='buy'){
-	 	if(document.getElementById("buy").checked ==true){
-			document.getElementById("Sbuy").style.display = "block";
-			$('#BuyPrice').attr("required", "true");
-		}else{
-			document.getElementById("Sbuy").style.display = "none";
-			$('#BuyPrice').removeAttr("required");
-		} 
-	}
+$(document).ready();
+function refreshCaptcha(){
+var captchaImg= document.getElementById("captchaImg");
+captchaImg.src ="images/captcha.jpg?refresh="+new Date();
 
 }
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#tab01,#tab-a1, #tab-b1').click(function(){
+        $('html,body').animate({ scrollTop: 100 }, 'slow');   /* 返回到最頂上 */
+        
+    });
+});
+
 </script>
 
 </head>
@@ -284,11 +294,11 @@ function Show(which){
     	</a>
 		
 			<div class="block">
-			<li>我的資訊</li><br>
+			<a href="mywork.jsp"><li>我的資訊</li><br></a>
 			<li>悄悄話</li><br>
 			<li>我的問答</li><br>
 			<li>我的評價</li><br>
-			<li>新增物品</li><br>
+			<a href="Product.jsp"><li>新增物品</li><br></a>
 			<li>我的物品</li><br>
 			<a href=# class="ch01">
 			<li>交換</li><br>
@@ -306,69 +316,34 @@ function Show(which){
 			</div>
 			</div>
 		</nav>
-		<nav class="n02"><form autocomplete="off">
-     			<article class="article-1"><br>
-        			<span class="formSpan1">
-        			<span style="color:red">*</span>
-        			<label for="mySelect">物品分類:</label>
-       				<select id="mySelect" required name="host">
-        				<optgroup label="主機平台" >
-	   						<option value="Switch">Switch</option>
-	  						<option value="PS4">PS4</option>
-  						</optgroup>
-   					</select>
-   					<input class="add-attr" type="checkbox" name="buy" id="buy" value="yes" onchange="Show('buy')">買賣
-   					
-					<input class="add-attr" type="checkbox" name="change" id="change" value="yes" onchange="Show('change')" checked="checked">交換
-					<hr><br><br><br>
-					<span style="color:red">*</span>
-        			<input type="text" id="name" name="name" autofocus required placeholder="遊戲名稱"><br><br>
-        			<label for="comment1"></label><br>
-       				<textarea id="comment1" name="comment1" placeholder="商品敘述 最多100個字" maxlength="100"></textarea><br>
-     				<span style="color:red">*</span>
-     				<label for="fileInput">遊戲圖片上傳</label><br>
-     				<input type="file" id="fileInput" value="" name="img" accept="image/png,image/jpeg" required>
-     				<div id="status"></div>
-    				<img id="preview" alt=""><br>
-    				<label for="origin">物品所在地</label>
-    				<select name="origin" id="origin" class="origin" onchange="changeCity(this)">  
-    				<option value="">請選擇</option>
-    				<option value="基隆市">基隆市</option>
-    				<option value="臺北市">臺北市</option>
-    				<option value="新北市">新北市</option>
-    				<option value="宜蘭縣">宜蘭縣</option>
-    				<option value="新竹市">新竹市</option>
-    				<option value="新竹縣">新竹縣</option>
-    				<option value="桃園市">桃園市</option>
-    				<option value="苗栗縣">苗栗縣</option>
-    				<option value="臺中市">臺中市</option>
-    				<option value="彰化縣">彰化縣</option>
-    				<option value="南投縣">南投縣</option>
-    				<option value="嘉義市">嘉義市</option>
-    				<option value="嘉義縣">嘉義縣</option>
-    				<option value="雲林縣">雲林縣</option>
-    				<option value="臺南市">臺南市</option>
-    				<option value="高雄市">高雄市</option>
-    				<option value="屏東縣">屏東縣</option>
-    				<option value="臺東縣">臺東縣</option>
-    				<option value="花蓮縣">花蓮縣</option>
-    				<option value="金門縣">金門縣</option>
-    				<option value="連江縣">連江縣</option>
-    				<option value="澎湖縣">澎湖縣</option>
-    				</select><br>
-    				
-    				<div id="Sbuy" style="display: none;">
-					<div class="ap_item_title f14"><span style="color:red">*</span>直購資料（願意買賣才需要填寫）</div>
-		  			<input id="BuyPrice" type="text" name="BuyPrice" size="16" class="ap_w150_h30 f12 corner_textbox" value="" placeholder="直購價格">（價格若無特別說明直購價包含運費）
-  					</div>
-  					<div id="Schange" ><br>想交換物品<br><textarea  required="required" name="WantChange" id="WantChange" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多100個字" maxlength="100"></textarea><br></div>
-  				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
-  				</span>
-  				</article>
-  				</form></nav>
+		<nav class="n02"><form autocomplete="off" method="post" action="mywork.do">
+     	<nav>
+					<nav id="nav-2">
+						
+						<ul id="tabs">
+	        				<li><a href="#tab1" id="tab01" class="tab" title="全部">全部</a></li>
+	      				<li><a href="#tab2" id="tab-b1" class="tab" title="交易">交易</a></li>
+	       					<li><a href="#tab3" id="tab-a1" class="tab"title="交換">交換</a></li>
+	    				</ul>
+   						<div id="container">
+    						<div id="tab1" class="tab_content">
+           					<h1>未上架</h1>
+                            	 You have HTML5 on the brain. Tell the world.
+        					</div>
+        					<div id="tab2" class="tab_content tab_content2">
+            				<h1>以上架</h1>
+            					This HTML5 logo is licensed under Creative Commons Attribution 3.0 — all are free to use and reimagine as they see fit. Stickers and T-Shirts are available now; more stuff to come.
+        					</div>
+        					<div id="tab3" class="tab_content">
+            				<h1>已成交</h1>
+            					The HTML5 logo gallery (below) shows off community creativity. We invite you to submit your sightings, whether screen shots or movies or cupcakes.
+        					</div>
+   					 	</div>
+					</nav>
+     	</nav>
 	</nav>
-   	<footer style="top: -300px;">footer</footer>
+   	<footer style="top: 450px;">footer</footer>
     </div>
     </div>
 </body>
-</html>
+</html></html>

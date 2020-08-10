@@ -1,3 +1,5 @@
+<%@page import="uuu.vgb.entity.Customer" %>
+<%@ page errorpage="error.jsp" %>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -128,6 +130,7 @@
 	color: red;
 	font-size: 11px;
 	}
+	.class2{color: red;}
 	</style>
 	
 	 <script type="text/javascript" src="jquery.js"></script>
@@ -166,7 +169,18 @@
 					<li><a href="/CB">Home</a></li>
 					<li><a href=#>Products</a></li>
 					<li><a href=#>Service</a></li>
-					<li id="lastLi"><a href=#>Support</a></li>
+					<li><%
+
+            Object obj=request.getAttribute("customer");
+
+            Customer c = null;
+
+            if(obj instanceof Customer){
+
+                c = (Customer)obj;
+
+            } %><%= c!=null?c.getName():""%>,你好</li>
+				
 				</ul>
 	    	</header>
 	    	<div class="taible">taible</div>

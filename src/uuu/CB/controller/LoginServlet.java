@@ -60,17 +60,11 @@ public class LoginServlet extends HttpServlet {
 			try {
 				Customer c= service.login(id,pwd);
 				//3.1顯示(第9章)登入成功畫面
-				response.setContentType("text/html");
-				response.setCharacterEncoding("utf-8");
-				try(
-				PrintWriter out = response.getWriter();){
-				out.println("<html>");
-				out.println("<body>");
-				out.println("<p>登入成功!"+c.getName());
-				out.println("</body>");
-				out.println("</html>");
+				request.setAttribute("customer", c);
+				RequestDispatcher dispatcher = 
+						request.getRequestDispatcher("/");
 				
-				}	
+			dispatcher.forward(request,response);
 				return;
 			} catch (VGBException e) {
 				errors.add("登入失敗"+e.getMessage());//user

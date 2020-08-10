@@ -228,9 +228,9 @@ a:active {
       opacity: 1;
     }
 	
-A.class2 {color:#000;}
-A.class2:link {text-decoration: none; color: #000;}
-A.class2:visited {text-decoration: none; color: #000;}
+A.class2 {color:orange;}
+A.class2:link {text-decoration: none; color: :orange;;}
+A.class2:visited {text-decoration: none; color: :orange;;}
 A.class2:hover {text-decoration: underline; color:rgb(195,0,0);}
 A.class2:active {text-decoration: none; color: rgb(195,0,0);}
 

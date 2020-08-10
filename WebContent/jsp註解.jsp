@@ -1,3 +1,5 @@
+
+<%@page import="java.util.Enumeration"%>
 <%@ page   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,12 +36,38 @@ margin: 10px;
 			<td><%= i %>*<%= j %>=<%= i*j %></td>
 			<%} %>
 		</tr>
-		<% }%>
+	<%} %>
+	<% request.setCharacterEncoding("utf-8"); %>
+	<p>requset query string:<%=request.getQueryString() %></p>
+	<p>requset Parameter:<%=request.getParameter("id") %></p>
+	<p>requset Parameter:<%=request.getParameter("name") %></p>
+	<p>requset method:<%=request.getMethod() %></p>
 	
 	
 	
+	<form method='post'>
+	<input name="id"><br>
+	<input name="name"><br>
+	<input name="password"><br>
+	<input type='submit'><br>
+	</form>
 	</table>
-	
+	<div>
+	<table id='reqHeaders' style='width:75%'>
+			<caption>request中的Headers</caption>
+			<%
+				Enumeration<String> headerNames = request.getHeaderNames();
+				while(headerNames.hasMoreElements()){
+					String name = headerNames.nextElement();
+					String value = request.getHeader(name);
+			%>			
+			<tr>
+				<td><%= name %></td>
+				<td><%= request.getHeader(name) %></td>
+			</tr>
+			<% } %>
+		</table>		
+	</div>
 	
 	
 	

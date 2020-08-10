@@ -289,7 +289,7 @@ function Show(which){
 			<li>我的問答</li><br>
 			<li>我的評價</li><br>
 			<a href="Product.jsp"><li>新增物品</li><br></a>
-			<li>我的物品</li><br>
+			<a href="myproduct.jsp"><li>我的物品</li><br></a>
 			<a href=# class="ch01">
 			<li>交換</li><br>
 			</a>
@@ -324,7 +324,7 @@ function Show(which){
 					<span style="color:red">*</span>
         			<input type="text" id="name" name="name" autofocus required placeholder="遊戲名稱"><br><br>
         			<label for="comment1"></label><br>
-       				<textarea id="comment1" name="comment1" placeholder="商品敘述 最多100個字" maxlength="100"></textarea><br>
+       				<textarea id="comment1" name="comment1" placeholder="商品敘述 最多100個字" maxlength="100"style="width: 300px;height: 200px;"></textarea><br>
      				<span style="color:red">*</span>
      				<label for="fileInput">遊戲圖片上傳</label><br>
      				<input type="file" id="fileInput" value="" name="img" accept="image/png,image/jpeg" required>
