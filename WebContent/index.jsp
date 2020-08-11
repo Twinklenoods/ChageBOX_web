@@ -1,5 +1,5 @@
 <%@page import="uuu.vgb.entity.Customer" %>
-<%@ page errorpage="error.jsp" %>
+<%@page errorPage="error.jsp"  %>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -131,6 +131,7 @@
 	font-size: 11px;
 	}
 	.class2{color: red;}
+	.my-class{display: none;}
 	</style>
 	
 	 <script type="text/javascript" src="jquery.js"></script>
@@ -145,6 +146,7 @@
 		
 		function init4()
 		{
+			
 			$("#password").mousedown(downHandler2);
 			$("#password").mouseup(upHandler2);
 		}
@@ -157,7 +159,9 @@
 			
 			$("#password").attr("type","password");
 		}
-			</script>
+		
+		
+		</script>
 			
 	</head>
 	<body>
@@ -169,19 +173,9 @@
 					<li><a href="/CB">Home</a></li>
 					<li><a href=#>Products</a></li>
 					<li><a href=#>Service</a></li>
-					<li><%
-
-            Object obj=request.getAttribute("customer");
-
-            Customer c = null;
-
-            if(obj instanceof Customer){
-
-                c = (Customer)obj;
-
-            } %><%= c!=null?c.getName():""%>,你好</li>
-				
-				</ul>
+					
+				</ul><li class="li-01"><%Customer member=(Customer)session.getAttribute("member");
+ 					%><%= member!=null?member.getName():""%> 你好</li>
 	    	</header>
 	    	<div class="taible">taible</div>
 			<div id="main">
@@ -260,16 +254,16 @@
 					<aside id="aside-1">
 					</aside><br>
 					<aside id="aside-2">aside-2 會員登入區<br>
-						<form autocomplete="off" method="post" action="login.do"style="height: 399px;">
+						<form class="formC" ng-class="myVar" autocomplete="off" method="post" action="login.do"style="height: 399px;">
 						<span class="formSpan"> 
 								  <label for="name"></label>
-                                  <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號""><br>
+                                  <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號"><br>
                                   <label for="password"></label>
                                   <input type="password" id="password" name="pwd"  placeHolder="passwod/密碼" minlength="6" maxlength="8"><br>
                                   <input type="text" id="captcha" name="captcha" required placeHolder="請輸入驗證碼"><br> 
                                   <img class="t01" id="captchaImg" src="images/captcha.jpg" onclick="refreshCaptcha()"><br>
                                   
-								</span><input type="submit" value="會員登入" class="customer">
+								</span><input type="submit" value="會員登入" class="customer" id="customer" ng-click="myVar='my-class'">
                                   <li class="coust-1">還不是會員?<a href="register.jsp" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a>
 									<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
      									<%out.print(errors!=null?errors:"");%></span>

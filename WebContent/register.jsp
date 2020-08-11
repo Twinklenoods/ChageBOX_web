@@ -1,3 +1,4 @@
+<%@page import="uuu.vgb.entity.Customer"%>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -246,8 +247,26 @@
 
 </style>
  <script type="text/javascript" src="jquery.js"></script>
+ <script
+  src="http://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 		<script type="text/javascript">
-	/*	$(document).ready(init);
+		<%if("post".equalsIgnoreCase(request.getMethod())){ %>
+		$(fieldRepopulate);
+		
+		function fieldRepopulate(){
+			//alert('fieldRepopulate');
+			$("#id").val('<%=request.getParameter("id")%>')
+			$("#name").val('<%=request.getParameter("name")%>')
+			$("#email").val('<%=request.getParameter("email")%>')
+			$("#birthday").val('<%=request.getParameter("birthday")%>')
+			
+			$('#<%=request.getParameter("gender")%>').prop("checked", true);
+		}
+		<% }%>
+		
+		/*	$(document).ready(init);
 		function init()
 		{
 			$("#add").click(addHandler);
@@ -370,9 +389,9 @@
   				<input type="tel" id="phone" name="phone"><br><br>
   				 <span style="color:red">*</span>
   				 <label for="gender1">性別:</label>
-  				 <input type="radio" id="gender1" name="gender" value="M" required>
+  				 <input type="radio" id="M" name="gender" value=<%=Customer.MALE %> required>
 				 <label for="gender1">男</label>
-				 <input type="radio" id="gender2" name="gender" value="F" required>
+				 <input type="radio" id="F" name="gender" value=<%=Customer.FEMALE %> required>
 				 <label for="gender2">女</label><br><br>
   				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
   				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>

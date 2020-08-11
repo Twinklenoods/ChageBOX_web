@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import uuu.vgb.entity.Customer;
 import uuu.vgb.entity.VGBException;
@@ -53,18 +54,35 @@ public class LoginServlet extends HttpServlet {
 		if(captcha==null || captcha.length()==0) {
 			errors.add("必須輸入驗證碼");
 		}
-	
+		HttpSession session=request.getSession();
+		if(captcha==null|| (captcha=captcha.trim()).length()==0) {
+			errors.add("必須輸入驗證碼");
+		}else {String oldCaptcha =(String)session.getAttribute("captcha");
+		if(!captcha.equalsIgnoreCase(oldCaptcha)) {
+			errors.add("驗證碼錯誤");
+		}
+		}
+		session.removeAttribute("captcha");
+		
+		
 		//2.若無誤，則呼叫商業邏輯
 		if(errors.isEmpty()) {
 			CustomerService service= new CustomerService();
 			try {
 				Customer c= service.login(id,pwd);
 				//3.1顯示(第9章)登入成功畫面
-				request.setAttribute("customer", c);
-				RequestDispatcher dispatcher = 
-						request.getRequestDispatcher("/");
 				
-			dispatcher.forward(request,response);
+				//HttpSession session=request.getSession();
+				session.setAttribute("member", c);
+				//作法1:內部轉交forward(在此處不恰當)
+				//RequestDispatcher dispatcher = 
+				//request.getRequestDispatcher("/");
+				//dispatcher.forward(request,response);
+				
+				//作法2:外部轉址redirect(建議使用)
+				response.sendRedirect(request.getContextPath());
+				
+				
 				return;
 			} catch (VGBException e) {
 				errors.add("登入失敗"+e.getMessage());//user

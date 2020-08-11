@@ -1,7 +1,7 @@
 <%@page import="uuu.vgb.entity.Customer"%>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
-<%@ page errorpage="error.jsp" %>
+<%@ page errorPage="error.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -374,7 +374,7 @@ $(function() {
 		<nav class="n02">
      	<nav>
 			<nav id="nav-2">
-			<iframe src="a.jsp" name="a"  target="a"style="width: 800px;height: 800px;margin-left: 180px;">
+			<iframe src="myproIndex.jsp" name="a"  target="a"style="width: 800px;height: 800px;margin-left: 250px;">
 			</iframe>
 		</nav>
 	</nav>

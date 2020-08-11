@@ -309,7 +309,11 @@ header ul {
 	width: 280px;
 	margin: auto;
 }
-
+.li-01{
+	float:left;
+	margin: auto;
+	list-style: none;
+}
 header li {
 	float: left;
 	padding: 5px 10px;
