@@ -203,11 +203,11 @@
    					 	</div>
 					</nav><br>					
 					<nav id="nav-1">
-						<a href="mywork.jsp"><img id="mywork" src="psd/myWork.png" title="我的管理"></a>
-						<img id="masage" src="psd/masage.png" title="悄悄話">
-						<a href="buy.jsp"><img id="buy" src="psd/buy.png" title="買賣"></a>
-						<a href="pand.jsp"><img id="pand" src="psd/pand.png" title="許願池"></a>
-						<a href="change.jsp"><img id="change01" src="psd/change01.png" title="交換"></a>
+						<a href="mywork.jsp"><img id="mywork" src="image/psd/myWork.png" title="我的管理"></a>
+						<img id="masage" src="image/psd/masage.png" title="悄悄話">
+						<a href="buy.jsp"><img id="buy" src="image/psd/buy.png" title="買賣"></a>
+						<a href="pand.jsp"><img id="pand" src="image/psd/pand.png" title="許願池"></a>
+						<a href="change.jsp"><img id="change01" src="image/psd/change01.png" title="交換"></a>
 					</nav>
 					
 				</nav>
@@ -216,23 +216,23 @@
     <div class="rwd_slider_container">  
         <div class="slider_container">
             <div>
-                <img src="NewPa/top01.jpg" alt="pure css slider" width="400" height="280" />
+                <img src="image/NewPa/top01.jpg" alt="pure css slider" width="400" height="280" />
                 <span class="info">《對馬戰鬼》（PS4）</span>
             </div>
             <div>
-                <img src="NewPa/top02.jpg" alt="pure css slider" width="400" height="280" />
+                <img src="image/NewPa/top02.jpg" alt="pure css slider" width="400" height="280" />
                 <span class="info">《紙片瑪利歐：摺紙國王》</span>
             </div>
             <div>
-                <img src="NewPa/top03.jpg" alt="pure css slider" width="400" height="280" />
+                <img src="image/NewPa/top03.jpg" alt="pure css slider" width="400" height="280" />
                 <span class="info">《集合啦！動物森友會》</span>
             </div>
             <div>
-                <img src="NewPa/top04.jpg" alt="pure css slider" width="400" height="280" />
+                <img src="image/NewPa/top04.jpg" alt="pure css slider" width="400" height="280" />
                 <span class="info">《瑪利歐賽車 8 豪華版》</span>
             </div>
             <div>
-                <img src="NewPa/top05.jpg" alt="pure css slider" width="400" height="280" />
+                <img src="image/NewPa/top05.jpg" alt="pure css slider" width="400" height="280" />
                 <span class="info">《健身環大冒險》</span>
             </div>
         </div>

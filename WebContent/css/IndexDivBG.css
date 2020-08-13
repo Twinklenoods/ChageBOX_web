@@ -1,8 +1,8 @@
 @charset "UTF-8";
 .divBG {
-	background: url("../testbg/01.png") left top no-repeat,
-			url("../testbg/02.png") right top no-repeat,
-			url("../testbg/0.png") center top no-repeat ;
+	background: url("../image/testbg/01.png") left top no-repeat,
+			url("../image/testbg/02.png") right top no-repeat,
+			url("../image/testbg/0.png") center top no-repeat ;
 	color: white;
 	width:100%;		
 	height: 2950px;
@@ -136,7 +136,7 @@
 	}
 	
 	#aside-1{
-		background: url("../psd/d01.png") no-repeat top right;
+		background: url("../image/psd/d01.png") no-repeat top right;
 		background-size: 100%;
 		height:320px;
 		opacity:1;
@@ -153,7 +153,7 @@
 	}
 	
 	header {
-		background: url("../psd/bg03.png") center top no-repeat;
+		background: url("../image/psd/bg03.png") center top no-repeat;
 					
 		position: fixed;
 		background-size: 100% 100%;
@@ -164,8 +164,8 @@
 	}
 	
 	footer{
-		background:url("../testbg/05.png") center top no-repeat ,	
-				url("../testbg/foot.png") center top no-repeat;
+		background:url("../image/testbg/05.png") center top no-repeat ,	
+				url("../image/testbg/foot.png") center top no-repeat;
 		
 		top:-770px;position:relative;
 		background-size: 100%;
@@ -176,7 +176,7 @@
 	}
 	
 	.taible{
-	background:url("../psd/title.png") center no-repeat;
+	background:url("../image/psd/title.png") center no-repeat;
 	margin:114px 0 0 0;
 	height: 500px;
 	width: 100%;
@@ -191,7 +191,7 @@
     width:50px;
     height:50px;
     color:#fff;
-    background:url("../psd/TOP-1.png") center;
+    background:url("../image/psd/TOP-1.png") center;
     line-height:50px;
     border-radius:50%;
     transition:all 0.5s;
@@ -249,7 +249,7 @@ A.class2:active {text-decoration: none; color: rgb(195,0,0);}
 
 a.tab{
 	text-decoration:none;
-	background:url("../psd/myWork.png");
+	background:url("../image/psd/myWork.png");
 	padding:5px;
 	color:white;
 	position:relative;

@@ -19,12 +19,9 @@
 	<form name="fm_chall" action="e1515_myproduct_processall.php"
 		method="POST" onsubmit="return chkchoice()" >
 		<div style="height: 30px; width: 100%; border-bottom: 1px #cccccc solid; margin-bottom: 3px; text-align: left;">
-			<a href='b.jsp'target="b"><input type="button" value="所有" class="adminbtn active"
-				> </a>
-				<input type="button" value="交換" class="adminbtn"
-				onclick="location.href='b.jsp' target='b'"> <input
-				type="button" value="買賣" class="adminbtn"
-				onclick="location.href='c.jsp'">
+			<a href='down.jsp'target="b"><input type="button" value="所有" class="adminbtn active"> </a>
+			<a href='down.jsp'target="b"><input type="button" value="買賣" class="adminbtn active"> </a>
+			<a href='down.jsp'target="b"><input type="button" value="交換" class="adminbtn active"> </a>
 		</div>
 		</form>
 </div>

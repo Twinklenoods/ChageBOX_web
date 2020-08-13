@@ -56,7 +56,7 @@ display: flex;
 }
 .showin-button{ position:relative; }
 footer{
-	background: url("testbg/pa.png") center top no-repeat,
+	background: url("image/testbg/pa.png") center top no-repeat,
 	url("testbg/foot.png") center top no-repeat;
 	top:-70px;position:relative;
 		background-size: 100%;
@@ -87,7 +87,7 @@ footer{
 	position: relative;
 	top:100px;
 	left:60%;
-	background: url("registered/png/page1.png") top center no-repeat;
+	background: url("image/registered/png/page1.png") top center no-repeat;
 	background-size: 100%;
 	
 	}
@@ -96,7 +96,7 @@ footer{
 	top:-200px;
 	left:60%;
 	
-	background: url("registered/png/page2.png") top center no-repeat;
+	background: url("image/registered/png/page2.png") top center no-repeat;
 	background-size: 100%;
 	color:black;
 	}
@@ -211,7 +211,7 @@ function stoprattle(which)
     	
 		<nav class="n01">
 		<a href=#>
-		<img class="showin-button" src="mywork/menu.png" title="選單" onmousemove="init2(this);rattleimage();"
+		<img class="showin-button" src="image/mywork/menu.png" title="選單" onmousemove="init2(this);rattleimage();"
 			onmouseout="stoprattle(this);" style="
     		padding-left: 30px;padding-top: 10px;">
     	</a>
@@ -220,7 +220,7 @@ function stoprattle(which)
 			<a href="mywork.jsp"><li>我的資訊</li><br></a>
 			<li>悄悄話</li><br>
 			<li>我的問答</li><br>
-			<li>我的評價</li><br>
+			<a href="listrating.jsp"><li>我的評價</li><br></a>
 			<a href="Product.jsp"><li>新增物品</li><br></a>
 			<a href="myproduct.jsp"><li>我的物品</li><br></a>
 			<a href=# class="ch01">
@@ -256,7 +256,7 @@ function stoprattle(which)
   		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="確認密碼/password"><br><br>
   		<span style="color:red">*</span>
   		<label for="email">信箱:</label>
-  		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="信箱/E-MAIL(Gmail)"><br><br>
+  		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="<%;out.print("test@gmail.com");%>"><br><br>
   		</span>
   		
         </nav>
@@ -293,7 +293,7 @@ function stoprattle(which)
         		<label for="birthday">生日:<%;out.print("1999-04-01");%></label>
   				<br><br>
   				<label for="phone">*電話: </label>
-  				<input type="tel" id="phone" name="phone"style="width: 100px;"><%;out.print("/0987654321");%><br><br>
+  				<input type="tel" id="phone" name="phone"style="width: 100px;"placeHolder="<%;out.print("0987654321");%>"><br><br>
   				 <span style="color:red">*</span>
   				 <label class for="gender1">性別:<%;out.print("男");%></label>
   				 <br><br>

@@ -10,7 +10,7 @@
 <meta http-equiv="refresh" content="10;<% out.print(request.getContextPath()); %>">
 <style>
 	.divBG{
-	background:url("registered/png/bg02.png") center top no-repeat ;
+	background:url("image/registered/png/bg02.png") center top no-repeat ;
 	color: white;
 	width:100%;
 	height: 2000px;
@@ -51,8 +51,8 @@
 	}
 
 	footer{
-	background:url("testbg/05.png") center top no-repeat ,	
-				url("testbg/foot.png") center top no-repeat;
+	background:url("image/testbg/05.png") center top no-repeat ,	
+				url("image/testbg/foot.png") center top no-repeat;
 		position:relative;
 		top:-450px;
 		background-size: 100%;
@@ -63,7 +63,7 @@
 	}
 	
 	header{
-	background: url("psd/bg03.png") center top no-repeat;
+	background: url("image/psd/bg03.png") center top no-repeat;
 		display: block;			
 		position: fixed;
 		background-size: 100% 100%;
@@ -85,7 +85,7 @@
 	position: relative;
 	top:200px;
 	left:30%;
-	background: url("registered/png/register.png") top center no-repeat;
+	background: url("image/registered/png/register.png") top center no-repeat;
 	background-size: 100%;
 	}
 	

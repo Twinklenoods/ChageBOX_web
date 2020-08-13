@@ -157,7 +157,7 @@ public class CaptchaServlet extends HttpServlet {
 		System.out.println(("111:")+captcha);
 		
 		HttpSession session=request.getSession();
-		session.setAttribute(this.getServletName(),captcha);
+		session.setAttribute("captcha",captcha);//this.getServletName()//對xml的分頁做非同步
 		//繪製成圖片(Draw image)
 		BufferedImage image = generateImage(captcha, width, height);
 		response.setHeader("Pragma", "No-cache");

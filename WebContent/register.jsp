@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <style>
 	.divBG{
-	background:url("registered/png/bg02.png") center top no-repeat ;
+	background:url("image/registered/png/bg02.png") center top no-repeat ;
 	color: white;
 	width:100%;
 			
@@ -55,8 +55,8 @@
 	}
 
 	footer{
-	background:url("testbg/05.png") center top no-repeat ,	
-				url("testbg/foot.png") center top no-repeat;
+	background:url("image/testbg/05.png") center top no-repeat ,	
+				url("image/testbg/foot.png") center top no-repeat;
 		position:relative;
 		top:-450px;
 		background-size: 100%;
@@ -67,7 +67,7 @@
 	}
 	
 	header{
-	background: url("psd/bg03.png") center top no-repeat;
+	background: url("image/psd/bg03.png") center top no-repeat;
 		display: block;			
 		position: fixed;
 		background-size: 100% 100%;
@@ -89,14 +89,14 @@
 	position: relative;
 	top:200px;
 	left:40%;
-	background: url("registered/png/page1.png") top center no-repeat;
+	background: url("image/registered/png/page1.png") top center no-repeat;
 	background-size: 100%;
 	}
 	
 	.article-2{
 	position: relative;
 	left:10%;
-	background: url("registered/png/page2.png") top center no-repeat;
+	background: url("image/registered/png/page2.png") top center no-repeat;
 	background-size: 100%;
 	color:black;
 	}

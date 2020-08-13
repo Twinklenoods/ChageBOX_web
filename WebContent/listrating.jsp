@@ -1,6 +1,7 @@
 <%@page import="uuu.vgb.entity.Customer"%>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
+<%@ page errorPage="error.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,7 +119,7 @@ footer{
 	font-size: 11px;
 	}
 	
-	#tabs{
+#tabs{
 	padding:0;
 	margin: 0  0 0 200px;
 	
@@ -158,7 +159,7 @@ a.tab{
 	
 }
 
-.tab_content , .tab_content2{
+.tab_content {
 	
 	width: 700px;
 	height: 550px;
@@ -175,11 +176,65 @@ a.tab{
 	color: white;
 	padding: 80px;
 }
-.tab_content2{
-	background-color:rgba(250,250,250,0.9);
-	border:2px solid rgb(0,0,0);
-	color: black;
+
+
+
+#tabs-1{
+	padding:0;
+	margin: 0  0 0 300px;
+	
 }
+
+#tabs-1 li{
+	list-style:none;
+	float:left;
+	margin-right:5px;
+	
+}
+
+a.tab1-1{
+	text-decoration:none;
+	
+	padding:5px;
+	color:white;
+	position:relative;
+	top:-50px;
+	left:-50px;
+	border:2px solid rgb(195,0,0);
+}
+
+
+
+#container-1{
+	clear:both;
+	position:relative;
+}
+
+#container-1 h1{
+	font:26px Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	color:#069;
+	margin:0;
+	margin-bottom:5px;
+	
+}
+
+.tab_content-1{
+	border: 1px solid black;
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	background:white;
+	background-repeat:no-repeat;
+	color: black;
+	padding: 80px;
+}
+.tab_content-1:target{
+	z-index: 99;
+}
+
+
+
 </style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
@@ -297,9 +352,9 @@ $(function() {
 			<a href="mywork.jsp"><li>我的資訊</li><br></a>
 			<li>悄悄話</li><br>
 			<li>我的問答</li><br>
-			<li>我的評價</li><br>
+			<a href="listrating.jsp"><li>我的評價</li><br></a>
 			<a href="Product.jsp"><li>新增物品</li><br></a>
-			<li>我的物品</li><br>
+			<a href="myproduct.jsp"><li>我的物品</li><br></a>
 			<a href=# class="ch01">
 			<li>交換</li><br>
 			</a>
@@ -316,31 +371,13 @@ $(function() {
 			</div>
 			</div>
 		</nav>
-		<nav class="n02"><form autocomplete="off" method="post" action="mywork.do">
+		<nav class="n02">
      	<nav>
-					<nav id="nav-2">
-						
-						<ul id="tabs">
-	        				<li><a href="#tab1" id="tab01" class="tab" title="全部">全部</a></li>
-	      				<li><a href="#tab2" id="tab-b1" class="tab" title="交易">交易</a></li>
-	       					<li><a href="#tab3" id="tab-a1" class="tab"title="交換">交換</a></li>
-	    				</ul>
-   						<div id="container">
-    						<div id="tab1" class="tab_content">
-           					<h1>未上架</h1>
-                            	 You have HTML5 on the brain. Tell the world.
-        					</div>
-        					<div id="tab2" class="tab_content tab_content2">
-            				<h1>以上架</h1>
-            					This HTML5 logo is licensed under Creative Commons Attribution 3.0 — all are free to use and reimagine as they see fit. Stickers and T-Shirts are available now; more stuff to come.
-        					</div>
-        					<div id="tab3" class="tab_content">
-            				<h1>已成交</h1>
-            					The HTML5 logo gallery (below) shows off community creativity. We invite you to submit your sightings, whether screen shots or movies or cupcakes.
-        					</div>
-   					 	</div>
-					</nav>
-     	</nav>
+			<nav id="nav-2">
+			<iframe src="c.jsp" name="a"  target="a"style="width: 800px;height: 800px;margin-left: 250px;">
+			</iframe>
+		</nav>
+	</nav>
 	</nav>
    	<footer style="top: 450px;">footer</footer>
     </div>

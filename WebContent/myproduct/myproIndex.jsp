@@ -11,10 +11,10 @@
 </head>
 
 <frameset rows="10%,75%" frameborder="NO">
-<frame src="a.jsp" name="a">
+<frame src="top.jsp" name="a">
 
 <frameset cols="100%,0%" frameborder="NO">
-<frame src="b.jsp" name="b">
+<frame src="down.jsp" name="b">
 
 
 </frameset>

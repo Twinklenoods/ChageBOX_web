@@ -57,8 +57,8 @@ display: flex;
 }
 .showin-button{ position:relative; }
 footer{
-	background: url("testbg/pa.png") center top no-repeat,
-	url("testbg/foot.png") center top no-repeat;
+	background: url("image/testbg/pa.png") center top no-repeat,
+	url("image/testbg/foot.png") center top no-repeat;
 	top:-70px;position:relative;
 		background-size: 100%;
 		width: 100%;
@@ -88,7 +88,7 @@ footer{
 	position: relative;
 	top:100px;
 	left:60%;
-	background: url("registered/png/page1.png") top center no-repeat;
+	background: url("image/registered/png/page1.png") top center no-repeat;
 	background-size: 100%;
 	
 	}
@@ -97,7 +97,7 @@ footer{
 	top:-200px;
 	left:60%;
 	
-	background: url("registered/png/page2.png") top center no-repeat;
+	background: url("image/registered/png/page2.png") top center no-repeat;
 	background-size: 100%;
 	color:black;
 	}
@@ -134,7 +134,7 @@ footer{
 
 a.tab{
 	text-decoration:none;
-	background:url("../psd/myWork.png");
+	background:url("../image/psd/myWork.png");
 	padding:5px;
 	color:white;
 	position:relative;
@@ -343,7 +343,7 @@ $(function() {
     	
 		<nav class="n01">
 		<a href=#>
-		<img class="showin-button" src="mywork/menu.png" title="選單" onmousemove="init2(this);rattleimage();"
+		<img class="showin-button" src="image/mywork/menu.png" title="選單" onmousemove="init2(this);rattleimage();"
 			onmouseout="stoprattle(this);" style="
     		padding-left: 30px;padding-top: 10px;">
     	</a>
@@ -352,7 +352,7 @@ $(function() {
 			<a href="mywork.jsp"><li>我的資訊</li><br></a>
 			<li>悄悄話</li><br>
 			<li>我的問答</li><br>
-			<li>我的評價</li><br>
+			<a href="listrating.jsp"><li>我的評價</li><br></a>
 			<a href="Product.jsp"><li>新增物品</li><br></a>
 			<a href="myproduct.jsp"><li>我的物品</li><br></a>
 			<a href=# class="ch01">
@@ -374,7 +374,7 @@ $(function() {
 		<nav class="n02">
      	<nav>
 			<nav id="nav-2">
-			<iframe src="myproIndex.jsp" name="a"  target="a"style="width: 800px;height: 800px;margin-left: 250px;">
+			<iframe src="myproduct/myproIndex.jsp" name="a"  target="a"style="width: 800px;height: 800px;margin-left: 250px;">
 			</iframe>
 		</nav>
 	</nav>
