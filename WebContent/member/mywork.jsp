@@ -252,10 +252,10 @@ function stoprattle(which)
      		<nav class="n03"><br>
         	<span class="formSpan03">
       	<span style="color:red">*</span>
-  		<label for="id">帳號:<%;out.print("A123456789");%></label>
+  		<label for="id">帳號:<%out.print("A123456789");%></label>
   		<br><br>
   		<span style="color:red">*</span>
-  		<label for="name">暱稱:<%;out.print("吳大頭");%></label>
+  		<label for="name">暱稱:<%out.print("吳大頭");%></label>
   		<br><br>
   		<span style="color:red">*</span>
   		<label for="password">密碼:</label>
@@ -299,7 +299,7 @@ function stoprattle(which)
     				<option value="澎湖縣">澎湖縣</option>
     	</select>/地區:<%;out.print("北投");%><br><br>
   				<span style="color:red">*</span>
-        		<label for="birthday">生日:<%;out.print("1999-04-01");%></label>
+        		<label for="birthday">生日:<%=1990-01-10 %></label>
   				<br><br>
   				<label for="phone">*電話: </label>
   				<input type="tel" id="phone" name="phone"style="width: 100px;"placeHolder="<%;out.print("0987654321");%>"><br><br>
