@@ -9,6 +9,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -77,6 +78,23 @@ public class LoginServlet extends HttpServlet {
 				//3.1顯示(第9章)登入成功畫面
 				//session.setMaxInactiveInterval(30);//閒置(30秒)後登出
 				//HttpSession session=request.getSession();
+				
+				//使用Cookie機制將id,keepId記錄在cookie中
+//				String keepId =request.getParameter("keepId");
+//				Cookie idCookie= new Cookie("id",id);
+//				Cookie keepIdCookie= new Cookie("keepId","checked");
+//				idCookie.setMaxAge(7*24*60*60);//預設default不會存檔
+//				int maxAge=0;//值為0會殺掉Cookie
+//				if(keepId!=null){
+//					maxAge= 7*24*60*60;//7天
+//				}
+//				idCookie.setMaxAge(maxAge);
+//				keepIdCookie.setMaxAge(maxAge);
+//				response.addCookie(idCookie);
+//				response.addCookie(keepIdCookie);
+				
+				
+				
 				session.setAttribute("member", c);
 				
 				//作法1:內部轉交forward(在此處不恰當)

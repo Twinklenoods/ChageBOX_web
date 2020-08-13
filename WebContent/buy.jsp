@@ -44,6 +44,18 @@ top:0px;
 		text-align: right;
 		text-align: justify;
 	}
+	
+.nav001 img{
+		width: 90%;
+		
+		background: orange;
+		padding: 2px;
+		border: 2px solid yellow;
+		margin: 3% 0 0 3%;
+		
+	}
+	
+
 </style>
  <script type="text/javascript" src="jquery.js"></script>
 			<script type="text/javascript" src="js/IndexJs.js">
@@ -64,9 +76,11 @@ top:0px;
 				</ul>
 	    	</header>
 	    	<nav>
-	    	<nav class="nav001"><p>ID<br>圖<br>價錢</p></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
+	    	<nav class="nav001"><img src="image/NewPa/top02.jpg"/><br>價錢</nav>
+	    	<nav class="nav001"><img src="image/NewPa/top01.jpg"/></nav>
+	    	<nav class="nav001"><img src="image/NewPa/top03.jpg"/></nav>
+	    	<nav class="nav001"><img src="image/NewPa/top04.jpg"/></nav>
+	    	<nav class="nav001"><img src="image/NewPa/top05.jpg"/></nav>
 	    	<nav class="nav001"></nav><nav class="nav001"></nav>
 	    	<nav class="nav001"></nav><nav class="nav001"></nav>
 	    	<nav class="nav001"></nav><nav class="nav001"></nav>

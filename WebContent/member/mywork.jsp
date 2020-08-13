@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDate"%>
 <%@page import="uuu.vgb.entity.Customer"%>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
@@ -194,6 +195,21 @@ function stoprattle(which)
   which.style.top =0;    
 }
 
+<%if("post".equalsIgnoreCase(request.getMethod())){ %>
+$(fieldRepopulate);
+
+function fieldRepopulate(){
+	//alert('fieldRepopulate');
+	$("#id").val('<%=request.getParameter("id")%>')
+	$("#name").val('<%=request.getParameter("name")%>')
+	$("#email").val('<%=request.getParameter("email")%>')
+	$("#birthday").val('<%=request.getParameter("birthday")%>')
+	
+	$('#<%=request.getParameter("gender")%>').prop("checked", true);
+}
+<% }%>
+
+
 </script>
 
 </head>
@@ -248,15 +264,16 @@ function stoprattle(which)
 			</div>
 			</div>
 		</nav>
-		<nav class="n02"><form autocomplete="off" method="post" action="/member/mywork.do"/* update.do */>
+		<nav class="n02">
+		<form autocomplete="off" method="post" action="/member/mywork.do">
      		<nav class="n03"><br>
         	<span class="formSpan03">
       	<span style="color:red">*</span>
-  		<label for="id">帳號:<%out.print("A123456789");%></label>
-  		<br><br>
+  		<label for="id">帳號:</label>
+  		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" required ><br><br>
   		<span style="color:red">*</span>
-  		<label for="name">暱稱:<%out.print("吳大頭");%></label>
-  		<br><br>
+  		<label for="name">暱稱:</label>
+  		<input type="text" id="name1" name="name" autofocus  required placeHolder="姓名/NAME"><br><br>
   		<span style="color:red">*</span>
   		<label for="password">密碼:</label>
   		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
@@ -297,22 +314,28 @@ function stoprattle(which)
     				<option value="金門縣">金門縣</option>
     				<option value="連江縣">連江縣</option>
     				<option value="澎湖縣">澎湖縣</option>
-    	</select>/地區:<%;out.print("北投");%><br><br>
+    	</select><br><br>
   				<span style="color:red">*</span>
-        		<label for="birthday">生日:<%=1990-01-10 %></label>
-  				<br><br>
+        		<label for="birthday">生日:</label>
+  				<input type="date" id="birthday" name="birthday" required max="<%=LocalDate.now().plusYears(-20) %>"><br><br>
   				<label for="phone">*電話: </label>
-  				<input type="tel" id="phone" name="phone"style="width: 100px;"placeHolder="<%;out.print("0987654321");%>"><br><br>
+  				<input type="tel" id="phone" name="phone"style="width: 100px;"><br><br>
   				 <span style="color:red">*</span>
-  				 <label class for="gender1">性別:<%;out.print("男");%></label>
-  				 <br><br>
+  				  <label for="gender1">性別:</label>
+  				 <input type="radio" id="M" name="gender" value=<%=Customer.MALE %> required>
+				 <label for="gender1">男</label>
+				 <input type="radio" id="F" name="gender" value=<%=Customer.FEMALE %> required>
+				 <label for="gender2">女</label>
+				 <br><br>
+  				
   				<input type="submit" id="submit01" value="確認修改" ><label for="submit01" class="myDiv1"></label>
   				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
      			<%out.print(errors!=null?errors:"");%></span>
 			
 				
         </nav>
-     </form><br>	</nav>
+     </form><br>	
+     </nav>
 	</nav>
    	<footer style="top: 450px;">footer</footer>
     </div>

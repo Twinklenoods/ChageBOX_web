@@ -159,7 +159,16 @@
 			
 			$("#password").attr("type","password");
 		}
+		<%if("post".equalsIgnoreCase(request.getMethod())){ %>
+		$(fieldRepopulate);
 		
+		function fieldRepopulate(){
+			//alert('fieldRepopulate');
+			
+			$("#name").val('<%=request.getParameter("id")%>')
+			
+		}
+		<% }%>
 		
 		</script>
 			
@@ -266,7 +275,10 @@
 					<form class="formC" ng-class="myVar" autocomplete="off" method="post" action="login.do"style="height: 399px;">
 						<span class="formSpan"> 
 								  <label for="name"></label>
-                                  <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號"><br>
+                                  <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號"
+                                  value='<%// ="post".equalsIgnoreCase(request.getMethod())?request.getParameter("id"):id %>'
+                                  ><br>
+                                  <% //<input type="checkbox" name="keepId"<%= keepId % > value='ON' ${cookie.auto.value}/>記住我的帳號<br>%>
                                   <label for="password"></label>
                                   <input type="password" id="password" name="pwd"  placeHolder="passwod/密碼" minlength="6" maxlength="8"><br>
                                   <input type="text" id="captcha" name="captcha" required placeHolder="請輸入驗證碼"><br> 
@@ -274,7 +286,24 @@
                                   
 								</span><input type="submit" value="會員登入" class="customer" id="customer" >
                                   <li class="coust-1">還不是會員?<a href="register.jsp" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a>
-									<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
+									<span class="spanerror">
+									<%
+									//讀取cookies:id , keepid
+ 							//		Cookie[] cookies =request.getCookies();
+ 							//		String id ="";
+ 							//		String keepId="";
+ 							//		if(cookies!=null){
+ 							//			for(int i=0;i<cookies.length;i++)
+ 							//			Cookie theCookie = cookies[i];	
+ 							//			if(theCookie.getName().equals("id")){
+ 							//				id= theCookie.getValue();
+ 							//				}else if(theCookie.getName().equals("keepId")){
+ 							//					keepId = theCookie.getValue();
+ 							//			}
+ 							//		}
+									
+									
+									List<String> errors = (List<String>)request.getAttribute("errors");	%>
      									<%out.print(errors!=null?errors:"");%></span>
 										</li>
 	        			</form>	
