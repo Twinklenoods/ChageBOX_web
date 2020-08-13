@@ -1,5 +1,3 @@
-<%@page import="uuu.vgb.entity.Customer"%>
-<%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -48,16 +46,74 @@ display: flex;
 margin: 100px 0 0 0 ;
 }
 .n02{
-background: ;
-border: 2px solid black;;
 height:1500px;
 
 display: flex;
 }
+
+/*.formSpan1{
+	 position: relative;
+	 top:20%;
+	 left:50%;
+	 color:white;
+	 }*/
+	 .article{
+	
+	}
+	.article-1, .article-2{
+		position: static;
+		 text-align: left;
+		margin-left: 300px; 
+		margin-top: 15%;
+		}
+	 
+	
+	 #toggle{
+	display: none;
+	}	
+	@media screen and (max-width: 800px){
+	
+	
+
+	 
+	
+	.article{
+	
+	}
+	.article-1, .article-2{
+		position: static;
+		 text-align: left;
+		margin-left: 200px; 
+		margin-top: 15%;
+		}
+	.article-2{
+		
+		position:relative;
+	 	top:-200px;
+	 	left:-20px;
+		}
+	#toggle{
+	display: block;
+	position: relative;
+	top:310px;
+	left:455px;
+	}	
+		#main{
+			flex-direction: column;
+			
+		}
+		#main > aside {
+			display:none;
+		}
+		#main > nav {
+			display:none;
+		}
+		
+	}
 .showin-button{ position:relative; }
 footer{
 	background: url("image/testbg/pa.png") center top no-repeat,
-	url("testbg/foot.png") center top no-repeat;
+	url("image/testbg/foot.png") center top no-repeat;
 	top:-70px;position:relative;
 		background-size: 100%;
 		width: 100%;
@@ -77,53 +133,14 @@ footer{
 	opacity: 1;
 	transform: scale(1.1, 1.1);
 	}
-	.n03, .n04{
-	max-width: 600px;
-		min-width:370px;
-		height: 600px;
-	}
-	.n03{
-	margin: 0px 0px 0 0;
-	position: relative;
-	top:100px;
-	left:60%;
-	background: url("image/registered/png/page1.png") top center no-repeat;
-	background-size: 100%;
 	
-	}
-	.n04{
-	position: relative;
-	top:-200px;
-	left:60%;
-	
-	background: url("image/registered/png/page2.png") top center no-repeat;
-	background-size: 100%;
-	color:black;
-	}
-	.formSpan03{
-	 position: relative;
-	 top:60px;
-	 left:60px;
-	 color:white;
-	 }
-	 
-	  .formSpan04{
-	 position: relative;
-	 top:30px;
-	 left:70px;
-	 
-	 }
-	.spanerror{
-	color: red;
-	font-size: 11px;
-	}
 </style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
 </script><script type="text/javascript">
-$(document).ready(init011);
+$(document).ready(init7);
 /*alert("test");*/
-function init011(){
+function init7(){
 	
 	$(".ch01").click(clickHandler1);
 	$(".ch02").click(clickHandler2);
@@ -194,6 +211,56 @@ function stoprattle(which)
   which.style.top =0;    
 }
 
+var file = undefined;
+var reader = undefined;
+$(document).ready(init21);
+function init21(){	
+	file = $("#fileInput")[0];
+	$("#fileInput").change(fileChangeHandler);
+	reader = new FileReader();
+	$(reader).on("load",loadendHandler);
+}
+
+
+
+function fileChangeHandler(){
+	
+	if( file.files.length > 0 ){
+		var selectedFile = file.files[0];
+		
+		reader.readAsDataURL(selectedFile);
+	}else{
+		$("#status").html("No file selected!");
+	}
+}
+
+function loadendHandler(){
+   	$("#preview").attr("src",reader.result);
+	$("#preview").fadeIn(500);
+}
+
+/*show buy*/ 
+function Show(which){
+	if(which=='change'){
+	 	if(document.getElementById("change").checked ==true){
+			document.getElementById("Schange").style.display = "block";
+			$('#WantChange').attr("required", "true");
+		}else{
+			document.getElementById("Schange").style.display = "none";
+			$('#WantChange').removeAttr("required");
+		} 
+	}
+	if(which=='buy'){
+	 	if(document.getElementById("buy").checked ==true){
+			document.getElementById("Sbuy").style.display = "block";
+			$('#BuyPrice').attr("required", "true");
+		}else{
+			document.getElementById("Sbuy").style.display = "none";
+			$('#BuyPrice').removeAttr("required");
+		} 
+	}
+
+}
 </script>
 
 </head>
@@ -239,32 +306,32 @@ function stoprattle(which)
 			</div>
 			</div>
 		</nav>
-		<nav class="n02"><form autocomplete="off" method="post" action="mywork.do">
-     		<nav class="n03"><br>
-        	<span class="formSpan03">
-      	<span style="color:red">*</span>
-  		<label for="id">帳號:<%;out.print("A123456789");%></label>
-  		<br><br>
-  		<span style="color:red">*</span>
-  		<label for="name">暱稱:<%;out.print("吳大頭");%></label>
-  		<br><br>
-  		<span style="color:red">*</span>
-  		<label for="password">密碼:</label>
-  		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
-  		<span style="color:red">*</span>
-  		<label for="password">確認:</label>
-  		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="確認密碼/password"><br><br>
-  		<span style="color:red">*</span>
-  		<label for="email">信箱:</label>
-  		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="<%;out.print("test@gmail.com");%>"><br><br>
-  		</span>
-  		
-        </nav>
-        <nav class="n04"><br>
-        <span class="formSpan04">
-        <span style="color:red"></span>
-        <label for="mySelect">*地區:</label>
-       	<select name="address" id="address" class="address" onchange="changeCity(this)">  
+		<nav class="n02"><form autocomplete="off" method="post" action="Product.do">
+     			<article class="article-1"><br>
+        			<span class="formSpan1">
+        			<span style="color:red">*</span>
+        			<label for="mySelect">物品分類:</label>
+       				<select id="mySelect" required name="host">
+        				<optgroup label="主機平台" >
+	   						<option value="Switch">Switch</option>
+	  						<option value="PS4">PS4</option>
+  						</optgroup>
+   					</select>
+   					<input class="add-attr" type="checkbox" name="buy" id="buy" value="yes" onchange="Show('buy')">買賣
+   					
+					<input class="add-attr" type="checkbox" name="change" id="change" value="yes" onchange="Show('change')" checked="checked">交換
+					<hr><br><br><br>
+					<span style="color:red">*</span>
+        			<input type="text" id="name" name="name" autofocus required placeholder="遊戲名稱"><br><br>
+        			<label for="comment1"></label><br>
+       				<textarea id="comment1" name="comment1" placeholder="商品敘述 最多100個字" maxlength="100"style="width: 300px;height: 200px;"></textarea><br>
+     				<span style="color:red">*</span>
+     				<label for="fileInput">遊戲圖片上傳</label><br>
+     				<input type="file" id="fileInput" value="" name="img" accept="image/png,image/jpeg" required>
+     				<div id="status"></div>
+    				<img id="preview" alt=""><br>
+    				<label for="origin">物品所在地</label>
+    				<select name="origin" id="origin" class="origin" onchange="changeCity(this)">  
     				<option value="">請選擇</option>
     				<option value="基隆市">基隆市</option>
     				<option value="臺北市">臺北市</option>
@@ -288,24 +355,19 @@ function stoprattle(which)
     				<option value="金門縣">金門縣</option>
     				<option value="連江縣">連江縣</option>
     				<option value="澎湖縣">澎湖縣</option>
-    	</select>/地區:<%;out.print("北投");%><br><br>
-  				<span style="color:red">*</span>
-        		<label for="birthday">生日:<%;out.print("1999-04-01");%></label>
-  				<br><br>
-  				<label for="phone">*電話: </label>
-  				<input type="tel" id="phone" name="phone"style="width: 100px;"placeHolder="<%;out.print("0987654321");%>"><br><br>
-  				 <span style="color:red">*</span>
-  				 <label class for="gender1">性別:<%;out.print("男");%></label>
-  				 <br><br>
-  				<input type="submit" id="submit01" value="確認修改" ><label for="submit01" class="myDiv1"></label>
-  				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
-     			<%out.print(errors!=null?errors:"");%></span>
-			
-				
-        </nav>
-     </form><br>	</nav>
+    				</select><br>
+    				
+    				<div id="Sbuy" style="display: none;">
+					<div class="ap_item_title f14"><span style="color:red">*</span>直購資料（願意買賣才需要填寫）</div>
+		  			<input id="BuyPrice" type="text" name="BuyPrice" size="16" class="ap_w150_h30 f12 corner_textbox" value="" placeholder="直購價格">（價格若無特別說明直購價包含運費）
+  					</div>
+  					<div id="Schange" ><br>想交換物品<br><textarea  required="required" name="WantChange" id="WantChange" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多100個字" maxlength="100"></textarea><br></div>
+  				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
+  				</span>
+  				</article>
+  				</form></nav>
 	</nav>
-   	<footer style="top: 450px;">footer</footer>
+   	<footer style="top: -300px;">footer</footer>
     </div>
     </div>
 </body>

@@ -174,8 +174,15 @@
 					<li><a href=#>Products</a></li>
 					<li><a href=#>Service</a></li>
 					
-				</ul><li class="li-01"><%Customer member=(Customer)session.getAttribute("member");
- 					%><%= member!=null?member.getName():""%> 你好</li>
+				</ul><li class="li-01">
+					
+					<%Customer member=(Customer)session.getAttribute("member");%>
+ 					<%= member!=null?member.getName():""%><% if(member == null){ %>
+ 					 <%}else{ %>
+ 					 <a href="<%=request.getContextPath() %>/member/logout.do">登出</a>
+ 					 <% } %>
+ 					 </li>
+ 					
 	    	</header>
 	    	<div class="taible">taible</div>
 			<div id="main">
@@ -203,7 +210,7 @@
    					 	</div>
 					</nav><br>					
 					<nav id="nav-1">
-						<a href="mywork.jsp"><img id="mywork" src="image/psd/myWork.png" title="我的管理"></a>
+						<a href="member/mywork.jsp"><img id="mywork" src="image/psd/myWork.png" title="我的管理"></a>
 						<img id="masage" src="image/psd/masage.png" title="悄悄話">
 						<a href="buy.jsp"><img id="buy" src="image/psd/buy.png" title="買賣"></a>
 						<a href="pand.jsp"><img id="pand" src="image/psd/pand.png" title="許願池"></a>
@@ -254,7 +261,8 @@
 					<aside id="aside-1">
 					</aside><br>
 					<aside id="aside-2">aside-2 會員登入區<br>
-						<form class="formC" ng-class="myVar" autocomplete="off" method="post" action="login.do"style="height: 399px;">
+					<% if(member == null){ %>	
+					<form class="formC" ng-class="myVar" autocomplete="off" method="post" action="login.do"style="height: 399px;">
 						<span class="formSpan"> 
 								  <label for="name"></label>
                                   <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號"><br>
@@ -263,13 +271,15 @@
                                   <input type="text" id="captcha" name="captcha" required placeHolder="請輸入驗證碼"><br> 
                                   <img class="t01" id="captchaImg" src="images/captcha.jpg" onclick="refreshCaptcha()"><br>
                                   
-								</span><input type="submit" value="會員登入" class="customer" id="customer" ng-click="myVar='my-class'">
+								</span><input type="submit" value="會員登入" class="customer" id="customer" >
                                   <li class="coust-1">還不是會員?<a href="register.jsp" id="">加入會員</a>/<a href="#" id="" class="coust-2" >忘記密碼</a>
 									<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
      									<%out.print(errors!=null?errors:"");%></span>
 										</li>
-	        				
 	        			</form>	
+	        			 <%}else{ %>
+ 					 <a href="<%=request.getContextPath() %>/member/logout.do">登出</a>
+ 					 <% } %>
 					</aside>
 				</aside>
 			</div>
