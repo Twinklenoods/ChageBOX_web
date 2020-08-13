@@ -38,8 +38,8 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServletContext context=this.getServletContext();
-		//System.out.println(context.getRealPath("/"));
+		//ServletContext context=this.getServletContext();
+		//System.out.println(context.getRealPath("/"));//看位子
 		
 		List<String> errors=new ArrayList<>();//import java util
 		
