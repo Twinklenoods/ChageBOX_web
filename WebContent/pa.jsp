@@ -1,3 +1,4 @@
+<%@page import="uuu.vgb.entity.Customer"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +10,7 @@
 <style>
 	.header2{
 		display:none;
-		background: url("psd/bg03.png") center top no-repeat;
+		background: url("image/psd/bg03.png") center top no-repeat;
 		position: fixed;
 		background-size: 100% 100%;
 		width: 100%;
@@ -93,18 +94,35 @@
    			<i class="gototop"></i></a>	
 	    <header style="min-width: 1000px;">  
 		    <ul>
-				<li><a href="/CB">Home</a></li>
-				<li><a href=#>Products</a></li>
-				<li><a href=#>Service</a></li>
-				<li id="lastLi"><a href=#>Support</a></li>
-			</ul>
+					<li><a href="/CB">Home</a></li>
+					<li><a href=#>Products</a></li>
+					<li><a href=#>Service</a></li>
+					
+				</ul><li class="li-01">
+					
+					<%Customer member=(Customer)session.getAttribute("member");%>
+ 					<%= member!=null?member.getName():""%>
+ 					<% if(member == null){ %><a href="<%=request.getContextPath() %>">會員登入</a>
+ 					 <%}else{ %>
+ 					 <a href="<%=request.getContextPath() %>/logout.do">登出</a>
+ 					 <% } %>
+ 					 </li>
 		</header>
 	  	<div class="header2"> <ul>
-				<li><a href="/CB">Home</a></li>
-				<li><a href=#>Products</a></li>
-				<li><a href=#>Service</a></li>
-				<li id="lastLi"><a href=#>Support</a></li>
-			</ul></div>
+				<ul>
+					<li><a href="/CB">Home</a></li>
+					<li><a href=#>Products</a></li>
+					<li><a href=#>Service</a></li>
+					
+				</ul><li class="li-01">
+					
+					<%member=(Customer)session.getAttribute("member");%>
+ 					<%= member!=null?member.getName():""%>
+ 					<% if(member == null){ %><a href="<%=request.getContextPath() %>">會員登入</a>
+ 					 <%}else{ %>
+ 					 <a href="<%=request.getContextPath() %>/logout.do">登出</a>
+ 					 <% } %>
+ 					 </li></div>
 	    <div id="main">
 	       	<nav class="nav-01" style="max-width: 450px;">nav</nav>
 	        <article class="article-02">

@@ -1,4 +1,8 @@
 
+<%@page import="uuu.vgb.entity.Customer"%>
+<%@page import="java.lang.reflect.Member"%>
+
+<%@page import="java.util.Date"%>
 <%@page import="java.util.Enumeration"%>
 <%@ page   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -69,10 +73,15 @@ margin: 10px;
 		</table>		
 	</div>
 	
+	<h2>session隱含變數</h2><br><hr><br>
+	session.id:<%=session.getId() %><br>
+	session.isNew:<%=session.isNew() %><br>
+	session.getCreationTime:<%=new Date(session.getCreationTime()) %><br>
+	session.get:<%=new Date(session.getLastAccessedTime()) %><br>
+	session time: out<%=new Date(session.getMaxInactiveInterval()) %><br>
 	
-	
-	
-	
-	
+ 					
+ 				
+ 					 
 </body>
 </html>

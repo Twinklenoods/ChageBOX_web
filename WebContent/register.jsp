@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDate"%>
 <%@page import="uuu.vgb.entity.Customer"%>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
@@ -384,7 +385,7 @@
     	</select><br><br>
   				<span style="color:red">*</span>
         		<label for="birthday">生日:</label>
-  				<input type="date" id="birthday" name="birthday" required><br><br>
+  				<input type="date" id="birthday" name="birthday" required max="<%=LocalDate.now().plusYears(-20) %>"><br><br>
   				<label for="phone">*電話: </label>
   				<input type="tel" id="phone" name="phone"><br><br>
   				 <span style="color:red">*</span>

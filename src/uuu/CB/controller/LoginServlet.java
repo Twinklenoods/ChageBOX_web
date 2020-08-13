@@ -71,10 +71,12 @@ public class LoginServlet extends HttpServlet {
 			try {
 				Customer c= service.login(id,pwd);
 				//3.1顯示(第9章)登入成功畫面
-				
+				//session.setMaxInactiveInterval(30);//閒置(30秒)後登出
 				//HttpSession session=request.getSession();
 				session.setAttribute("member", c);
+				
 				//作法1:內部轉交forward(在此處不恰當)
+				
 				//RequestDispatcher dispatcher = 
 				//request.getRequestDispatcher("/");
 				//dispatcher.forward(request,response);
