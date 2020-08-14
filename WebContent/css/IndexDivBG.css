@@ -130,9 +130,12 @@
     margin:60px 0px 0 30px;
     font-size: 20px;
     text-align: center;
-    line-height: 120px;
+    line-height: 0px;
 	height:400px;
 		
+	}
+	.formC{
+	line-height: 120px;
 	}
 	
 	#aside-1{
@@ -256,6 +259,8 @@ a.tab{
 	top:50px;
 	left:50px;
 	border:2px solid rgb(195,0,0);
+	
+	
 }
 
 
@@ -318,7 +323,9 @@ header li {
 	float: left;
 	padding: 5px 10px;
 	border-left: 1px solid white;
-	
+	font-family:Bradley Hand ITC;
+	font-size: 22px;
+	font-weight:bold;
 }
 
 .header2 ul {

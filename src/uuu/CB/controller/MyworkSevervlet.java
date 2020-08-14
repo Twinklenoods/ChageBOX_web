@@ -21,7 +21,7 @@ import uuu.vgb.service.CustomerService;
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet("/mywork.do")//http://localhost8080/CB/register.do
+@WebServlet("/member/mywork.do")//http://localhost8080/CB/register.do
 public class MyworkSevervlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -69,9 +69,11 @@ public class MyworkSevervlet extends HttpServlet {
 		
 		//2.若無誤，呼叫商業邏輯
 		if(errors.isEmpty()) {
-			Customer c = new Customer();
+			CustomerService service =new CustomerService();
 			try {
-				c.setId(id);
+				Customer c = service.login(id,p1);
+		
+				
 				c.setName(name);
 				c.setBirthday(birthday);
 				c.setEmail(email);
@@ -81,24 +83,24 @@ public class MyworkSevervlet extends HttpServlet {
 				c.setPhone(phone);
 				
 				
-				CustomerService service = new CustomerService();
-				service.register(c);
+				
+				service.update(c);
 				
 				//3.1forward (內部轉交)to註冊成功畫面
 				request.setAttribute("customer", c);
 				RequestDispatcher dispatcher = 
-						request.getRequestDispatcher("register_ok.jsp");
+						request.getRequestDispatcher("mywork.jsp");
 				
 			dispatcher.forward(request,response);
 			return;
 			}catch(DataInvalidException e) {
-				errors.add("註冊失敗"+e.getMessage());
-				this.log("註冊發生錯誤",e);//開發者
+				errors.add("修改失敗"+e.getMessage());
+				this.log("修改發生錯誤",e);//開發者
 			}catch(VGBException e) {
-				errors.add("註冊失敗"+e.getMessage());//user
-				this.log("註冊發生錯誤",e);//開發者
+				errors.add("修改失敗"+e.getMessage());//user
+				this.log("修改發生錯誤",e);//開發者
 			}catch(Exception e) {
-				errors.add("註冊發生錯誤"+e.getMessage());//user
+				errors.add("修改發生錯誤"+e.getMessage());//user
 				this.log("會員發生非預期錯誤",e);
 			}
 		

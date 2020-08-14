@@ -195,19 +195,39 @@ function stoprattle(which)
   which.style.top =0;    
 }
 
-<%if("post".equalsIgnoreCase(request.getMethod())){ %>
-$(fieldRepopulate);
-
-function fieldRepopulate(){
-	//alert('fieldRepopulate');
-	$("#id").val('<%=request.getParameter("id")%>')
-	$("#name").val('<%=request.getParameter("name")%>')
-	$("#email").val('<%=request.getParameter("email")%>')
-	$("#birthday").val('<%=request.getParameter("birthday")%>')
-	
-	$('#<%=request.getParameter("gender")%>').prop("checked", true);
-}
-<% }%>
+<%  Customer member = (Customer)session.getAttribute("member");			
+	//Customer c= member.getClass().newInstance();			
+if("POST".equalsIgnoreCase(request.getMethod())) { %>
+				$(fieldRepopulate); //$() 等同與$(document).ready(...)
+				function fieldRepopulate(){					
+					//alert('fieldRepopulate');
+					$("#id").val('<%= request.getParameter("id")%>');
+					$("#name1").val('<%= request.getParameter("name")%>');
+					$("#email").val('<%= request.getParameter("email")%>');
+					$("#birthday").val('<%= request.getParameter("birthday")%>');
+					$("#phone").val('<%= request.getParameter("phone")%>');
+					$("#address").val('<%= request.getParameter("address")%>'); 
+					
+					$("#<%= request.getParameter("gender")%>").prop("checked", true);  //radio
+					
+				
+				}
+			<%}else if("GET".equalsIgnoreCase(request.getMethod()) && member!=null){				%>
+				$(fieldRepopulate); //$() 等同與$(document).ready(...)
+				function fieldRepopulate(){					
+					//alert('fieldRepopulate');
+					$("#id").val('<%= member.getId() %>');
+					$("#name1").val('<%= member.getName()%>');
+					$("#email").val('<%= member.getEmail()%>');
+					$("#birthday").val('<%= member.getBirthday()%>');
+					$("#phone").val('<%= member.getPhone()%>');
+					$("#address").val('<%= member.getAddress()%>');  
+					
+					$("#<%= member.getGender()%>").prop("checked", true);  //radio
+					
+					
+				}
+			<%}%>
 
 
 </script>
@@ -224,7 +244,7 @@ function fieldRepopulate(){
 					
 				</ul><li class="li-01">
 					
-					<%Customer member=(Customer)session.getAttribute("member");%>
+					<%member=(Customer)session.getAttribute("member");%>
  					<%= member!=null?member.getName():""%>
  					<% if(member == null){ %><a href="<%=request.getContextPath() %>">會員登入</a>
  					 <%}else{ %>
@@ -265,15 +285,15 @@ function fieldRepopulate(){
 			</div>
 		</nav>
 		<nav class="n02">
-		<form autocomplete="off" method="post" action="/member/mywork.do">
+		<form autocomplete="off" method="post" action="mywork.do">
      		<nav class="n03"><br>
         	<span class="formSpan03">
       	<span style="color:red">*</span>
   		<label for="id">帳號:</label>
-  		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" required ><br><br>
+  		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" readonly ><br><br>
   		<span style="color:red">*</span>
   		<label for="name">暱稱:</label>
-  		<input type="text" id="name1" name="name" autofocus  required placeHolder="姓名/NAME"><br><br>
+  		<input type="text" id="name1" name="name" autofocus  required placeHolder="暱稱/NAME"><br><br>
   		<span style="color:red">*</span>
   		<label for="password">密碼:</label>
   		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
@@ -317,14 +337,14 @@ function fieldRepopulate(){
     	</select><br><br>
   				<span style="color:red">*</span>
         		<label for="birthday">生日:</label>
-  				<input type="date" id="birthday" name="birthday" required max="<%=LocalDate.now().plusYears(-20) %>"><br><br>
+  				<input type="date" id="birthday" name="birthday" readonly max="<%=LocalDate.now().plusYears(-20) %>"><br><br>
   				<label for="phone">*電話: </label>
   				<input type="tel" id="phone" name="phone"style="width: 100px;"><br><br>
   				 <span style="color:red">*</span>
   				  <label for="gender1">性別:</label>
-  				 <input type="radio" id="M" name="gender" value=<%=Customer.MALE %> required>
+  				 <input type="radio" id="M" name="gender" value=<%=Customer.MALE %> >
 				 <label for="gender1">男</label>
-				 <input type="radio" id="F" name="gender" value=<%=Customer.FEMALE %> required>
+				 <input type="radio" id="F" name="gender" value=<%=Customer.FEMALE %> >
 				 <label for="gender2">女</label>
 				 <br><br>
   				

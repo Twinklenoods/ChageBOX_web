@@ -11,7 +11,13 @@
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
 <LINK href="css/ad01.css" rel="stylesheet" type="text/css">
 <style>
-
+#aside-2{
+		
+		background-image:url("image/yellow/stamp2.png");
+		background-repeat: no-repeat;
+		background-position: left;
+		
+		}
 	@media screen and (max-width: 1200px){
 		#article-2 a{
 				margin:-14px 10px 10px 10px;
@@ -113,7 +119,7 @@
 
 	#article-2 li {
 		float: left;
-		padding: 5px 10px;
+		padding: 0px 10px;
 		
 	}
 	.class2{
@@ -179,19 +185,19 @@
    					<i class="gototop"></i></a>	
 	    	<header>
 	    		<ul>
-					<li><a href="/CB">Home</a></li>
+					<p><li><a href="/CB">Home</a></li>
 					<li><a href=#>Products</a></li>
-					<li><a href=#>Service</a></li>
-					
-				</ul><li class="li-01">
-					
-					<%Customer member=(Customer)session.getAttribute("member");%>
+					<li class="li-01"><%Customer member=(Customer)session.getAttribute("member");%>
  					<%= member!=null?member.getName():""%>
- 					<% if(member == null){ %><a href="<%=request.getContextPath() %>">會員登入</a>
+ 					<% if(member == null){ %><a href="<%=request.getContextPath() %>">Login</a>
  					 <%}else{ %>
- 					 <a href="<%=request.getContextPath() %>/logout.do">登出</a>
- 					 <% } %>
- 					 </li>
+ 					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
+ 					 <% } %> </li></p>
+					
+				</ul>
+					
+					
+ 					
  					
 	    	</header>
 	    	<div class="taible">taible</div>
@@ -270,9 +276,9 @@
 				<aside>
 					<aside id="aside-1">
 					</aside><br>
-					<aside id="aside-2">會員登入區<br>
+					<aside id="aside-2"><div><img src="image/yellow/member.png" style="height:75px; width: 360px;vertical-align:top;float: inherit;"></div>
 					<% if(member == null){ %>	
-					<form class="formC" ng-class="myVar" autocomplete="off" method="post" action="login.do"style="height: 399px;">
+					<form class="formC" ng-class="myVar" autocomplete="off" method="post" action="login.do"style="height: 399px;margin-top: 15px;">
 						<span class="formSpan"> 
 								  <label for="name"></label>
                                   <input type="text" id="name" name="id" autofocus required placeHolder="ID/帳號"
@@ -308,7 +314,7 @@
 										</li>
 	        			</form>	
 	        			 <%}else{ %>
- 					 <a href="<%=request.getContextPath() %>/logout.do">登出</a>
+ 					 <a href="<%=request.getContextPath() %>/logout.do"><img src="image/yellow/logout.png" style=" width: 360px;"></a>
  					 <% } %>
 					</aside>
 				</aside>
