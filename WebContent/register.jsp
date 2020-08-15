@@ -394,7 +394,7 @@
 				 <label for="gender1">男</label>
 				 <input type="radio" id="F" name="gender" value=<%=Customer.FEMALE %> required>
 				 <label for="gender2">女</label><br><br>
-  				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
+  				<input type="submit" id="submit01" onclick="return(confirm('確認是否送出?'))"><label for="submit01" class="myDiv1"></label>
   				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
      			<%out.print(errors!=null?errors:"");%></span>
 				</span>

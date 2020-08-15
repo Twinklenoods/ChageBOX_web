@@ -362,7 +362,7 @@ function Show(which){
 		  			<input id="BuyPrice" type="text" name="BuyPrice" size="16" class="ap_w150_h30 f12 corner_textbox" value="" placeholder="直購價格">（價格若無特別說明直購價包含運費）
   					</div>
   					<div id="Schange" ><br>想交換物品<br><textarea  required="required" name="WantChange" id="WantChange" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多100個字" maxlength="100"></textarea><br></div>
-  				<input type="submit" id="submit01" ><label for="submit01" class="myDiv1"></label>
+  				<input type="submit" id="submit01" onclick="return(confirm('確認是否送出?'))"><label for="submit01" class="myDiv1"></label>
   				</span>
   				</article>
   				</form></nav>
