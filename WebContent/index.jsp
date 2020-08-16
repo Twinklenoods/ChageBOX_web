@@ -144,6 +144,7 @@
 			<script type="text/javascript" src="js/IndexJs.js">
 			</script><script type="text/javascript">
 			$(document).ready(init4);
+			$(document).ready(init011);
 		function refreshCaptcha(){
 		var captchaImg= document.getElementById("captchaImg");
 		captchaImg.src ="images/captcha.jpg?refresh="+new Date();
@@ -152,7 +153,7 @@
 		
 		function init4()
 		{
-			
+			$(".showin-button").click(inHandler);
 			$("#password").mousedown(downHandler2);
 			$("#password").mouseup(upHandler2);
 		}
@@ -175,7 +176,77 @@
 			
 		}
 		<% }%>
-		
+		/**/
+		function init011(){
+	
+	$(".ch01").click(clickHandler1);
+	$(".ch02").click(clickHandler2);
+	$(".showin-button").click(inHandler);
+	
+}
+
+
+function clickHandler1(){
+	$(".table01").stop().slideToggle( 500 );
+
+	}
+function clickHandler2(){
+	$(".table02").stop().slideToggle( 500 );
+	}
+function inHandler() {
+	var op = $('.block').css('left');
+
+    if (op == '-550px')
+    	$(".block").animate({left:"0px"},500);
+
+    else if(op == '0px')
+    	$(".block").animate({left:"-550px"},500);        
+
+}
+
+var rector =3;
+var stopit = 0;
+var a=1;
+var zhend;
+function init2(which)
+{
+  stopit =0;
+  zhend = which;
+  zhend.style.left =0;
+  zhend.style.top =0;
+}
+function rattleimage()
+{
+  if(stopit==1)
+  {
+    return;
+  }  
+  if(a==1)
+  {
+    zhend.style.top = parseInt(zhend.style.top)+rector+"px";
+  }
+  else if(a==2)
+  {
+    zhend.style.left = parseInt(zhend.style.left)+rector+"px";
+  }
+  else if(a==3)
+  {
+    zhend.style.top = parseInt(zhend.style.top)-rector+"px";
+  }
+  else 
+  {
+    zhend.style.left = parseInt(zhend.style.left)-rector+"px";
+  }
+  if(a<4)a++;  else a =1;
+  setTimeout("rattleimage()",500);
+}
+
+function stoprattle(which)
+{
+  stopit = 1;
+  which.style.left =0;  
+  which.style.top =0;    
+}
 		</script>
 			
 	</head>
@@ -314,7 +385,8 @@
 										</li>
 	        			</form>	
 	        			 <%}else{ %>
- 					 <a href="<%=request.getContextPath() %>/logout.do"><img src="image/yellow/logout.png" style=" width: 360px;"></a>
+ 					 <a href="<%=request.getContextPath() %>/logout.do"><img src="image/yellow/logout.png" style="position: relative; width: 360px;"class="showin-button" onmousemove="init2(this);rattleimage();"
+			onmouseout="stoprattle(this);"></a>
  					 <% } %>
 					</aside>
 				</aside>
