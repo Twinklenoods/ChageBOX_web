@@ -1,3 +1,4 @@
+<%@page import="uuu.vgb.entity.Customer" %>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -133,7 +134,9 @@ footer{
 	opacity: 1;
 	transform: scale(1.1, 1.1);
 	}
-	
+	#owner{
+	display:NONE
+	}
 </style>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js">
@@ -362,8 +365,14 @@ function Show(which){
 		  			<input id="BuyPrice" type="text" name="BuyPrice" size="16" class="ap_w150_h30 f12 corner_textbox" value="" placeholder="直購價格">（價格若無特別說明直購價包含運費）
   					</div>
   					<div id="Schange" ><br>想交換物品<br><textarea  required="required" name="WantChange" id="WantChange" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多100個字" maxlength="100"></textarea><br></div>
+  					
+  					<input id="owner" type="text" name="owner" value="<%Customer member=(Customer)session.getAttribute("member");%><%= member!=null?member.getId():""%>">
   				<input type="submit" id="submit01" onclick="return(confirm('確認是否送出?'))"><label for="submit01" class="myDiv1"></label>
   				</span>
+  				
+  				
+ 				
+  				
   				</article>
   				</form></nav>
 	</nav>
