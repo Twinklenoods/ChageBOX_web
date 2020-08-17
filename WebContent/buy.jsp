@@ -1,3 +1,8 @@
+<%@page import="javafx.scene.control.ListCellBuilder"%>
+<%@page import="uuu.vgb.entity.Product"%>
+<%@page import="uuu.vgb.entity.Customer"%>
+<%@page import="java.util.List"%>
+<%@page import="uuu.vgb.service.ProductSelectService"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -75,26 +80,36 @@ top:0px;
 					<li id="lastLi"><a href=#>Support</a></li>
 				</ul>
 	    	</header>
-	    	<nav>
-	    	<nav class="nav001"><img src="image/NewPa/top02.jpg"/><br>價錢</nav>
-	    	<nav class="nav001"><img src="image/NewPa/top01.jpg"/></nav>
-	    	<nav class="nav001"><img src="image/NewPa/top03.jpg"/></nav>
-	    	<nav class="nav001"><img src="image/NewPa/top04.jpg"/></nav>
-	    	<nav class="nav001"><img src="image/NewPa/top05.jpg"/></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav>
+	    	<%
+	    		ProductSelectService service =new ProductSelectService();
+	    		List<Product> list =service.getAllProducts();
+	    	%>
+	    	<% if(list!=null && list.size()>0) {%>
 	    	
+	    	<nav>
+	    	<% for(int i=0;i<list.size();i++) {
+	    		Product p = list.get(i);
+	    	%>
+	    	
+	    	<nav class="nav001" id='<%= p.getId()%>'>
+	    	
+	    	   	<a href="buyIN.jsp?buyINId=<%= p.getId() %>">
+	    	 	<h3>名稱:<%=p.getName()%></h3></a><br>
+	    	 	<p>價錢:<%=p.getUnitPrice()%></p>
+	    		<p>平台:<%=p.getHost()%></p>
+	    		<p><%=p.getOrigin() %></p>
+	    		<p><%=p.getOwnerN() %>
+	    		<p><img src="<%=p.getPhotoUrl() %>"></p>
+	    	
+	    	
+	    	</nav>
+	    	<%} %>
+	    	
+	    	
+	    	
+	    	<%}else{ %>
+	    	<p>查無產品</p>
+	    	<% }%>
 	    	
 	    	
 	    	

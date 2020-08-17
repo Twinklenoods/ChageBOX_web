@@ -43,7 +43,7 @@ public class ProductServlet extends HttpServlet {
 		
 		String host=request.getParameter("host");
 		String buy=request.getParameter("buy");
-		String change=request.getParameter("change");
+		String changebox=request.getParameter("change");
 		String name=request.getParameter("name");
 		String description=request.getParameter("comment1");
 		String photoUrl=request.getParameter("img");
@@ -51,7 +51,7 @@ public class ProductServlet extends HttpServlet {
 		double unitPrice=Double.parseDouble(request.getParameter("BuyPrice")+0);
 		String wantChange=request.getParameter("WantChange");
 		String owner=request.getParameter("owner");
-			
+		String ownerN=request.getParameter("ownerN");	
 		
 		
 		
@@ -63,7 +63,7 @@ public class ProductServlet extends HttpServlet {
 			try {
 				c.setHost(host);
 				c.setBuy(buy);
-				c.setChange(change);
+				c.setChangebox(changebox);
 				c.setName(name);
 				c.setDescription(description);
 				c.setPhotoUrl(photoUrl);
@@ -71,7 +71,7 @@ public class ProductServlet extends HttpServlet {
 				c.setUnitPrice(unitPrice);
 				c.setWantChange(wantChange);
 				c.setOwner(owner);
-				
+				c.setOwnerN(ownerN);
 				ProductService service = new ProductService();
 				service.register(c);
 				

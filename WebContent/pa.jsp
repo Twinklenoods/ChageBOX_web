@@ -92,13 +92,11 @@
     <div class="divBG" style="height: 4000px;">
  		<a href="#" id="gotop" title="Go To Top" data-tracking="nav,jump,top">
    			<i class="gototop"></i></a>	
-	    <header style="min-width: 1000px;">  
+	    <header style="MIN-width: 460PX";>  
 		    <ul>
 					<li><a href="/CB">Home</a></li>
 					<li><a href=#>Products</a></li>
-					<li><a href=#>Service</a></li>
-					
-				</ul><li class="li-01">
+				</ul><li class="li-01" >
 					
 					<%Customer member=(Customer)session.getAttribute("member");%>
  					<%= member!=null?member.getName():""%>
@@ -112,8 +110,6 @@
 				<ul>
 					<li><a href="/CB">Home</a></li>
 					<li><a href=#>Products</a></li>
-					<li><a href=#>Service</a></li>
-					
 				</ul><li class="li-01">
 					
 					<%member=(Customer)session.getAttribute("member");%>

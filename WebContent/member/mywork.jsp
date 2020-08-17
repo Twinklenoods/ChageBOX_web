@@ -11,7 +11,14 @@
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
   <style>
 
-
+header li {
+	float: left;
+	padding: 5px 10px;
+	border-left: 1px solid white;
+	font-family:Bradley Hand ITC;
+	font-size: 22px;
+	font-weight:bold;
+}
 
 .divBG{
 min-width: 600px;
@@ -237,21 +244,9 @@ if("POST".equalsIgnoreCase(request.getMethod())) { %>
 <body><div id="main">
 <div class="divBG">
  
-<header>	<ul>
-					<li><a href="/CB">Home</a></li>
-					<li><a href=#>Products</a></li>
-					<li><a href=#>Service</a></li>
-					
-				</ul><li class="li-01">
-					
-					<%member=(Customer)session.getAttribute("member");%>
- 					<%= member!=null?member.getName():""%>
- 					<% if(member == null){ %><a href="<%=request.getContextPath() %>">會員登入</a>
- 					 <%}else{ %>
- 					 <a href="<%=request.getContextPath() %>/logout.do">登出</a>
- 					 <% } %>
- 					 </li>
-			</header>
+
+<jsp:include page="/member/subviews/header.jsp" />
+
 <nav >
     	
 		<nav class="n01">

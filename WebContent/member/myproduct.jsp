@@ -11,7 +11,14 @@
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
   <style>
 
-
+header li {
+	float: left;
+	padding: 5px 10px;
+	border-left: 1px solid white;
+	font-family:Bradley Hand ITC;
+	font-size: 22px;
+	font-weight:bold;
+}
 
 .divBG{
 min-width: 1200px;
@@ -333,12 +340,7 @@ $(function() {
 <body><div id="main">
 <div class="divBG">
  
-<header>	<ul>
-				<li><a href="/CB">Home</a></li>
-				<li><a href=#>Products</a></li>
-				<li><a href=#>Service</a></li>
-				<li id="lastLi"><a href=#>Support</a></li>
-			</ul></header>
+<jsp:include page="/member/subviews/header.jsp" />
 <nav >
     	
 		<nav class="n01">
