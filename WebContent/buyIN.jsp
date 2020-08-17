@@ -15,28 +15,28 @@
 </head>
 <body>
 	<%
-			String buyIN = request.getParameter("productId");
-			Product p = null;
-			if(buyIN!=null){
+			String productId = request.getParameter("buyINId");
+			Product product = null;
+			if(productId!=null){
 				ProductSelectService service = new ProductSelectService();
-				p = service.getProduct(buyIN);
+				product = service.getProduct(productId);
 			}
 		%>	
 	    	
 	<jsp:include page="/member/subviews/header.jsp" />
 			<article style="padding: 400px;">
-			<% if(p!=null) {%>
+			<% if(product!=null) {%>
 			<div>
 				<div class='imgDiv'>
-				<img src='<%= p.getPhotoUrl() %>'>
+				<img src='<%= product.getPhotoUrl() %>'>
 				</div>
 				<div class='dataDiv'>
-					<h2><%= p.getName() %></h2>
+					<h2><%= product.getName() %></h2>
 					
 					
 					<div>
 						<form >
-							<input type='text' readonly name='buyIN' value='<%= p.getId() %>'>
+							<input type='text' readonly name='buyIN' value='<%= product.getId() %>'>
 							<label>數量:</label>
 							
 						</form>
@@ -44,11 +44,11 @@
 				</div>
 				<div style='clear:both'>
 					<hr>
-					<%= p.getDescription() %>
+					<%= product.getDescription() %>
 				</div>
 			</div>
 			<%}else{ %>
-			<p>查無此編號(#<%= buyIN %>)的產品</p>
+			<p>查無此編號(#<%= productId %>)的產品</p>
 			<% } %>
 		</article>
 </body>
