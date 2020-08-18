@@ -48,7 +48,7 @@ public class ProductServlet extends HttpServlet {
 		String description=request.getParameter("comment1");
 		String photoUrl=request.getParameter("img");
 		String origin=request.getParameter("origin");
-		double unitPrice=Double.parseDouble(request.getParameter("BuyPrice")+0);
+		double unitPrice=Double.parseDouble(request.getParameter("BuyPrice"));
 		String wantChange=request.getParameter("WantChange");
 		String owner=request.getParameter("owner");
 		String ownerN=request.getParameter("ownerN");	
