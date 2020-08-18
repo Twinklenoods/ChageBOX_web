@@ -1,5 +1,8 @@
-
+<%@page import="javafx.scene.control.ListCellBuilder"%>
+<%@page import="uuu.vgb.entity.Product"%>
+<%@page import="uuu.vgb.entity.Customer"%>
 <%@page import="java.util.List"%>
+<%@page import="uuu.vgb.service.ProductSelectService"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -249,7 +252,7 @@ a.tag_t:visited {
 
 .product_divlist {
 	width: 770px;
-	height: 160px;
+	height: 200px;
 	padding: 5px;
 	margin: 5px;
 	margin-bottom: 10px;
@@ -349,7 +352,7 @@ a.tag_t:visited {
 }
 
 .product_divlist_item {
-	width: 570px;
+	width: 670px;
 	height: 20px;
 	line-height: 20px;
 	color: #999999;
@@ -358,7 +361,7 @@ a.tag_t:visited {
 }
 
 .product_divlist_item .left {
-	width: 50%;
+	width: 60%;
 	display: inline-block;
 	text-align: left;
 }
@@ -479,15 +482,28 @@ a.tag_t:visited {
 
 <body>
 <body background="test-1.jpg" bgproperties=fixed>
-	<div
-		style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
+	
+	<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
 		<input type="button" value="未上架 (0)" class="adminbtn2"
 			onclick="location.href='index.jsp'"> <input type="button"
 			value="已上架 (0)" class="adminbtn2"
 			onclick="location.href='ListMemberProduct?p=y'"> <input
 			type="button" value="已成交 (0)" class="adminbtn2"
 			onclick="location.href='ListMemberProduct?m=y'">
-
+			<%Customer member=(Customer)session.getAttribute("member");%>
+			
+			<%
+	    		
+	    		ProductSelectService service =new ProductSelectService();
+	    		List<Product> list =service.getOwner(member!=null?member.getId():"");
+	    	%>
+	    	
+	    	<% if(list!=null && list.size()>0) {%>
+	
+			
+			<% for(int i=0;i<list.size();i++) {
+	    		Product p = list.get(i);
+	    	%>
 		<div id="prodlistid1" class="product_divlist">
 			<div class="product_imglist">
 				<img
@@ -497,15 +513,20 @@ a.tag_t:visited {
 			<div class="product_divlistright">
 				<div class="product_divlist_title f18">
 					<div class="left">
-						<span style="color: black;">213123</span>
+							
+							<span style="color: black;"><%=p.getName()%></span>
 					</div>
+					
+					
 					<div class="right f14">
-						<input type="button" value="上架" class="eventbtn"
-							onclick="product_updown_dmark(4249614,1,'prodlistid1');">&nbsp;<input
-							type="button" value="修改" class="eventbtn"
-							onclick="product_edit(4249614);">&nbsp;<input
-							type="button" value="刪除" class="eventbtn"
-							onclick="product_updown_dmark(4249614,3,'prodlistid1');">
+						
+						<input type="button" value="上架" class="eventbtn" onclick="">&nbsp;
+						<a href="downIn.jsp?downIn=<%= p.getId() %>">	
+						<input type="button" value="修改" class="eventbtn" onclick="product_edit(4249614);">&nbsp;
+						</a>
+						<input type="button" value="刪除" class="eventbtn" onclick="product_updown_dmark(4249614,3,'prodlistid1');">
+							
+							
 					</div>
 				</div>
 				<div class="product_divlist_item f14">
@@ -514,29 +535,39 @@ a.tag_t:visited {
 							href="/trade/Detail.php?pid=4249614" class="tag_t">買賣</a>
 					</div>
 				</div>
-				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;123123</div>
+				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;<%=p.getWantChange() %></div>
 				<div class="product_divlist_item f14">
-					<div class="left">所在地&nbsp;&#10217;&nbsp;新北市/汐止區</div>
-					<div class="right">
-						<img src="./images/oclock_icon.png" border=0 width=20
-							class="opacity_05" align=absmiddle>&nbsp;<span>20天5小時37分</span>
-					</div>
+					<div class="left">所在地&nbsp;&#10217;&nbsp;<%=p.getOrigin() %></div>
 				</div>
-				<div class="product_divlist_item f14">
-					<div class="left">外觀&nbsp;&#10217;&nbsp;1</div>
-					<div class="right f14">想交換數&nbsp;&#10217;&nbsp;0</div>
+				<%if(p.getUnitPrice()==0) {%>
+				<div class="product_divlist_item f14 left" style="display:none;">
+				
+				價錢:<%=p.getUnitPrice()%>
+				
 				</div>
-				<div class="product_divlist_item f14">
-					<div class="left">功能&nbsp;&#10217;&nbsp;2</div>
-					<div class="right f14">被需求數&nbsp;&#10217;&nbsp;0</div>
+				<%}else{ %>
+				<div class="product_divlist_item f14 left">
+				價錢:<%=p.getUnitPrice()%></div>
+				<%}%>
+				<div class="product_divlist_item f14 left">
+				上架時間
 				</div>
-				<div class="product_divlist_item f14">
-					<div class="left">物品價值&nbsp;&#10217;&nbsp;$2501~$3000</div>
-					<div class="right f14">問與答&nbsp;&#10217;&nbsp;0</div>
+				<div class="product_divlist_item f14 left">
+				<%=p.getOwnerN() %>
 				</div>
+				
 			</div>
 		</div>
+		
+		<%} %>
+	    	
+	    	
+	    	
+	    	<%}else{ %>
+	    	<p>查無產品</p>
+	    	<% }%>
+		
 	</div>
 </body>
 </html>
-c
+

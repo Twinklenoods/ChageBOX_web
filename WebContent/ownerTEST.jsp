@@ -84,7 +84,7 @@ top:0px;
 	    	<%
 	    		
 	    		ProductSelectService service =new ProductSelectService();
-	    		List<Product> list =service.getAllProducts();
+	    		List<Product> list =service.getOwner("A123456761");
 	    	%>
 	    	<% if(list!=null && list.size()>0) {%>
 	    	
@@ -95,18 +95,7 @@ top:0px;
 	    	
 	    	<nav class="nav001" id='<%= p.getId()%>'>
 	    	
-	    	<%
-	    	String search = request.getParameter("search");
-	    	 service= new ProductSelectService();
-	    	 list = null;
-	    	if(search!=null && search.length()>0){
-	    		list=service.searchProductsByName(search);
-	    		
-	    	}else{
-	    		list =service.getAllProducts();
-	    	}
 	    	
-	    	%>
 	    	
 	    	
 	    	

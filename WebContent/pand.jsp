@@ -58,7 +58,7 @@ top:0px;
 	 	<header>
 	 			<ul>
 					<li><a href="/CB">Home</a></li>
-					<li><a href=#>Products</a></li>
+					<li><a href=#>登入</a></li>
 					<li><a href=#>Service</a></li>
 					<li id="lastLi"><a href=#>Support</a></li>
 				</ul>

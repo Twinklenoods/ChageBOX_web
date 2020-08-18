@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+
+header li {
+	float: left;
+	padding: 5px 10px;
+	border-left: 1px solid white;
+	font-family:Bradley Hand ITC;
+	font-size: 22px;
+	font-weight:bold;
+}
+
+.divBG{
+min-width: 600px;
+}
+	@media screen and (max-width: 600px){}
+	@media screen and (min-width: 600px) and (max-width: 800px){}
+
+ .block {
+    background-color: #abc;
+    border: 2px solid black;
+    width: 150px;
+    height: 800px;
+    margin: 100px 0 0 30px ;
+    position:absolute;
+	left:-550px;
+	
+	
+  }
+  
+ .block  li {
+	float: inherit;
+	padding: 15px 10px 0 10px;
+	border-top: 1px solid white;
+	
+}
+.table01, .table02{
+	display: none;
+	background: white;
+	color:black;
+}
+.n01{
+
+width: 600px;
+display: flex;
+margin: 100px 0 0 0 ;
+}
+.n02{
+height:1500px;
+
+display: flex;
+}
+
+/*.formSpan1{
+	 position: relative;
+	 top:20%;
+	 left:50%;
+	 color:white;
+	 }*/
+	 .article{
+	
+	}
+	.article-1, .article-2{
+		position: static;
+		 text-align: left;
+		margin-left: 300px; 
+		margin-top: 15%;
+		}
+	 
+	
+	 #toggle{
+	display: none;
+	}	
+	@media screen and (max-width: 800px){
+	
+	
+
+	 
+	
+	.article{
+	
+	}
+	.article-1, .article-2{
+		position: static;
+		 text-align: left;
+		margin-left: 200px; 
+		margin-top: 15%;
+		}
+	.article-2{
+		
+		position:relative;
+	 	top:-200px;
+	 	left:-20px;
+		}
+	#toggle{
+	display: block;
+	position: relative;
+	top:310px;
+	left:455px;
+	}	
+		#main{
+			flex-direction: column;
+			
+		}
+		#main > aside {
+			display:none;
+		}
+		#main > nav {
+			display:none;
+		}
+		
+	}
+.showin-button{ position:relative; }
+footer{
+	background: url("image/testbg/pa.png") center top no-repeat,
+	url("image/testbg/foot.png") center top no-repeat;
+	top:-70px;position:relative;
+		background-size: 100%;
+		width: 100%;
+		height: 700px;
+	}
+	
+	.n01 img {
+	transform-origin: center bottom;
+	/*write code here*/
+	opacity: 1;
+	transition: transform 0.333s;
+	transition: all 0.333s;
+	transition: transform 0.333s, opacity 0.333s;
+	}
+	
+	.n01 img:hover{
+	opacity: 1;
+	transform: scale(1.1, 1.1);
+	}
+	.owner{
+	display:NONE
+	}

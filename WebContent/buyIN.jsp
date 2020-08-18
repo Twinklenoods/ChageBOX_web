@@ -31,21 +31,16 @@
 				<img src='<%= product.getPhotoUrl() %>'>
 				</div>
 				<div class='dataDiv'>
-					<h2><%= product.getName() %></h2>
-					
-					
-					<div>
-						<form >
-							<input type='text' readonly name='buyIN' value='<%= product.getId() %>'>
-							<label>數量:</label>
-							
-						</form>
-					</div>
-				</div>
-				<div style='clear:both'>
+					<h2>No.<%= product.getId() %><%= product.getName() %></h2>
+					<p>價格<%=product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
+					<form>
+					<input type="button" value="加入購物車">
+					</form>
+					</div>
 				</div>
+				
 			</div>
 			<%}else{ %>
 			<p>查無此編號(#<%= productId %>)的產品</p>

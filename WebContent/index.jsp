@@ -256,14 +256,20 @@ function stoprattle(which)
    					<i class="gototop"></i></a>	
 	    	<header>
 	    		<ul>
-					<p><li><a href="/CB">Home</a></li>
-					<li><a href=#>Products</a></li>
+					<li><a href="/CB">Home</a></li>
+					<li>
+					<form action="<%= request.getContextPath() %>/buy.jsp">
+					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
+					<input type="submit" value="查詢">
+					</form>
+					</li>
 					<li class="li-01"><%Customer member=(Customer)session.getAttribute("member");%>
  					<%= member!=null?member.getName():""%>
  					<% if(member == null){ %><a href="<%=request.getContextPath() %>">Login</a>
  					 <%}else{ %>
  					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
- 					 <% } %> </li></p>
+ 					 <% } %> </li>
+ 					 
 					
 				</ul>
 					
