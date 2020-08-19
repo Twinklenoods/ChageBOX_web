@@ -445,6 +445,8 @@ a.tag_t:visited {
 	vertical-align: top;
 	line-height: 28px;
 }
+
+.updown{display: none;}
 </style>
 
   
@@ -476,7 +478,19 @@ a.tag_t:visited {
     		}
     	
     }
-    </script>
+     	
+	    <% 	if("POST".equalsIgnoreCase(request.getMethod())) { %>
+	$(fieldRepopulate); //$() 等同與$(document).ready(...)
+	function fieldRepopulate(){					
+	//alert('fieldRepopulate');
+	$("#productId").val('<%= request.getParameter("productId")%>');
+	$("#owner").val('<%= request.getParameter("owner")%>'); 
+	$("#updown").val('<%= request.getParameter("updown")%>'); 
+}
+
+<%}%>
+</script>
+ 
 <title>c</title>
 </head>
 
@@ -497,7 +511,7 @@ a.tag_t:visited {
 	    		ProductSelectService service =new ProductSelectService();
 	    		List<Product> list =service.getOwner(member!=null?member.getId():"");
 	    	%>
-	    	
+	
 	    	<% if(list!=null && list.size()>0) {%>
 	
 			
@@ -517,15 +531,27 @@ a.tag_t:visited {
 							<span style="color: black;"><%=p.getName()%></span>
 					</div>
 					
-					
 					<div class="right f14">
 						
-						<input type="button" value="上架" class="eventbtn" onclick="">&nbsp;
-						<a href="downIn.jsp?downIn=<%= p.getId() %>">	
-						<input type="button" value="修改" class="eventbtn" onclick="product_edit(4249614);">&nbsp;
+						
+						<form method="post" action="updown.do" style="width: 0px;height: 0px;">	
+					<div class="updown">
+						<input id="owner" name="owner" type="text" value="<%= p.getOwner()%>">
+						<input id="productId" name="productId" type="text" value="<%= p.getId() %>">
+						<input id="updown" name="updown" type="text" value="yes" style="position: relative;top:27px; left:-113px;">
+					</div>
+						<input type="submit" value="上架" class="eventbtn" onclick="return(confirm('確認是否上架?'))">&nbsp;
+						</form>
+						
+						
+						<form style="width: 0px;height: 0px;">	
+						<a href="downIn.jsp?downIn=<%= p.getId() %>"style="position: relative;top:0px; left:63px;">	
+						<input type="button" value="修改" class="eventbtn" style="position: relative;top:0px; left:0px;">&nbsp;
 						</a>
-						<input type="button" value="刪除" class="eventbtn" onclick="product_updown_dmark(4249614,3,'prodlistid1');">
-							
+						</form style="width: 0px;height: 0px;">	
+						<form>	
+						<input type="button" value="刪除" class="eventbtn" style="position: relative;top:0px; left:0px;" >
+						</form>		
 							
 					</div>
 				</div>
@@ -550,7 +576,7 @@ a.tag_t:visited {
 				價錢:<%=p.getUnitPrice()%></div>
 				<%}%>
 				<div class="product_divlist_item f14 left">
-				上架時間
+				上架時間<%=p.getCreateTime() %>
 				</div>
 				<div class="product_divlist_item f14 left">
 				<%=p.getOwnerN() %>

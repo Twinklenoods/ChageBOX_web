@@ -84,7 +84,7 @@ top:0px;
 	    	<%
 	    		
 	    		ProductSelectService service =new ProductSelectService();
-	    		List<Product> list =service.getAllProducts();
+	    		List<Product> list =service.getUpdown("yes");
 	    	%>
 	    	
 	    	<%
@@ -95,7 +95,7 @@ top:0px;
 	    		list=service.searchProductsByName(search);
 	    		
 	    	}else{
-	    		list =service.getAllProducts();
+	    		list =service.getUpdown("yes");
 	    	}
 	    	
 	    	%>

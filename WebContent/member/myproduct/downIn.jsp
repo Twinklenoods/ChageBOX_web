@@ -101,7 +101,7 @@ color: white;
     				<img id="preview" alt=""><br>
     				<label for="origin">物品所在地</label>
     				<select name="origin" id="origin" class="origin" onchange="changeCity(this)">  
-    				<option value="<%=product.getOrigin()%>"><%=product.getOrigin()%></option>
+    				<option value=""><%=product.getOrigin()%></option>
     				<option value="基隆市">基隆市</option>
     				<option value="臺北市">臺北市</option>
     				<option value="新北市">新北市</option>
