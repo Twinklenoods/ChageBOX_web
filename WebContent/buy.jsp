@@ -86,14 +86,6 @@ top:0px;
 	    		ProductSelectService service =new ProductSelectService();
 	    		List<Product> list =service.getAllProducts();
 	    	%>
-	    	<% if(list!=null && list.size()>0) {%>
-	    	
-	    	<nav>
-	    	<% for(int i=0;i<list.size();i++) {
-	    		Product p = list.get(i);
-	    	%>
-	    	
-	    	<nav class="nav001" id='<%= p.getId()%>'>
 	    	
 	    	<%
 	    	String search = request.getParameter("search");
@@ -107,6 +99,16 @@ top:0px;
 	    	}
 	    	
 	    	%>
+	    	<% if(list!=null && list.size()>0) {%>
+	    	
+	    	<nav>
+	    	<% for(int i=0;i<list.size();i++) {
+	    		Product p = list.get(i);
+	    	%>
+	    	
+	    	<nav class="nav001" id='<%= p.getId()%>'>
+	    	
+	    	
 	    	
 	    	
 	    	
