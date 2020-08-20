@@ -77,6 +77,7 @@ $(document).ready(init21);
 function init21(){	
 	file = $("#fileInput")[0];
 	$("#fileInput").change(fileChangeHandler);
+	$("#fileInput").on(fileChangeHandler);
 	reader = new FileReader();
 	$(reader).on("load",loadendHandler);
 }
@@ -97,6 +98,7 @@ function fileChangeHandler(){
 function loadendHandler(){
    	$("#preview").attr("src",reader.result);
 	$("#preview").fadeIn(500);
+	$("#status01").attr("value",reader.result);
 }
 
 /*show buy*/ 

@@ -286,14 +286,14 @@ a.tag_t:visited {
 .product_imglist {
 	display: inline-block;
 	width: 175px;
-	height: 130px;
+	height: 230px;
 	background: #eeeeee;
 	vertical-align: top;
 	overflow: hidden;
 }
 
 .product_imglist img {
-	width: 175px;
+	width: 100%;
 	border: 0px;
 }
 
@@ -490,7 +490,7 @@ a.tag_t:visited {
 
 <%}%>
 </script>
-<title>c</title>
+<title>上架</title>
 </head>
 
 <body>
@@ -520,11 +520,11 @@ a.tag_t:visited {
 		<div id="prodlistid1" class="product_divlist">
 			<div class="product_imglist">
 				<img
-					src="http://image2.e1515.com.tw/photo/2020-08/100313/20200810172718.png"
+					src="<%=p.getPhotoUrl() %>"
 					border=0>
 			</div>
 			<div class="product_divlistright">
-				<div class="product_divlist_title f18">
+				<div class="product_divlist_title f18" style="height: 48px;">
 					<div class="left">
 							
 							<span style="color: black;"><%=p.getName()%></span>
@@ -539,7 +539,7 @@ a.tag_t:visited {
 						<input id="productId" name="productId" type="text" value="<%= p.getId() %>">
 						<input id="updown" name="updown" type="text" value="no" style="position: relative;top:27px; left:-113px;">
 					</div>
-						<input type="submit" value="下架" class="eventbtn" onclick="return(confirm('確認是否下架?'),alert('已完成'))">&nbsp;
+						<input type="submit" value="下架" class="eventbtn" onclick="return(confirm('確認是否下架?'))">&nbsp;
 						</form>
 						
 						
@@ -547,10 +547,8 @@ a.tag_t:visited {
 						<a href="downIn.jsp?downIn=<%= p.getId() %>"style="position: relative;top:0px; left:63px;">	
 						<input type="button" value="修改" class="eventbtn" style="position: relative;top:0px; left:0px;">&nbsp;
 						</a>
-						</form style="width: 0px;height: 0px;">	
-						<form>	
-						<input type="button" value="刪除" class="eventbtn" style="position: relative;top:0px; left:0px;" >
-						</form>		
+						</form>	
+									
 							
 					</div>
 				</div>

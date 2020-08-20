@@ -376,7 +376,7 @@ $(function() {
 		<nav class="n02">
      	<nav>
 			<nav id="nav-2">
-			<iframe src="myproduct/myproIndex.jsp" name="a"  target="a"style="width: 800px;height: 800px;margin-left: 250px;">
+			<iframe src="myproduct/myproIndex.jsp" name="a"  target="a"style="width: 820px;height: 800px;margin-left: 250px;">
 			</iframe>
 		</nav>
 	</nav>

@@ -18,7 +18,7 @@ color: white;
 }
 
 </style>
-<title>產品介紹</title>
+<title>產品修改</title>
 <script type="text/javascript" src="../jquery.js"></script>
 <script type="text/javascript" src="../js/IndexJs.js"></script>
 <script type="text/javascript" src="../js/product.js"></script>
@@ -96,9 +96,10 @@ color: white;
        				<textarea id="comment1" name="comment1" placeholder="商品敘述 最多100個字" maxlength="100"style="width: 300px;height: 200px;"vlue="<%= product.getDescription() %>"><%= product.getDescription() %></textarea><br>
      				<span style="color:red">*</span>
      				<label for="fileInput">遊戲圖片上傳</label><br>
-     				<input type="file" id="fileInput" value="" name="img" accept="image/png,image/jpeg" required>
+     				<input type="text" id="status01" name="img" style="display: none;">
+     				<input type="file" id="fileInput" value="" accept="image/png,image/jpeg" required>
      				<div id="status"></div>
-    				<img id="preview" alt=""><br>
+    				<img id="preview" alt=""style="width:300px; height: 200px;background-color:white;"><br>
     				<label for="origin">物品所在地</label>
     				<select name="origin" id="origin" class="origin" onchange="changeCity(this)">  
     				<option value=""><%=product.getOrigin()%></option>

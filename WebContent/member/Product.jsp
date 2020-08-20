@@ -227,12 +227,15 @@ $(document).ready(init21);
 function init21(){	
 	file = $("#fileInput")[0];
 	$("#fileInput").change(fileChangeHandler);
+	$("#fileInput").on(fileChangeHandler);
 	reader = new FileReader();
 	$(reader).on("load",loadendHandler);
+	 
+	
 }
 
 
-
+///////////
 function fileChangeHandler(){
 	
 	if( file.files.length > 0 ){
@@ -246,8 +249,12 @@ function fileChangeHandler(){
 
 function loadendHandler(){
    	$("#preview").attr("src",reader.result);
+   	$("#status01").attr("value",reader.result);
 	$("#preview").fadeIn(500);
+	
 }
+/////////
+
 
 /*show buy*/ 
 function Show(which){
@@ -332,9 +339,10 @@ function Show(which){
        				<textarea id="comment1" name="comment1" placeholder="商品敘述 最多100個字" maxlength="100"style="width: 300px;height: 200px;"></textarea><br>
      				<span style="color:red">*</span>
      				<label for="fileInput">遊戲圖片上傳</label><br>
-     				<input type="file" id="fileInput" value="" name="img" accept="image/png,image/jpeg" required>
+     				<input type="file"  id="fileInput" value=""  accept="image/png,image/jpeg" required>
+     				<input type="text" id="status01" name="img" style="display: none;">
      				<div id="status"></div>
-    				<img id="preview" alt=""><br>
+    				<img id="preview" alt="" style="width:300px; height: 200px;background-color:white;"><br>
     				<label for="origin">物品所在地</label>
     				<select name="origin" id="origin" class="origin" onchange="changeCity(this)">  
     				<option value="">請選擇</option>
@@ -371,7 +379,7 @@ function Show(which){
   					
   					<input class="owner" type="text" name="ownerN" value="<% member=(Customer)session.getAttribute("member");%><%= member!=null?member.getName():""%>">
   					
-  				<input type="submit" id="submit01" onclick="return(confirm('確認是否送出?'),alert('已完成'))"><label for="submit01" class="myDiv1"></label>
+  				<input type="submit" id="submit01" onclick="return(confirm('確認是否送出?'))"><label for="submit01" class="myDiv1"></label>
   				</span>
   				
   				

@@ -39,7 +39,7 @@ top:0px;
 		width:210px;
 		background: gray;
 		float: left;
-		margin: 15px  0 10px 5px;
+		margin: 5px  0 10px 5px;
 		border: 1px dotted black;
 }
 .nav001 p{
@@ -48,6 +48,7 @@ top:0px;
 		text-align: center;
 		text-align: right;
 		text-align: justify;
+		margin: 0px  0 5px 5px;
 	}
 	
 .nav001 img{
@@ -115,12 +116,13 @@ top:0px;
 	    	
 	    	
 	    	   	<a href="buyIN.jsp?buyINId=<%= p.getId() %>">
-	    	 	<h3>名稱:<%=p.getName()%></h3></a><br>
+	    	 	<p><img src="<%=p.getPhotoUrl() %>"></p></a><br>
+	    	 	<p>名稱:<%=p.getName()%></p>
 	    	 	<p>價錢:<%=(int)p.getUnitPrice()%></p>
 	    		<p>平台:<%=p.getHost()%></p>
 	    		<p><%=p.getOrigin() %></p>
 	    		<p><%=p.getOwnerN() %>
-	    		<p><img src="<%=p.getPhotoUrl() %>"></p>
+	    		
 	    	
 	    	
 	    	</nav>
