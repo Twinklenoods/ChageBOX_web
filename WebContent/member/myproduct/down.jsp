@@ -287,7 +287,7 @@ a.tag_t:visited {
 	display: inline-block;
 	width: 175px;
 	height: 230px;
-	background: #eeeeee;
+	
 	vertical-align: top;
 	overflow: hidden;
 }
@@ -445,7 +445,7 @@ a.tag_t:visited {
 	vertical-align: top;
 	line-height: 28px;
 }
-
+p{color: white;}
 .updown{display: none;}
 </style>
 

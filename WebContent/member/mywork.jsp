@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
+<LINK href="css/left.css" rel="stylesheet" type="text/css">
   <style>
 
 header li {
@@ -26,50 +27,16 @@ min-width: 600px;
 	@media screen and (max-width: 600px){}
 	@media screen and (min-width: 600px) and (max-width: 800px){}
 
- .block {
-    background-color: #abc;
-    border: 2px solid black;
-    width: 150px;
-    height: 800px;
-    margin: 100px 0 0 30px ;
-    position:absolute;
-	left:-550px;
-	
-	
-  }
-  
- .block  li {
-	float: inherit;
-	padding: 15px 10px 0 10px;
-	border-top: 1px solid white;
-	
-}
-.table01, .table02{
-	display: none;
-	background: white;
-	color:black;
-}
-.n01{
-
-width: 600px;
-display: flex;
-margin: 100px 0 0 0 ;
-}
-.n02{
-background: ;
-border: 2px solid black;;
-height:1500px;
-
-display: flex;
-}
+ 
 .showin-button{ position:relative; }
 footer{
 	background: url("image/testbg/pa.png") center top no-repeat,
 	url("testbg/foot.png") center top no-repeat;
-	top:-70px;position:relative;
-		background-size: 100%;
-		width: 100%;
-		height: 700px;
+	top:-70px;
+	position:relative;
+	background-size: 100%;
+	width: 100%;
+	height: 700px;
 	}
 	
 	.n01 img {
