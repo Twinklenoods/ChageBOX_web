@@ -291,10 +291,10 @@ if("POST".equalsIgnoreCase(request.getMethod())) { %>
   		<input type="text" id="name1" name="name" autofocus  required placeHolder="暱稱/NAME"><br><br>
   		<span style="color:red">*</span>
   		<label for="password">密碼:</label>
-  		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="密碼/password"><br><br>
+  		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="舊密碼/password"><br><br>
   		<span style="color:red">*</span>
-  		<label for="password">確認:</label>
-  		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="確認密碼/password"><br><br>
+  		<label for="password">密碼:</label>
+  		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="新密碼/password"><br><br>
   		<span style="color:red">*</span>
   		<label for="email">信箱:</label>
   		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="<%;out.print("test@gmail.com");%>"><br><br>

@@ -54,9 +54,7 @@ public class MyworkSevervlet extends HttpServlet {
 		String p1=request.getParameter("pwd1");
 		String p2=request.getParameter("pwd2");
 		
-		if(p1==null||p2==null|| !p1.equals(p2)){
-			errors.add("必須輸入相同密碼");
-		}
+		
 
 		
 		if(id==null || !Customer.checkId(id)) {
@@ -77,7 +75,7 @@ public class MyworkSevervlet extends HttpServlet {
 				c.setName(name);
 				c.setBirthday(birthday);
 				c.setEmail(email);
-				c.setPassword(p1);
+				c.setPassword(p2);
 				c.setAddress(address);
 				c.setGender((gender).charAt(0));
 				c.setPhone(phone);

@@ -22,7 +22,7 @@ min-width: 1430px;
 }
 	nav{	
 	height:70%;
-	background: yellow;
+	
 	position: relative;
 	top:114px;
 	margin: 50px;
@@ -37,10 +37,10 @@ top:0px;
 		
 		height: 330px;
 		width:210px;
-		background: gray;
+		background: black;
 		float: left;
 		margin: 5px  0 10px 5px;
-		border: 1px dotted black;
+		border: 1px double red;
 }
 .nav001 p{
 		color: white;
@@ -48,16 +48,16 @@ top:0px;
 		text-align: center;
 		text-align: right;
 		text-align: justify;
-		margin: 0px  0 5px 5px;
+		margin: 10px  0 5px 5px;
 	}
 	
 .nav001 img{
 		width: 90%;
 		
-		background: orange;
+		background: dark red;
 		padding: 2px;
-		border: 2px solid yellow;
-		margin: 3% 0 0 3%;
+		border: 2px solid  red;
+		margin: 3% 3% 0 3%;
 		
 	}
 	
@@ -107,21 +107,14 @@ top:0px;
 	    		Product p = list.get(i);
 	    	%>
 	    	
-	    	<nav class="nav001" id='<%= p.getId()%>'>
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	   	<a href="buyIN.jsp?buyINId=<%= p.getId() %>">
-	    	 	<p><img src="<%=p.getPhotoUrl() %>"></p></a><br>
+	    	<nav class="nav001" '>
+	    		<a href="buyIn.jsp?buyINId=<%= p.getId() %>">
+	    	 	<img src="<%=p.getPhotoUrl() %>"></a><br>
 	    	 	<p>名稱:<%=p.getName()%></p>
 	    	 	<p>價錢:<%=(int)p.getUnitPrice()%></p>
 	    		<p>平台:<%=p.getHost()%></p>
-	    		<p><%=p.getOrigin() %></p>
-	    		<p><%=p.getOwnerN() %>
+	    		<p>地區:<%=p.getOrigin() %></p>
+	    		<p>賣家:<%=p.getOwnerN() %>
 	    		
 	    	
 	    	

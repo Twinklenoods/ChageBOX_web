@@ -1,3 +1,6 @@
+<%@page import="sun.security.util.Length"%>
+<%@page import="uuu.vgb.entity.Product"%>
+<%@page import="uuu.vgb.service.ProductSelectService"%>
 <%@page import="uuu.vgb.entity.Customer" %>
 <%@page errorPage="error.jsp"  %>
 <%@page import="java.util.List"%>
@@ -282,6 +285,9 @@ function stoprattle(which)
 				<nav>
 					<nav id="nav-2">
 						nav-2 NEW 黑板
+						<%ProductSelectService service =new ProductSelectService();
+							List<Product> list =service.getUpdown("yes");
+	    				%>
 						<ul id="tabs">
 	        				<li><a href="#tab1" id="tab0" class="tab" title="最新交換">最新交換</a></li>
 	      				<li><a href="#tab2" id="tab-b" class="tab" title="最新交易">最新交易</a></li>
@@ -289,12 +295,28 @@ function stoprattle(which)
 	    				</ul>
    						<div id="container">
     						<div id="tab1" class="tab_content">
-           					<h1>Use The Logo</h1>
+           					<h1>交換</h1>
                             	 You have HTML5 on the brain. Tell the world.
         					</div>
-        					<div id="tab2" class="tab_content tab_content2">
-            				<h1>Show Some Love</h1>
-            					This HTML5 logo is licensed under Creative Commons Attribution 3.0 — all are free to use and reimagine as they see fit. Stickers and T-Shirts are available now; more stuff to come.
+        					<div id="tab2" class="tab_content">
+            				<h1>交易</h1>
+            					<% if(list!=null && list.size()>0) {%>
+	    	
+	    						<div>
+	    							<% for(int i=0;i<7;i++) {
+	    								Product p = list.get(list.size()-1-i);
+	    							%>
+	    	
+	    						<div class="div-buy" '>
+						    		<a href="buyIn.jsp?buyINId=<%= p.getId() %>">
+						    	 	<p><%=i+1%>:<%=p.getName()%>&emsp;(<%=p.getCreateTime()%>)</p></a><br>
+						    	 	
+						    	</div>
+	    							<%} %>
+	    							<%}else{ %>
+	    							<p>查無產品</p>
+	    							<% }%>
+	    						</div>
         					</div>
         					<div id="tab3" class="tab_content">
             				<h1>HTML5 in the Wild</h1>
