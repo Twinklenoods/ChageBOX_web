@@ -371,7 +371,7 @@ function Show(which){
   					
   					<input class="owner" type="text" name="ownerN" value="<% member=(Customer)session.getAttribute("member");%><%= member!=null?member.getName():""%>">
   					
-  				<input type="submit" id="submit01" onclick="return(confirm('確認是否送出?'))"><label for="submit01" class="myDiv1"></label>
+  				<input type="submit" id="submit01" onclick="return(confirm('確認是否送出?'),alert('已完成'))"><label for="submit01" class="myDiv1"></label>
   				</span>
   				
   				

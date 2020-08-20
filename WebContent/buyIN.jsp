@@ -32,7 +32,7 @@
 				</div>
 				<div class='dataDiv'>
 					<h2>No.<%= product.getId() %><%= product.getName() %></h2>
-					<p>價格<%=product.getUnitPrice() %> </p>
+					<p>價格<%=(int)product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
 					<form>

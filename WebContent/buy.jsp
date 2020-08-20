@@ -116,7 +116,7 @@ top:0px;
 	    	
 	    	   	<a href="buyIN.jsp?buyINId=<%= p.getId() %>">
 	    	 	<h3>名稱:<%=p.getName()%></h3></a><br>
-	    	 	<p>價錢:<%=p.getUnitPrice()%></p>
+	    	 	<p>價錢:<%=(int)p.getUnitPrice()%></p>
 	    		<p>平台:<%=p.getHost()%></p>
 	    		<p><%=p.getOrigin() %></p>
 	    		<p><%=p.getOwnerN() %>

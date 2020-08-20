@@ -343,7 +343,7 @@ if("POST".equalsIgnoreCase(request.getMethod())) { %>
 				 <label for="gender2">女</label>
 				 <br><br>
   				
-  				<input type="submit" id="submit01" value="確認修改" onclick="return(confirm('確認是否送出?'))"><label for="submit01" class="myDiv1"></label>
+  				<input type="submit" id="submit01" value="確認修改" onclick="return(confirm('確認是否修改?'),alert('已完成'))"><label for="submit01" class="myDiv1"></label>
   				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
      			<%out.print(errors!=null?errors:"");%></span>
 			

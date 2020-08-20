@@ -490,7 +490,6 @@ a.tag_t:visited {
 
 <%}%>
 </script>
- 
 <title>c</title>
 </head>
 
@@ -500,15 +499,15 @@ a.tag_t:visited {
 			
 			<%//取ProductSelectService
 	    		ProductSelectService service =new ProductSelectService();
-	    		List<Product> list =service.getOwner(member!=null?member.getId():"");
-	    		List<Product> list1 =service.getUpOwner(member!=null?member.getId():"");
+	    		List<Product> list =service.getUpOwner(member!=null?member.getId():"");
+	    		List<Product> list1 =service.getOwner(member!=null?member.getId():"");
 	    	%>
 	<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
-		<input type="button" value="未上架 (<%=list.size() %>)" class="adminbtn2"
-			onclick="location.href='down.jsp'"> <input type="button"
-			value="已上架 (<%=list1.size() %>)" class="adminbtn2"
-			onclick="location.href='up.jsp'""> <input
-			type="button" value="已成交 (0)" class="adminbtn2"
+		<input type="button" value="未上架 (<%=list1.size() %>)" class="adminbtn2"
+			onclick= "location.href='down.jsp'"> <input type="button"
+			value="已上架 (<%=list.size() %>)" class="adminbtn2"
+			onclick="location.href='up.jsp'"> <input
+			type="button" value="已成交 ()" class="adminbtn2"
 			onclick="location.href='ListMemberProduct?m=y'">
 			
 	
@@ -538,9 +537,9 @@ a.tag_t:visited {
 					<div class="updown">
 						<input id="owner" name="owner" type="text" value="<%= p.getOwner()%>">
 						<input id="productId" name="productId" type="text" value="<%= p.getId() %>">
-						<input id="updown" name="updown" type="text" value="yes" style="position: relative;top:27px; left:-113px;">
+						<input id="updown" name="updown" type="text" value="no" style="position: relative;top:27px; left:-113px;">
 					</div>
-						<input type="submit" value="上架" class="eventbtn" onclick="return(confirm('確認是否上架?'),alert('已完成'))">&nbsp;
+						<input type="submit" value="下架" class="eventbtn" onclick="return(confirm('確認是否下架?'),alert('已完成'))">&nbsp;
 						</form>
 						
 						
