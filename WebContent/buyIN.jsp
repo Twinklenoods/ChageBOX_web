@@ -35,8 +35,8 @@
 					<p>價格<%=(int)product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
-					<form>
-					<input type="button" value="加入購物車">
+					<form action="cart.jsp">
+					<input type="submit" value="加入購物車">
 					</form>
 					</div>
 				</div>
