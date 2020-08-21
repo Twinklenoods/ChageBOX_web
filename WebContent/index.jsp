@@ -308,7 +308,7 @@ function stoprattle(which)
 	    							%>
 	    	
 	    						<div class="div-buy" '>
-						    		<a href="buyIn.jsp?buyINId=<%= p.getId() %>">
+						    		<a href="buyIn.jsp?buyInId=<%= p.getId() %>">
 						    	 	<p><%=i+1%>:<%=p.getName()%>&emsp;(<%=p.getCreateTime()%>)</p></a><br>
 						    	 	
 						    	</div>

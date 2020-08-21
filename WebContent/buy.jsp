@@ -130,7 +130,7 @@ background-color:blue;
 	    	%>
 	    	
 	    	<nav class="nav001">
-	    		<a href="buyIn.jsp?buyINId=<%= p.getId() %>">
+	    		<a href="buyIn.jsp?buyInId=<%= p.getId() %>">
 	    		<img class="link-button" src="image/buy/link.png"></a>
 	    		
 	    		<img class="byImg" src="<%=p.getPhotoUrl() %>"><br>

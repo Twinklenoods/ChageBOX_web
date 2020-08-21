@@ -1,0 +1,1 @@
+SELECT p.name ,c.name,c.address,p.description FROM vgb.products AS p JOIN vgb.customers AS c ON p.owner = c.id WHERE p.name='P5S';

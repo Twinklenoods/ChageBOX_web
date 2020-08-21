@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%
-			String productId = request.getParameter("buyINId");
+			String productId = request.getParameter("buyInId");
 			Product product = null;
 			if(productId!=null){
 				ProductSelectService service = new ProductSelectService();
