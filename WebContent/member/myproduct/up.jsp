@@ -493,8 +493,8 @@ p{color: white;}
 <title>上架</title>
 </head>
 
-<body>
-<body background="test-1.jpg" bgproperties=fixed>
+
+<body  bgproperties=fixed>
 	<%Customer member=(Customer)session.getAttribute("member");%>
 			
 			<%//取ProductSelectService

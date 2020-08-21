@@ -9,7 +9,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" >
 <meta charset="UTF-8">
-<title>buy page</title>
+<title>	Owner page</title>
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
 <LINK href="css/ad01.css" rel="stylesheet" type="text/css">
 <style>
@@ -91,7 +91,7 @@ background-color:blue;
 			</script>
 </head>
 <body>
-	
+
 	 <div class="divBG">
 	 	<a href="#" id="gotop" title="Go To Top" data-tracking="nav,jump,top">
    					<i class="gototop"></i></a>	
@@ -104,27 +104,26 @@ background-color:blue;
 					</form>
 				</ul>
 	    	</header>
-	    	<%
+		<%
+				String productOwner = request.getParameter("buyIDOwner");
 	    		
-	    		ProductSelectService service =new ProductSelectService();
-	    		List<Product> list =service.getUpdown("yes");
+				ProductSelectService service =new ProductSelectService();
+	    		List<Product> list =service.getUpOwner(productOwner);
+				
 	    	%>
 	    	
-	    	<%
-	    	String search = request.getParameter("search");
-	    	 service= new ProductSelectService();
-	    	 list = null;
-	    	if(search!=null && search.length()>0){
-	    		list=service.searchProductsByName(search);
-	    		
-	    	}else{
-	    		list =service.getUpdown("yes");
-	    	}
 	    	
-	    	%>
+	    	
+	    	
+	    	
+	    	
 	    	<% if(list!=null && list.size()>0) {%>
 	    	
+	    	
 	    	<nav>
+	    	
+	    	<% Product c = list.get(1);%>
+	    	<h1><%=c.getOwnerN() %>的賣場</h1>
 	    	<% for(int i=0;i<list.size();i++) {
 	    		Product p = list.get(i);
 	    	%>
@@ -139,8 +138,7 @@ background-color:blue;
 	    	 	<p>價錢:<%=(int)p.getUnitPrice()%></p><br><br>
 	    		<p>平台:<%=p.getHost()%></p><br><br>
 	    		<p>地區:<%=p.getOrigin() %></p><br><br>
-	    		
-	    		<a href="buyOwner.jsp?buyIDOwner=<%=p.getOwner() %>"><p>賣家:<%=p.getOwnerN() %></a><p><br><br>
+	    		<p><br><br>
 	    		
 	    		
 	    	
@@ -157,7 +155,6 @@ background-color:blue;
 	    	
 	    	
 	    	</nav>
-	    	<footer></footer>
-	 </div>
+	    	 </div>
 </body>
 </html>
