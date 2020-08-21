@@ -25,7 +25,7 @@ min-width: 1430px;
 	
 	position: relative;
 	top:114px;
-	margin: 50px;
+	margin: auto;
 }
 
 footer{
@@ -35,32 +35,52 @@ top:0px;
 
 .nav001{
 		
-		height: 330px;
-		width:210px;
-		background: black;
+		height: 250px;
+		width:410px;
+		background: url("image/buy/buyopen.png") center top no-repeat;
+		background-size:100%;
 		float: left;
-		margin: 5px  0 10px 5px;
-		border: 1px double red;
+		margin: 0 1% 5% 2%;
+		
+		
 }
 .nav001 p{
 		color: white;
-		text-align: left;
-		text-align: center;
-		text-align: right;
-		text-align: justify;
-		margin: 10px  0 5px 5px;
-	}
-	
-.nav001 img{
-		width: 90%;
-		
-		background: dark red;
-		padding: 2px;
-		border: 2px solid  red;
-		margin: 3% 3% 0 3%;
+		position:absolute;
+		left:200px;
+		margin:-60px 0 0 0;
+		text-align:left;
 		
 	}
+.byImg{
+width:160px;
+height:100px;
+position: relative;
+right:95px;
+top:50px;
+border: 2px solid  red;
+}
+.link-button{
+position: relative;
+left:300px;
+top:150px;
+width: 30%;
+transition: transform 0.333s;
+transition: all 0.333s;
+transition: transform 0.333s, opacity 0.333s;
+}
+.link-button a{
+z-index: 99;
+
+}
+
+.link-button:hover {
+	opacity: 1;
+	transform: scale(1.1, 1.1);
 	
+	
+}
+
 
 </style>
  <script type="text/javascript" src="jquery.js"></script>
@@ -107,18 +127,21 @@ top:0px;
 	    		Product p = list.get(i);
 	    	%>
 	    	
-	    	<nav class="nav001" '>
+	    	<nav class="nav001">
 	    		<a href="buyIn.jsp?buyINId=<%= p.getId() %>">
-	    	 	<img src="<%=p.getPhotoUrl() %>"></a><br>
-	    	 	<p>名稱:<%=p.getName()%></p>
-	    	 	<p>價錢:<%=(int)p.getUnitPrice()%></p>
-	    		<p>平台:<%=p.getHost()%></p>
-	    		<p>地區:<%=p.getOrigin() %></p>
-	    		<p>賣家:<%=p.getOwnerN() %>
+	    		<img class="link-button" src="image/buy/link.png"></a>
+	    		
+	    		<img class="byImg" src="<%=p.getPhotoUrl() %>"><br>
+	    		
+	    		<p>名稱:<%=p.getName()%></p><br><br>
+	    	 	<p>價錢:<%=(int)p.getUnitPrice()%></p><br><br>
+	    		<p>平台:<%=p.getHost()%></p><br><br>
+	    		<p>地區:<%=p.getOrigin() %></p><br><br>
+	    		<p>賣家:<%=p.getOwnerN() %><p><br><br>
 	    		
 	    	
-	    	
 	    	</nav>
+	    
 	    	<%} %>
 	    	
 	    	

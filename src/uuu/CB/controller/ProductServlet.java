@@ -11,11 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import uuu.vgb.entity.Customer;
 import uuu.vgb.entity.DataInvalidException;
 import uuu.vgb.entity.Product;
 import uuu.vgb.entity.VGBException;
-
 import uuu.vgb.service.ProductService;
 
 /**
@@ -50,6 +49,10 @@ public class ProductServlet extends HttpServlet {
 		String origin=request.getParameter("origin");
 		double unitPrice=Double.parseDouble(request.getParameter("BuyPrice"));
 		String wantChange=request.getParameter("WantChange");
+		
+		//Customer member=(Customer)session.getAttribute("member");
+		//member!=null?member.getId():"";
+		
 		String owner=request.getParameter("owner");
 		String ownerN=request.getParameter("ownerN");	
 		

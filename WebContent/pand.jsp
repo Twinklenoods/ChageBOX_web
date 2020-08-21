@@ -17,7 +17,7 @@ min-width: 1430px;
 }
 	nav{	
 	height:70%;
-	background: yellow;
+	
 	position: relative;
 	top:114px;
 	margin: 50px;
@@ -30,20 +30,45 @@ top:0px;
 
 .nav001{
 		
-		height: 330px;
-		width:210px;
-		background: gray;
+		height: 250px;
+		width:410px;
+		background: url("image/buy/buyopen.png") center top no-repeat;
+		background-size:100%;
+		
+		
 		float: left;
 		margin: 15px  0 10px 5px;
-		border: 1px dotted black;
+		
 }
 .nav001 p{
 		color: white;
-		text-align: left;
-		text-align: center;
+		position: relative;
+		right:180px;
+		top:10px;
 		text-align: right;
-		text-align: justify;
+		
 	}
+.byImg{
+width:150px;
+position: relative;
+right:100px;
+top:-20px;
+border: 2px solid  red;
+}
+.link-button{
+position: relative;
+left:300px;
+top:100px;
+width: 30%;
+transition: transform 0.333s;
+transition: all 0.333s;
+transition: transform 0.333s, opacity 0.333s;
+}
+.link-button:hover {
+	opacity: 1;
+	transform: scale(1.1, 1.1);
+}
+	
 </style>
  <script type="text/javascript" src="jquery.js"></script>
 			<script type="text/javascript" src="js/IndexJs.js">
@@ -64,22 +89,26 @@ top:0px;
 				</ul>
 	    	</header>
 	    	<nav>
+	    	<nav class="nav001"><p>ID<<br>價錢</p>
+	    	<img class="link-button" src="image/buy/link.png">
+	    	<img class="byImg" src="image/NewPa/top09.jpg">
+	    	</nav>
+	    	<nav class="nav001"><p>ID<<br>價錢</p>
+	    	<img class="link-button" src="image/buy/link.png">
+	    	<img class="byImg" src="image/NewPa/top09.jpg">
+	    	</nav>
+	    	<nav class="nav001"><p>ID<<br>價錢</p>
+	    	<img class="link-button" src="image/buy/link.png">
+	    	<img class="byImg" src="image/NewPa/top09.jpg">
+	    	</nav>
+	    	
+	    	
 	    	<nav class="nav001"><p>ID<br>圖<br>價錢</p></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav><nav class="nav001"></nav>
-	    	<nav class="nav001"></nav>
+	    	<nav class="nav001"><p>ID<br>圖<br>價錢</p></nav>
+	    	
+	    	
+	    	
+	    	</nav>
 	    	
 	    	
 	    	

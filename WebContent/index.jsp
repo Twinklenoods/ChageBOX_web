@@ -304,7 +304,7 @@ function stoprattle(which)
 	    	
 	    						<div>
 	    							<% for(int i=0;i<7;i++) {
-	    								Product p = list.get(list.size()-1-i);
+	    								Product p = list.get(i);
 	    							%>
 	    	
 	    						<div class="div-buy" '>
