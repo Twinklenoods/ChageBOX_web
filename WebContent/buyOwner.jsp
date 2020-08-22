@@ -123,7 +123,7 @@ background-color:blue;
 	    	<nav>
 	    	
 	    	<% Product c = list.get(0);%>
-	    	<h1><%=c.getOwnerN() %>的賣場</h1>
+	    	<h1><%=c.getOwner().getName() %>的賣場</h1>
 	    	
 	    	<% for(int i=0;i<list.size();i++) {
 	    		Product p = list.get(i);

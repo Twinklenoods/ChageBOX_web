@@ -536,7 +536,7 @@ p{color: white;}
 						
 						<form method="post" action="updown.do" style="width: 0px;height: 0px;">	
 					<div class="updown">
-						<input id="owner" name="owner" type="text" value="<%= p.getOwner()%>">
+						<input id="owner" name="owner" type="text" value="<%= p.getOwner().getId()%>">
 						<input id="productId" name="productId" type="text" value="<%= p.getId() %>">
 						<input id="updown" name="updown" type="text" value="yes" style="position: relative;top:27px; left:-113px;">
 					</div>
@@ -551,7 +551,7 @@ p{color: white;}
 						</form>	
 						<form method="post" action="delete.do" style="width: 0px;height: 10px;">	
 						<div class="updown">
-						<input id="owner" name="owner" type="text" value="<%= p.getOwner()%>">
+						<input id="owner" name="owner" type="text" value="<%= p.getOwner().getId()%>">
 						<input id="productId" name="productId" type="text" value="<%= p.getId() %>">
 						</div>
 						<input type="submit" value="刪除" class="eventbtn" onclick="return(alert('一旦刪除是無法回復!!'),confirm('確認是否刪除?'))"style="position: relative;top:0px; left:123px;" >
