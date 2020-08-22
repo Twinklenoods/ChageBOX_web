@@ -54,7 +54,7 @@ public class ProductServlet extends HttpServlet {
 		//member!=null?member.getId():"";
 		
 		String owner=request.getParameter("owner");
-		String ownerN=request.getParameter("ownerN");	
+		//String ownerN=request.getParameter("ownerN");	
 		
 		
 		
@@ -63,6 +63,7 @@ public class ProductServlet extends HttpServlet {
 		//2.若無誤，呼叫商業邏輯
 		if(errors.isEmpty()) {
 			Product c = new Product();
+			Customer ownerId= new Customer();
 			try {
 				c.setHost(host);
 				c.setBuy(buy);
@@ -73,8 +74,13 @@ public class ProductServlet extends HttpServlet {
 				c.setOrigin(origin);
 				c.setUnitPrice(unitPrice);
 				c.setWantChange(wantChange);
-				c.setOwner(owner);
-				c.setOwnerN(ownerN);
+				
+				ownerId.setId(owner);
+				c.setOwner(ownerId);
+				
+				
+				
+				//c.setOwnerN(ownerN);
 				ProductService service = new ProductService();
 				service.register(c);
 				
