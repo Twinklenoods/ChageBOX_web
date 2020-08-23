@@ -87,7 +87,7 @@ public class ProductServlet extends HttpServlet {
 				//3.1forward (內部轉交)to註冊成功畫面
 				request.setAttribute("product", c);
 				RequestDispatcher dispatcher = 
-						request.getRequestDispatcher("Product.jsp");
+						request.getRequestDispatcher("myproduct.jsp");
 				
 			dispatcher.forward(request,response);
 			return;
