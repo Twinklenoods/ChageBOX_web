@@ -584,7 +584,7 @@ p{color: white;}
 				上架時間<%=p.getCreateTime() %>
 				</div>
 				<div class="product_divlist_item f14 left">
-				<%=p.getOwnerN() %>
+				<%=p.getOwner().getName() %>
 				</div>
 				
 			</div>

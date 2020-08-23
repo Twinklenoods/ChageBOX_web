@@ -535,7 +535,7 @@ p{color: white;}
 						
 						<form method="post" action="updown.do" style="width: 0px;height: 0px;">	
 					<div class="updown">
-						<input id="owner" name="owner" type="text" value="<%= p.getOwner()%>">
+						<input id="owner" name="owner" type="text" value="<%= p.getOwner().getId()%>">
 						<input id="productId" name="productId" type="text" value="<%= p.getId() %>">
 						<input id="updown" name="updown" type="text" value="no" style="position: relative;top:27px; left:-113px;">
 					</div>
@@ -576,7 +576,7 @@ p{color: white;}
 				上架時間<%=p.getCreateTime() %>
 				</div>
 				<div class="product_divlist_item f14 left">
-				<%=p.getOwnerN() %>
+				<%=p.getOwner().getName() %>
 				</div>
 				
 			</div>
