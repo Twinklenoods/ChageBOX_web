@@ -63,9 +63,9 @@ public class AddCartSerevlet extends HttpServlet {
 					}
 					
 					//加入購物車
-					cart.add(p, Integer.parseInt(quantity));
+					cart.add(p);
 				//}else{
-					errors.add("加入購物車失敗，購買數量必須為正確的正整數:" + quantity);
+					errors.add("加入購物車失敗，根本沒這個產品吧:");
 				//}
 				
 			}else {

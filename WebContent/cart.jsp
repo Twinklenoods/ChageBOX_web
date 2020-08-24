@@ -1,4 +1,4 @@
-
+<%@page import="uuu.vgb.entity.ShoppingCart"%>
 <%@page import="sun.security.util.Length"%>
 <%@page import="uuu.vgb.entity.Product"%>
 <%@page import="uuu.vgb.service.ProductSelectService"%>
@@ -55,7 +55,7 @@
 	    	</header>
 
 <div class="cart01">
-<%ShoppingCrat cart = (Shopping)session.getAttribute("cart") ;%>
+<%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>
 <%=cart %>
 <%if (cart!=null){ %>
 		<form action="/member/update_cart.do" method="POST"> <!-- /vgb/member/update_cart.do -->

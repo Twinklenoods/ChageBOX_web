@@ -35,8 +35,8 @@
 					<p>價格<%=(int)product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
-					<form action="add_cat.do" method="get">
-					<input type="submit" value="加入購物車"<%=product.getId()==0?"disabled":"" %>>
+					<form action="add_cart.do" method="get">
+					<input type="submit" value="加入購物車">
 					</form>
 					</div>
 				</div>
