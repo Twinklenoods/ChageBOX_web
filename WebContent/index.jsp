@@ -259,11 +259,11 @@ function stoprattle(which)
    					<i class="gototop"></i></a>	
 	    	<header>
 	    		<ul>
-					<li><a href="/CB">Home</a></li>
+					<li><a href="/CB"><img style="width: 100%;" src="image/yellow/home.png" title="home"></a></li>
 					<li>
-					<form action="<%= request.getContextPath() %>/buy.jsp">
+					<form style="position: relative;top:-10px;" action="<%= request.getContextPath() %>/buy.jsp">
 					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
-					<input type="submit" value="查詢">
+					<input type="submit" value=""  style="background-image:url(image/yellow/3-1.png);width:30px;height:30px;background-size: 100%;position: relative;top:10px;border: none;">
 					</form>
 					</li>
 					<li class="li-01"><%Customer member=(Customer)session.getAttribute("member");%>
@@ -272,7 +272,7 @@ function stoprattle(which)
  					 <%}else{ %>
  					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
  					 <% } %> </li>
- 					 
+ 					 <li><a href="<%= request.getContextPath() %>/cart.jsp"><img style="width: 80%;" id="cart" src="image/yellow/cart.png" title="購物車"></a></li>
 					
 				</ul>
 					
@@ -280,7 +280,7 @@ function stoprattle(which)
  					
  					
 	    	</header>
-	    	<div class="taible">taible</div>
+	    	<div class="taible"></div>
 			<div id="main">
 				<nav>
 					<nav id="nav-2">
@@ -307,7 +307,7 @@ function stoprattle(which)
 	    								Product p = list.get(i);
 	    							%>
 	    	
-	    						<div class="div-buy" '>
+	    						<div class="div-buy" >
 						    		<a href="buyIn.jsp?buyInId=<%= p.getId() %>">
 						    	 	<p><%=i+1%>:<%=p.getName()%>&emsp;(<%=p.getCreateTime()%>)</p></a><br>
 						    	 	

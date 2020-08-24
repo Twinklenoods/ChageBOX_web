@@ -316,7 +316,7 @@ a.tab{
 header ul {
 	margin: 0px;
 	list-style: none;
-	width: 480px;
+	width: 680px;
 	margin: auto;
 }
 .li-01{
@@ -327,7 +327,7 @@ header ul {
 header li {
 	float: left;
 	padding: 5px 10px;
-	border-left: 1px solid white;
+	
 	font-family:Bradley Hand ITC;
 	font-size: 22px;
 	font-weight:bold;

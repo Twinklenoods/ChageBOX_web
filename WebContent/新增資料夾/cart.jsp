@@ -43,8 +43,8 @@
 		<table>
 			<caption>購物明細</caption>
 			<tr>
-				<th>No.</th><th>名稱</th><th>顏色</th>
-				<th>定價</th><th>折扣</th><th>售價</th><th>數量</th><th>小計</th><th>刪除</th>
+				<th>No.</th><th>名稱</th><th>遊戲所在地區</th>
+				<th>運費</th><th>手續費</th><th>售價</th><th>刪除</th>
 			</tr>
 			
 			<tr>
@@ -53,14 +53,11 @@
 					照片
 					鳴子
 				</td>
-				<td> 顏色 </td>			
-				<td>價前</td>
-				<td>明細</td>
-				<td>前</td>
-				<td><input onchange="checkQuantity(this)"
-						type="number" name="quantity" value="數量" 
-						min='1' max='8'></td>
-				<td>car</td>
+				<td>遊戲所在地區</td>			
+				<td>運費</td>
+				<td>折扣</td>
+				<td>售價</td>
+				
 				<td><input type="checkbox" name="delete>" value="刪除"></td>
 			</tr>
 		
@@ -72,7 +69,7 @@
 			
 			<tr>				
 				<td colspan="9" style="text-align: right">
-				VIP折扣後總金額為_元
+				總金額為_元
 				</td>		
 			</tr>
 			

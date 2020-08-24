@@ -116,9 +116,12 @@ function Show(which){
 	 	if(document.getElementById("buy").checked ==true){
 			document.getElementById("Sbuy").style.display = "block";
 			$('#BuyPrice').attr("required", "true");
-		}else{
+			
+	 	}else{
 			document.getElementById("Sbuy").style.display = "none";
 			$('#BuyPrice').removeAttr("required");
+			
+			
 		} 
 	}
 

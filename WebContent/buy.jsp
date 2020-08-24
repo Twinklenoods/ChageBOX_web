@@ -135,7 +135,7 @@ background-color:blue;
 	    		
 	    		<img class="byImg" src="<%=p.getPhotoUrl() %>"><br>
 	    		
-	    		<p>名稱:<%=p.getOwner().getName()%></p><br><br>
+	    		<p>名稱:<%=p.getName()%></p><br><br>
 	    	 	<p>價錢:<%=(int)p.getUnitPrice()%></p><br><br>
 	    		<p>平台:<%=p.getHost()%></p><br><br>
 	    		<p>地區:<%=p.getOrigin() %></p><br><br>
