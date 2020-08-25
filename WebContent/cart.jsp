@@ -1,3 +1,4 @@
+<%@page import="uuu.vgb.entity.CartItem"%>
 <%@page import="uuu.vgb.entity.ShoppingCart"%>
 <%@page import="sun.security.util.Length"%>
 <%@page import="uuu.vgb.entity.Product"%>
@@ -18,14 +19,23 @@
 		td{border: lightgray solid 2px; padding:5px 10px;}
 		.table01{box-shadow: gray 1px 1px 3px; padding:2px 5px; background-color:black; }		
 		.table01{border-collapse: collapse;width:85%;margin:auto}
-		.table01 img{width:48px;vertical-align: middle;}
+		.table01 img{width:80px;vertical-align: middle;}
 		.stockShortage{box-shadow:red 0 0 3px;border: darkred 1px solid;padding-left: 2px}
 	.cart01{position: relative;
 			top:116px;
 	}
-	
-	
+	.table01 .tr01:hover {
+	background-color: white;
+	color: black;					
+	}		
+	.tr02{
+		border-left: red solid 2px;
+	}
 	</style>
+	<script type="text/javascript">
+	function goShopping(){
+		location.href='buy.jsp'
+	}</script>
 <title>購物車</title>
 </head>
 <body>
@@ -56,44 +66,44 @@
 
 <div class="cart01">
 <%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>
-<%=cart %>
-<%if (cart!=null){ %>
-		<form action="/member/update_cart.do" method="POST"> <!-- /vgb/member/update_cart.do -->
+
+<%if (cart!=null&&cart.size()>0){ %>
+	
+		<form action="update_cart.do" method="GET"> <!-- /vgb/member/update_cart.do -->
 		<table class="table01">
 			<caption>購物明細</caption>
 			<tr>
 				<th style="border-right:none;">No.</th>
-				<th>名稱</th>
-				<th>遊戲所在地區</th>
+				<th>遊戲名稱</th>
+				<th>發貨地區</th>
+				<th>主機</th>
 				<th>運費</th>
-				<th>手續費</th>
 				<th>售價</th>
 				<th>刪除</th>
 			</tr>
-			
-			<tr>
-				<td style="border-left-color: red; ">ID</td>
-				<td>
-					照片
-					鳴子
-				</td>
-				<td>遊戲所在地區</td>			
-				<td>運費</td>
-				<td>折扣</td>
-				<td>售價</td>
+			<%for (CartItem item:cart.getCartItemSet()) {
+				Product p =item.getProduct();
+			%>
+			<tr class="tr01">
+				<td class="tr02" style="border-left: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;">No.<%=item.getProduct().getId()%></td>
+				<td><img src="<%=item.getProduct().getPhotoUrl() %>"><%=item.getProduct().getName() %></td>
+				<td><%=item.getProduct().getOrigin() %></td>			
+				<td><%=item.getProduct().getHost() %></td>
+				<td>60</td>
+				<td><%=(int)item.getProduct().getUnitPrice() %></td>
 				
-				<td style="border-right-color: red; "><input type="checkbox" name="delete>" value="刪除"></td>
+				<td class="tr03" style="border-right-color: red; "><input type="checkbox" name="delete<%=item.hashCode() %>"></td>
 			</tr>
-		
+		<%} %>
 			<tr>
 				<td colspan="9" style="text-align: right; border-right-color: red ;border-left-color: red; ">
-				共_項, _件, 總金額為_元
+				<%= cart.getTotalQuantity() %>項商品,共<%=cart.size() %>件,總金額<%= (int)cart.getTotalAmount()%>元
 				</td>			
 			</tr>	
 			
 			<tr>				
 				<td colspan="9" style="text-align: right; border-right-color: red ;border-left-color: red; ">
-				總金額為_元
+				總金額含運費為<%= (int)cart.getTotalAmount()+(60*cart.size()) %>元
 				</td>		
 			</tr>
 			
@@ -106,7 +116,7 @@
 			</tr>
 		</table>
 		<%}else{ %>
-		<h1>無商品</h1>>
+		<h1>你覺得你有加入商品到購物車嗎?還不快買!!</h1>
 		<%} %>
 	</form>
 </div>

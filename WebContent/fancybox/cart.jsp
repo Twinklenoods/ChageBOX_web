@@ -39,46 +39,28 @@
 		
 	<%--= cart --%>
 	
-	<form action="/member/update_cart.do" method="POST"> <!-- /vgb/member/update_cart.do -->
+	<form action="" method="Get"> <!-- /vgb/member/update_cart.do -->
 		<table>
-			<caption>購物明細</caption>
+			<caption>QA</caption>
 			<tr>
-				<th>No.</th><th>名稱</th><th>遊戲所在地區</th>
-				<th>運費</th><th>手續費</th><th>售價</th><th>刪除</th>
+				<th>No.</th>
+				<th>暱稱</th>
+				<th>QA</th>
+				<th>TIME</th>
 			</tr>
 			
 			<tr>
-				<td>ID</td>
-				<td>
-					照片
-					鳴子
+				<td>商品ID</td>
+				<td>暱稱</td>
+				<td style="width: 50%;">QA</td>			
+				<td>TIME</td>
+			<tr>
+				<td colspan="4">
+				<textarea style="width: 100%;height:200px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多250個字" maxlength="500"></textarea>
+				<input type="submit" name="submit" value="送出">
 				</td>
-				<td>遊戲所在地區</td>			
-				<td>運費</td>
-				<td>折扣</td>
-				<td>售價</td>
+					
 				
-				<td><input type="checkbox" name="delete>" value="刪除"></td>
-			</tr>
-		
-			<tr>
-				<td colspan="9" style="text-align: right">
-				共_項, _件, 總金額為_元
-				</td>			
-			</tr>		
-			
-			<tr>				
-				<td colspan="9" style="text-align: right">
-				總金額為_元
-				</td>		
-			</tr>
-			
-			<tr>
-				<td colspan="9">
-					<input type="button" value="回到賣場" onclick="goShopping()">
-					<input type="submit" name="submit" value="修改購物車">
-					<input type="submit" name="submit" value="我要結帳">
-				</td>
 			</tr>
 		</table>
 	</form>

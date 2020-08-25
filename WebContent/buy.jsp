@@ -12,6 +12,7 @@
 <title>buy page</title>
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
 <LINK href="css/ad01.css" rel="stylesheet" type="text/css">
+<LINK rel="stylesheet" type="text/css"  href="fancybox/jquery.fancybox.css">
 <style>
 .divBG{
 min-width: 1430px;
@@ -86,12 +87,43 @@ background-color:blue;
 
 </style>
  <script type="text/javascript" src="jquery.js"></script>
-			<script type="text/javascript" src="js/IndexJs.js">
-			</script><script type="text/javascript">
-			</script>
+<script type="text/javascript" src="js/IndexJs.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript">
+function getProductJSP(PrductId){
+		alert(PrductId);
+	//同步請求
+	<%--location.href="<%=request.getContextPath()%>/buyIn.jsp?buyInId="+PrductId;--%>
+	//非同步GET請求
+	$.ajax({
+		
+		url:"<%=request.getContextPath()%>/buyIn_ajax.jsp?buyInId="+PrductId,
+		meth:'GET'	
+	
+	
+	}).done(getProductJSP_DonHadler);
+	
+}
+function getProductJSP_DonHadler( data, textStatus, jqXHR){
+	alert(data);
+	console.log(data);
+	$("#productDetail").html(data);
+	
+	//用fancybox來顯示
+	$.fancybox.open({
+		src  : '#productDetail',
+		type : 'inline',
+		opts : {
+			afterShow : function( instance, current ) {
+				console.info( 'done!' );
+			}
+		}
+	});
+}
+</script>
 </head>
 <body>
-	
+	<div id="productDetail"> </div>
 	 <div class="divBG">
 	 	<a href="#" id="gotop" title="Go To Top" data-tracking="nav,jump,top">
    					<i class="gototop"></i></a>	
@@ -130,7 +162,11 @@ background-color:blue;
 	    	%>
 	    	
 	    	<nav class="nav001">
-	    		<a href="buyIn.jsp?buyInId=<%= p.getId() %>">
+	    		
+	    		
+	    		<a href="javascript:getProductJSP(<%=p.getId()%>)">
+	    		
+	    		
 	    		<img class="link-button" src="image/buy/link.png"></a>
 	    		
 	    		<img class="byImg" src="<%=p.getPhotoUrl() %>"><br>

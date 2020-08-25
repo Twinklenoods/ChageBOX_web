@@ -26,9 +26,7 @@
 		}		
 </style>
 
-<script type="text/javascript">
 
-</script>
 </head>
 <body>
 	<%
@@ -39,8 +37,7 @@
 				product = service.getProduct(productId);
 			}
 		%>	
-	    	<div class="divBG">
-	<jsp:include page="/member/subviews/header.jsp" />
+	    	
 			
 			<div style="padding-top:200px; margin:about;top:200px;text-align: center;">
 			<% if(product!=null) {%>
@@ -90,6 +87,6 @@
 			<p>查無此編號(#<%= productId %>)的產品</p>
 			<% } %>
 		</div>
-	</div>
+	
 </body>
 </html>
