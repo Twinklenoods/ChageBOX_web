@@ -67,10 +67,7 @@
 					<p>價格<%=(int)product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
-					<form action="add_cart.do" method="get">
-					<input type='text' style='width:3em ;display:none;' readonly name='productId' value='<%=  product.getId() %>' >
-					<input type="submit" value="加入購物車">
-					</form>
+					
 				</div>
 			</div>
 				<%--= QA --%>
