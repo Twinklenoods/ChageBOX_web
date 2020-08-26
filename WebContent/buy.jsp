@@ -91,7 +91,7 @@ background-color:blue;
 <script type="text/javascript" src="fancybox/jquery.fancybox.js"></script>
 <script type="text/javascript">
 function getProductJSP(PrductId){
-		alert(PrductId);
+		
 	//同步請求
 	<%--location.href="<%=request.getContextPath()%>/buyIn.jsp?buyInId="+PrductId;--%>
 	//非同步GET請求
@@ -105,8 +105,8 @@ function getProductJSP(PrductId){
 	
 }
 function getProductJSP_DonHadler( data, textStatus, jqXHR){
-	alert(data);
-	console.log(data);
+	
+	
 	$("#productDetail").html(data);
 	
 	//用fancybox來顯示

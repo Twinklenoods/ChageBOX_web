@@ -13,10 +13,19 @@
 
 <title>產品介紹</title>
 <style type="text/css">
-		th{border: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;}
+	#productDetail{
+	max-width:500px; 
+	min-width: 300px;
+	background:url("image/yellow/stamp1.png") left top no-repeat,
+				url("image/yellow/stamp3.png") right bottom  no-repeat,
+				url("image/registered/png/bg02.png") center top no-repeat ;
+	color: white;
+		
+	}
+		th{border: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;color:white;}
 		td{border: lightgray solid 2px; padding:5px 10px;}
 		
-		table{box-shadow: gray 1px 1px 3px; padding:2px 5px; background-color: black}		
+		table{box-shadow: gray 1px 1px 3px; padding:2px 5px; background-color: black;color:white;}		
 		table{border-collapse: collapse;width:85%;margin:auto}
 		table img{width:48px;vertical-align: middle;}
 	.stockShortage{box-shadow:red 0 0 3px;border: darkred 1px solid;padding-left: 2px}
@@ -39,11 +48,11 @@
 		%>	
 	    	
 			
-			<div style="padding-top:200px; margin:about;top:200px;text-align: center;">
+			<div style="padding-top:0px; margin:about;top:50px;text-align: center;" >
 			<% if(product!=null) {%>
 			<div>
 				<div class='imgDiv'>
-				<img src='<%= product.getPhotoUrl() %>' style="width: 70%;">
+				<img src='<%= product.getPhotoUrl() %>' style="width: 80%;">
 				</div>
 				<div class='dataDiv'>
 					<h2>No.<%= product.getId() %><%= product.getName() %></h2>
@@ -61,19 +70,19 @@
 		<table class="table01">
 			<caption>QA</caption>
 			<tr>
-				<th>No.</th>
+			
 				<th>暱稱</th>
 				<th>QA</th>
 				<th>TIME</th>
 			</tr>
 			
 			<tr class="tr01">
-				<td>商品ID</td>
+				
 				<td>暱稱</td>
 				<td style="width: 50%;">QA</td>			
 				<td>TIME</td>
 			<tr>
-				<td colspan="4">
+				<td colspan="3">
 				<textarea style="width: 100%;height:200px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想提出的問題 最多250個字" maxlength="500"></textarea>
 				<input type="submit" name="submit" value="送出">
 				</td>

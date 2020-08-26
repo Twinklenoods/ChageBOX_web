@@ -26,7 +26,8 @@
 	}
 	.table01 .tr01:hover {
 	background-color: white;
-	color: black;					
+	color: black;		
+				
 	}		
 	.tr02{
 		border-left: red solid 2px;

@@ -221,7 +221,7 @@
       // This small close button will be appended to your html/inline/ajax content by default,
       // if "smallBtn" option is not set to false
       smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}">' +
-        '<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"/></svg>' +
+        '<img style="width: 24px;height: 24px;" src="image/yellow/3.png"/>' +
         "</button>"
     },
 
