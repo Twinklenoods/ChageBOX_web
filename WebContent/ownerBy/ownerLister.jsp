@@ -1,12 +1,12 @@
-
-<%@page import="java.util.List"%>
-<%@ page pageEncoding="UTF-8"%>
+<%@ page   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-
 <html>
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+
+<title>QAtop</title>
+
 <style>
 
 .eventbtn {
@@ -407,38 +407,12 @@ a.tag_t:visited { color:#ffffff;}
 color: white;
 }
 </style>
-<title>評價</title>
 </head>
-
 <body>
-
-<body background="test-1.jpg" bgproperties=fixed>
-	
-
-		<div class="breadcrumb">
-			
-		</div>
-		<div class="madmin_content">
-			<div style="height: 30px; width: 100%; border-bottom: 1px #cccccc solid; margin-bottom: 3px; text-align: left;">
-				<input type="button" value="所有" class="adminbtn"onclick="location.href='ListRating'">
-				<input type="button"value="交換" class="adminbtn"onclick="location.href='ListRating?c=change'">
-				<input type="button" value="買賣" class="adminbtn active"onclick="location.href='ListRating?c=trade'">
-			</div>
-			<div style="height: 50px; width: 47%; margin-bottom: 3px; text-align: left; font-size: 22px; color: #ffffff; background: rgba(230,230,230,0.9);">
-				<a href="/CB"><img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0</a>
+<div style="height: 50px; width:80%; margin-bottom: 3px; text-align: left; font-size: 22px; color: #ffffff; background: rgba(230,230,230,0.9);">
+				<a href=""><img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0</a>
 				<a href=""><img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;0</a>
 				<a href=""><img src="../image/listrating/A.png" border=0 width=48>極差&nbsp;0</a>
-			</div>
-			<div>1231321	
-			</div>
-			<br>
-			<br>總筆數：0
-		</div>
-		<div>
-			<input type="hidden" id="c" value="trade">
-		</div>
-	
-	</div>
+</div>
 </body>
 </html>
-c

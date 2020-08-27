@@ -86,6 +86,12 @@ background-color:blue;
 }
 .ownerS{
 position: relative;
+width:30%;
+left:200px;
+}
+.ownerS01{
+position: relative;
+width:80%;
 left:200px;
 }
 </style>
@@ -156,11 +162,12 @@ left:200px;
 	    	<% if(list!=null && list.size()>0) {%>
 	    	
 	    	
-	    	<nav>
+	    	<nav >
 	    	<div class="ownerS">
 	    	<% Product c = list.get(0);%>
-	    	<h1><%=c.getOwner().getName() %>的賣場</h1>
-	    	<div>評價</div>
+	    	<h1 style="width: 50%;"><%=c.getOwner().getName() %>的賣場</h1>
+	    	
+		
 	    	</div>
 	    	<% for(int i=0;i<list.size();i++) {
 	    		Product p = list.get(i);
@@ -190,9 +197,13 @@ left:200px;
 	    	<%}else{ %>
 	    	<p>查無產品</p>
 	    	<% }%>
-	    	
-	    	
-	    	
+	    	<% if(list!=null && list.size()>0) {%>
+	    	<% Product c = list.get(0);%> 
+	    	<div class="ownerS01">
+	    	<iframe src="ownerBy/ownerQA.jsp?buyIDOwner=<%=c.getOwner().getId() %>" name="a"  target="a"style="width: 40%;height: 400px;margin-top: 100px;"></iframe>
+	    	<iframe src="ownerBy/ownerLister.jsp?buyIDOwner=<%=c.getOwner().getId() %>" name="a"  target="a"style="width: 40%;height: 400px;margin-top: 100px;"></iframe>
+	    	</div>
+	    	<%} %>
 	    	</nav>
 	    	 </div>
 </body>

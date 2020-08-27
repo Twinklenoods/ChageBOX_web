@@ -14,7 +14,7 @@
 <frame src="QAtop.jsp" name="a">
 
 <frameset cols="100%,0%" frameborder="NO">
-<frame src="QAdown.jsp" name="b">
+<frame src="QAup.jsp" name="b">
 
 
 </frameset>
