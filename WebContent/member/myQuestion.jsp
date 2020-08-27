@@ -15,7 +15,7 @@
 header li {
 	float: left;
 	padding: 5px 10px;
-	border-left: 1px solid white;
+	
 	font-family:Bradley Hand ITC;
 	font-size: 22px;
 	font-weight:bold;

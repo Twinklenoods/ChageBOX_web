@@ -36,8 +36,28 @@
 			color: black;					
 		}		
 </style>
+<script type="text/javascript">
+function addCart(){
+	
+	//1.阻擋form submit送出同步請求
+	$.ajax({
+		url:$("#cartForm").attr("action"),
+		method:$("#cartForm").attr("method"),
+		data:$("#cartForm").serialize()
+		
+	}).done(addCart_DoneHandler);
+	
+	alert("加入購物車成功");
+	//2.改用非同步請求...
+	return false;
+}
+function addCart_DoneHandler(data, status, xhr){
+	alert("加入購物車成功");
+	//$("").html(data);
+}
 
 
+</script>
 </head>
 <body>
 	<%
@@ -67,9 +87,9 @@
 					<p>價格<%=(int)product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
-					<form action="add_cart.do" method="get">
+					<form id="cartForm" action="add_cart.do" method="post"  onsubmit="return addCart()">
 					<input type='text' style='width:3em ;display:none;' readonly name='productId' value='<%=  product.getId() %>' >
-					<input type="submit" value="加入購物車">
+					<input type="submit" value="加入購物車" >
 					</form>
 				</div>
 			</div>
@@ -115,7 +135,7 @@
 	    	<%}else{ %>
 	    	  <form action="question.do" method="POST">
 		<table class="table01">
-			<caption>QA</caption>
+			<caption>問與答</caption>
 			<tr>
 			
 				<th>暱稱</th>

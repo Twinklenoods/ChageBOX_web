@@ -40,7 +40,7 @@ public class AddCartSerevlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<String> errors = new ArrayList<>();		
 		//1.取得request的Form Data
 		String productId = request.getParameter("productId");
@@ -85,7 +85,7 @@ public class AddCartSerevlet extends HttpServlet {
 		//request.getRequestDispatcher("cart.jsp").forward(request, response);
 		
 		//3.redirect to cart.jsp
-		response.sendRedirect(request.getContextPath() + "/cart.jsp");
+		response.sendRedirect(request.getContextPath() + "/member/cart.jsp");
 	}
 
 }

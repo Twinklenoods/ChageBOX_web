@@ -127,15 +127,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	 <div class="divBG">
 	 	<a href="#" id="gotop" title="Go To Top" data-tracking="nav,jump,top">
    					<i class="gototop"></i></a>	
-	 	<header>
-	 			<ul>
-					<li><a href="/CB">Home</a></li>
-					<li><form action="<%= request.getContextPath() %>/buy.jsp">
-					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
-					<input type="submit" value="查詢">
-					</form>
-				</ul>
-	    	</header>
+	 	<jsp:include page="/subviews/header.jsp" />
 	    	<%
 	    		
 	    		ProductSelectService service =new ProductSelectService();

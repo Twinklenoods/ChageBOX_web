@@ -6,7 +6,7 @@
 <%@page import="uuu.vgb.entity.Customer" %>
 <%@page errorPage="error.jsp"  %>
 <%@page import="java.util.List"%>
-<%@ page pageEncoding="UTF-8"%>
+<%@ page   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,14 +33,31 @@
 		border-left: red solid 2px;
 	}
 	</style>
+	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript">
 	function goShopping(){
 		location.href='buy.jsp'
-	}</script>
+	}
+	function checkOut(){
+		location.href='check_out.jsp'
+	}
+	function calculateFee(){
+		var payfee=$("#pay option:selected").attr("data-fee");
+		var usefee=$("#use option:selected").attr("data-fee");
+		console.log(Number(payfee),Number(usefee),Number($("#TotalAmount").text()));
+		
+		var totalFee = Number($("#total").text());
+		
+		if(payfee) totalFee+=Number(payfee);
+		if(usefee) totalFee+=Number(usefee);
+		
+		$("#TotalAmount").text(totalFee);
+	}
+	</script>
 <title>購物車</title>
 </head>
 <body>
-			<div class="divBG">
+<div class="divBG">
 			<header style="color:white;">
 	    		<ul>
 					<li><a href="/CB">Home</a></li>
@@ -70,7 +87,7 @@
 
 <%if (cart!=null&&cart.size()>0){ %>
 	
-		<form action="update_cart.do" method="GET"> <!-- /vgb/member/update_cart.do -->
+		<form action="" method="GET"> <!-- /vgb/member/update_cart.do -->
 		<table class="table01">
 			<caption>購物明細</caption>
 			<tr>
@@ -80,7 +97,7 @@
 				<th>主機</th>
 				<th>運費</th>
 				<th>售價</th>
-				<th>刪除</th>
+				
 			</tr>
 			<%for (CartItem item:cart.getCartItemSet()) {
 				Product p =item.getProduct();
@@ -93,28 +110,65 @@
 				<td>60</td>
 				<td><%=(int)item.getProduct().getUnitPrice() %></td>
 				
-				<td class="tr03" style="border-right-color: red; "><input type="checkbox" name="delete<%=item.hashCode() %>"></td>
+				
 			</tr>
 		<%} %>
 			<tr>
-				<td colspan="9" style="text-align: right; border-right-color: red ;border-left-color: red; ">
-				<%= cart.getTotalQuantity() %>項商品,共<%=cart.size() %>件,總金額<%= (int)cart.getTotalAmount()%>元
+				<td colspan="7" style="text-align: right; border-right-color: red ;border-left-color: red; ">
+				<%= cart.getTotalQuantity() %>項商品,共<%=cart.size() %>件,總金額<span id="total"><%= (int)cart.getTotalAmount()%></span>元
 				</td>			
 			</tr>	
 			
-			<tr>				
-				<td colspan="9" style="text-align: right; border-right-color: red ;border-left-color: red; ">
-				總金額含運費為<%= (int)cart.getTotalAmount()+(60*cart.size()) %>元
+			<tr>
+				<td colspan="2" >付款方式:
+					<select id="pay" name="pay" required onchange="calculateFee()">  
+    				<option value="">請選擇</option>
+    				<option value="Shop" data-fee='0'>到店付款</option>
+    				<option value="ATM"data-fee='0'>ATM轉帳</option>
+    				<option value="Home"data-fee='60'>到貨付款-60</option>
+    				<option value="Store"data-fee='0'>超商付款</option>
+    				<option value="Card"data-fee='0'>信用卡付款</option>
+    				</select>
+				</td>
+				
+				
+				<td colspan="2" >貨運方式:
+				<select id="use" name="use" required onchange="calculateFee()">  
+    				<option value="">請選擇</option>
+    				<option value="toCat" data-fee='100'>黑貓-100</option>
+    				<option value="toNew"data-fee='100'>新竹貨運-100</option>
+    				<option value="toStore"data-fee='0'>店到店</option>
+    				<option value="toHome"data-fee='100'>宅配-100</option>
+    				
+    				</select>
+				</td>				
+				<td colspan="2" style="text-align: right; border-right-color: red ;border-left-color: red; ">
+				總金額含運費為<span id="TotalAmount"><%= (int)cart.getTotalAmount()%></span>元
 				</td>		
 			</tr>
-			
 			<tr>
-				<td colspan="9" style="text-align: right; border-right-color: red ;border-left-color: red; border-bottom-color: red;">
+			<td colspan="2" style="text-align:center;font-size:18px;">訂購人<br>
+			<p><textarea style="width: 50%;"placeholder="name/姓名"></textarea></p>
+			<p><textarea style="width: 50%;"placeholder="phone/電話"></textarea></p>
+			<p><textarea style="width: 50%;"placeholder="email"></textarea></p>
+			<p><textarea style="width: 50%;"placeholder="address/地址"></textarea></p>
+			</td>
+			<td colspan="4" style="text-align:center;font-size:18px;">收件人<br>
+			<p><textarea style="width: 50%;"placeholder="name/姓名"></textarea></p>
+			<p><textarea style="width: 50%;"placeholder="phone/電話"></textarea></p>
+			<p><textarea style="width: 50%;"placeholder="email"></textarea></p>
+			<p><textarea style="width: 50%;"placeholder="address/地址" name="address"></textarea></p>
+			</td>
+			<tr>
+				<td colspan="6" style="text-align: right; border-right-color: red ;border-left-color: red; border-bottom-color: red;">
+					
 					<input type="button" value="回到賣場" onclick="goShopping()">
-					<input type="submit" name="submit" value="修改購物車">
-					<input type="submit" name="submit" value="我要結帳">
+					<input type="submit" name="submit" value="確認送出" >
 				</td>
 			</tr>
+		
+		
+		
 		</table>
 		<%}else{ %>
 		<h1>你覺得你有加入商品到購物車嗎?還不快買!!</h1>
@@ -123,5 +177,11 @@
 </div>
 
 </div>
+
+
+我要結帳
+
+
+
 </body>
 </html>

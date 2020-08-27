@@ -7,17 +7,23 @@
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <header>
-	    		<%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>
+	    	<%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>
 	    		<ul>
 					<li><a href="/CB"><img style="width: 100%;" src="image/yellow/home.png" title="home"></a></li>
-					
+					<li>
+					<form style="position: relative;top:-10px;" action="<%= request.getContextPath() %>/buy.jsp">
+					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
+					<input type="submit" value=""  style="background-image:url(image/yellow/3-1.png);width:30px;height:30px;background-size: 100%;position: relative;top:10px;border: none;">
+					</form>
+					</li>
 					<li class="li-01"><%Customer member=(Customer)session.getAttribute("member");%>
  					<%= member!=null?member.getName():""%>
  					<% if(member == null){ %><a href="<%=request.getContextPath() %>">Login</a>
  					 <%}else{ %>
  					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
  					 <% } %> </li>
- 					 
+ 					 <li><a href="<%= request.getContextPath() %>/member/cart.jsp"><img style="width: 45px;" id="cart" src="image/yellow/cart.png" title="購物車"></a>
+ 					 <%if (cart!=null&&cart.size()>0){ %><%=cart.size() %><%}else{ %><% }%></li>
 					
 				</ul>
 					

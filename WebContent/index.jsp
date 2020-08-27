@@ -1,3 +1,4 @@
+<%@page import="uuu.vgb.entity.ShoppingCart"%>
 <%@page import="sun.security.util.Length"%>
 <%@page import="uuu.vgb.entity.Product"%>
 <%@page import="uuu.vgb.service.ProductSelectService"%>
@@ -258,6 +259,7 @@ function stoprattle(which)
 	    <a href="#" id="gotop" title="Go To Top" data-tracking="nav,jump,top">
    					<i class="gototop"></i></a>	
 	    	<header>
+	    	<%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>
 	    		<ul>
 					<li><a href="/CB"><img style="width: 100%;" src="image/yellow/home.png" title="home"></a></li>
 					<li>
@@ -272,7 +274,8 @@ function stoprattle(which)
  					 <%}else{ %>
  					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
  					 <% } %> </li>
- 					 <li><a href="<%= request.getContextPath() %>/cart.jsp"><img style="width: 80%;" id="cart" src="image/yellow/cart.png" title="購物車"></a></li>
+ 					 <li><a href="<%= request.getContextPath() %>/member/cart.jsp"><img style="width: 45px;" id="cart" src="image/yellow/cart.png" title="購物車"></a>
+ 					 <%if (cart!=null&&cart.size()>0){ %><%=cart.size() %><%}else{ %><% }%></li>
 					
 				</ul>
 					

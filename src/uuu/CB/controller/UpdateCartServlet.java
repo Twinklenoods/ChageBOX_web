@@ -17,7 +17,7 @@ import uuu.vgb.entity.ShoppingCart;
 /**
  * Servlet implementation class UpdateCartServlet
  */
-@WebServlet("/update_cart.do")
+@WebServlet("/member/update_cart.do")
 public class UpdateCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

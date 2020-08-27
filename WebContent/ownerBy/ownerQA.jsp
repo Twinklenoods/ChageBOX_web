@@ -1,3 +1,7 @@
+<%@page import="uuu.vgb.entity.Question"%>
+<%@page import="uuu.vgb.service.QuestionService"%>
+<%@page import="uuu.vgb.service.OwnerQaService"%>
+<%@page import="uuu.vgb.entity.OwnerQa"%>
 <%@page import="javafx.scene.control.ListCellBuilder"%>
 <%@page import="uuu.vgb.entity.Product"%>
 <%@page import="uuu.vgb.entity.Customer"%>
@@ -411,21 +415,32 @@ a.tag_t:visited { color:#ffffff;}
 .madmin_content{
 color: white;
 }
+		th{border: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;color:white;}
+		td{border: lightgray solid 2px; padding:5px 10px;}
+		
+		table{box-shadow: gray 1px 1px 3px; padding:2px 5px; background-color: black;color:white;}		
+		table{border-collapse: collapse;width:85%;margin:auto}
+		table img{width:48px;vertical-align: middle;}
+	.stockShortage{box-shadow:red 0 0 3px;border: darkred 1px solid;padding-left: 2px}
+	.table01 .tr01:hover {
+			background-color: white;
+			color: black;					
+		}		
 </style>
 </head>
 <body>
-<%
+			<%Customer member=(Customer)session.getAttribute("member"); %>
+			<%
+				if(member!=null){
 				String productOwner = request.getParameter("buyIDOwner");
-	    		
+				
 				ProductSelectService service =new ProductSelectService();
 	    		List<Product> list =service.getUpOwner(productOwner);
+				OwnerQaService service2=new OwnerQaService();
+				
+				List<OwnerQa> list2 =service2.getOwnerID(productOwner,member.getId());
 				
 	    	%>
-	    	
-	    	
-	    	
-	    	
-	    	
 	    	
 	    	<% if(list!=null && list.size()>0) {%>
 	    	
@@ -433,10 +448,56 @@ color: white;
 	    	<nav >
 	    	<div class="ownerS">
 	    	<% Product c = list.get(0);%>
-	    	<h1 style="width: 50%;">對<%=c.getOwner().getName() %>的悄悄話</h1>
-	    	<% }%>
-			<div>悄悄話</div>
+	    	<h1 style="width: 50%;"><%=c.getOwner().getName() %>的賣場</h1>
 	    	</div>
+	    	<% if(list!=null && list.size()>0) {%>
+	    	<% if(list2!=null && list2.size()>0) {%>
 	    	
+	    	
+	    	
+	    	
+	    	
+	    	<form action="" method="POST"> 
+		<table>
+			<caption>QA</caption>
+			<tr>
+				<th>發問者</th>
+				<th>問題</th>
+				<th>回答</th>
+				
+			</tr>
+			<% for(int i=0;i<list2.size();i++) {
+	    		OwnerQa q = list2.get(i);
+	    	%>
+			<tr>
+				<td><%=q.getCustomerId().getName()%></td>
+				<td><%=q.getOwnerQA()%></td>
+				<td style="width: %;">回答</td>			
+				<%} %>
+			<tr>
+				<td colspan="3">
+				<textarea style="width: 100%;height:100px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多250個字" maxlength="500"></textarea>
+				<input type="submit" name="submit" value="送出">
+				</td>
+					
+				
+			</tr>
+		</table>
+			</form>
+	    	
+	    	
+	    	
+	    	<% }else{%>
+	    	<p>無對話</p>
+	    	<%} %>
+	    	<%} %>
+			<%}else{ %>
+	    	<p>查無產品</p>
+	    	<% }%>
+	    	<%}else{ %>
+	    	<p>尚未登入</p>
+	    	<% }%>
+	    	</nav>
+	    	 </div>
 </body>
 </html>
