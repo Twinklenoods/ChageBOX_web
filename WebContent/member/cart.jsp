@@ -82,7 +82,7 @@
 				<th>遊戲名稱</th>
 				<th>發貨地區</th>
 				<th>主機</th>
-				<th>運費</th>
+				<th>數量</th>
 				<th>售價</th>
 				<th>刪除</th>
 			</tr>
@@ -94,7 +94,7 @@
 				<td><img src="<%=item.getProduct().getPhotoUrl() %>"><%=item.getProduct().getName() %></td>
 				<td><%=item.getProduct().getOrigin() %></td>			
 				<td><%=item.getProduct().getHost() %></td>
-				<td>60</td>
+				<td>1</td>
 				<td><%=(int)item.getProduct().getUnitPrice() %></td>
 				
 				<td class="tr03" style="border-right-color: red; "><input type="checkbox" name="delete<%=item.hashCode() %>"></td>
@@ -108,7 +108,7 @@
 			
 			<tr>				
 				<td colspan="9" style="text-align: right; border-right-color: red ;border-left-color: red; ">
-				總金額含運費為<%= (int)cart.getTotalAmount()+(60*cart.size()) %>元
+				總金額含運費為<%= (int)cart.getTotalAmount() %>元
 				</td>		
 			</tr>
 			

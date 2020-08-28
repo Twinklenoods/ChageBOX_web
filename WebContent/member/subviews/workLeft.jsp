@@ -11,7 +11,7 @@
 		
 			<div class="block">
 			<a href="mywork.jsp"><li>我的資訊</li><br></a>
-			<li>悄悄話</li><br>
+			<a href="MyOwnerQA.jsp"><li>悄悄話</li><br></a>
 			<a href="myQuestion.jsp"><li>我的問答</li><br></a>
 			<a href="listrating.jsp"><li>我的評價</li><br></a>
 			<a href="Product.jsp"><li>新增物品</li><br></a>

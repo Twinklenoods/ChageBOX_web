@@ -1,3 +1,5 @@
+<%@page import="uuu.vgb.entity.ShippingType"%>
+<%@page import="uuu.vgb.entity.PaymentType"%>
 <%@page import="uuu.vgb.entity.CartItem"%>
 <%@page import="uuu.vgb.entity.ShoppingCart"%>
 <%@page import="sun.security.util.Length"%>
@@ -89,13 +91,13 @@
 	
 		<form action="" method="GET"> <!-- /vgb/member/update_cart.do -->
 		<table class="table01">
-			<caption>購物明細</caption>
+			<caption>結帳明細</caption>
 			<tr>
 				<th style="border-right:none;">No.</th>
 				<th>遊戲名稱</th>
 				<th>發貨地區</th>
 				<th>主機</th>
-				<th>運費</th>
+				<th>數量</th>
 				<th>售價</th>
 				
 			</tr>
@@ -107,7 +109,7 @@
 				<td><img src="<%=item.getProduct().getPhotoUrl() %>"><%=item.getProduct().getName() %></td>
 				<td><%=item.getProduct().getOrigin() %></td>			
 				<td><%=item.getProduct().getHost() %></td>
-				<td>60</td>
+				<td>1</td>
 				<td><%=(int)item.getProduct().getUnitPrice() %></td>
 				
 				
@@ -123,11 +125,9 @@
 				<td colspan="2" >付款方式:
 					<select id="pay" name="pay" required onchange="calculateFee()">  
     				<option value="">請選擇</option>
-    				<option value="Shop" data-fee='0'>到店付款</option>
-    				<option value="ATM"data-fee='0'>ATM轉帳</option>
-    				<option value="Home"data-fee='60'>到貨付款-60</option>
-    				<option value="Store"data-fee='0'>超商付款</option>
-    				<option value="Card"data-fee='0'>信用卡付款</option>
+    				<% for(PaymentType pType:PaymentType.values()) { %>
+    				<option value="<%=pType.name()%>" data-fee='<%=pType.getFee()%>'><%=pType.getDescription()%></option>
+    				<%} %>
     				</select>
 				</td>
 				
@@ -135,10 +135,9 @@
 				<td colspan="2" >貨運方式:
 				<select id="use" name="use" required onchange="calculateFee()">  
     				<option value="">請選擇</option>
-    				<option value="toCat" data-fee='100'>黑貓-100</option>
-    				<option value="toNew"data-fee='100'>新竹貨運-100</option>
-    				<option value="toStore"data-fee='0'>店到店</option>
-    				<option value="toHome"data-fee='100'>宅配-100</option>
+    				<% for(ShippingType pType2:ShippingType.values()) {%>
+    				<option value="<%=pType2.name()%>" data-fee='<%=pType2.getFee()%>'><%=pType2.getDescription()%></option>
+    				<% }%>
     				
     				</select>
 				</td>				
@@ -154,10 +153,10 @@
 			<p><textarea style="width: 50%;"placeholder="address/地址"></textarea></p>
 			</td>
 			<td colspan="4" style="text-align:center;font-size:18px;">收件人<br>
-			<p><textarea style="width: 50%;"placeholder="name/姓名"></textarea></p>
-			<p><textarea style="width: 50%;"placeholder="phone/電話"></textarea></p>
-			<p><textarea style="width: 50%;"placeholder="email"></textarea></p>
-			<p><textarea style="width: 50%;"placeholder="address/地址" name="address"></textarea></p>
+			<p><textarea name="" style="width: 50%;"placeholder="name/姓名"></textarea></p>
+			<p><textarea name="" style="width: 50%;"placeholder="phone/電話"></textarea></p>
+			<p><textarea name="" style="width: 50%;"placeholder="email"></textarea></p>
+			<p><textarea name="" style="width: 50%;"placeholder="address/地址" name="address"></textarea></p>
 			</td>
 			<tr>
 				<td colspan="6" style="text-align: right; border-right-color: red ;border-left-color: red; border-bottom-color: red;">

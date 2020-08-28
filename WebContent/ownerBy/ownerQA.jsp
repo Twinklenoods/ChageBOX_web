@@ -416,7 +416,7 @@ a.tag_t:visited { color:#ffffff;}
 color: white;
 }
 		th{border: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;color:white;}
-		td{border: lightgray solid 2px; padding:5px 10px;}
+		td{border: lightgray solid 2px; padding:5px 10px; border:none;}
 		
 		table{box-shadow: gray 1px 1px 3px; padding:2px 5px; background-color: black;color:white;}		
 		table{border-collapse: collapse;width:85%;margin:auto}
@@ -448,7 +448,7 @@ color: white;
 	    	<nav >
 	    	<div class="ownerS">
 	    	<% Product c = list.get(0);%>
-	    	<h1 style="width: 50%;"><%=c.getOwner().getName() %>的賣場</h1>
+	    	
 	    	</div>
 	    	<% if(list!=null && list.size()>0) {%>
 	    	<% if(list2!=null && list2.size()>0) {%>
@@ -457,37 +457,49 @@ color: white;
 	    	
 	    	
 	    	
-	    	<form action="" method="POST"> 
+	    
+		
+		
+			
+		
 		<table>
-			<caption>QA</caption>
+	
 			<tr>
-				<th>發問者</th>
-				<th>問題</th>
-				<th>回答</th>
+				<th>悄悄話</th>
 				
+
 			</tr>
 			<% for(int i=0;i<list2.size();i++) {
 	    		OwnerQa q = list2.get(i);
 	    	%>
 			<tr>
-				<td><%=q.getCustomerId().getName()%></td>
-				<td><%=q.getOwnerQA()%></td>
-				<td style="width: %;">回答</td>			
+				<td><p style="text-align:right;margin-bottom:0px; "><%=q.getCustomerId().getName()%>:
+				
+				<%=q.getOwnerQA()%></p><br>
+				<%if(q.getAnswer()!=null){ %>
+					<span>
+						賣家:<%=q.getAnswer() %>
+					</span>
+					<% }else{%>
+					<span></span>
+					<% }%>
+				</td>			
 				<%} %>
 			<tr>
-				<td colspan="3">
+				<td colspan="1">
+				<form action="QaInert.do" method="POST"> 
 				<textarea style="width: 100%;height:100px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多250個字" maxlength="500"></textarea>
+				<input type="text" name="owner" style="display: none;" value="<%=c.getOwner().getId() %>">
+				<input type="text" name="user" style="display: none;" value="<%=member.getId()%>">
 				<input type="submit" name="submit" value="送出">
+				</form>
 				</td>
-					
-				
+
+
 			</tr>
 		</table>
-			</form>
-	    	
-	    	
-	    	
-	    	<% }else{%>
+			
+			<% }else{%>
 	    	<p>無對話</p>
 	    	<%} %>
 	    	<%} %>
