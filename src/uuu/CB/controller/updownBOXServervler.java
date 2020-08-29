@@ -22,14 +22,14 @@ import uuu.vgb.service.ProductService;
 /**
  * Servlet implementation class changeProductServervler
  */
-@WebServlet("/member/myproduct/updown.do")
-public class updownServervler extends HttpServlet {
+@WebServlet("/member/myproduct/updownBOX.do")
+public class updownBOXServervler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public  updownServervler() {
+    public  updownBOXServervler() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -61,7 +61,7 @@ public class updownServervler extends HttpServlet {
 				//3.1forward (內部轉交)to註冊成功畫面
 				request.setAttribute("product", p);
 				RequestDispatcher dispatcher = 
-						request.getRequestDispatcher("all.jsp");
+						request.getRequestDispatcher("box.jsp");
 				
 			dispatcher.forward(request,response);
 			return;
@@ -85,7 +85,7 @@ public class updownServervler extends HttpServlet {
 		//3.2顯示失敗畫面
 		request.setAttribute("errors", errors);
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("all.jsp");
+				request.getRequestDispatcher("box.jsp");
 		
 		dispatcher.forward(request,response);
 }

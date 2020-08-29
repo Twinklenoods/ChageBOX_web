@@ -287,26 +287,43 @@ function stoprattle(which)
 			<div id="main">
 				<nav>
 					<nav id="nav-2">
-						nav-2 NEW 黑板
+						
 						<%ProductSelectService service =new ProductSelectService();
-							List<Product> list =service.getUpdown("yes");
+							List<Product> list =service.getBUY("yes");
+							List<Product> list0 =service.getBOX("yes");
 	    				%>
 						<ul id="tabs">
 	        				<li><a href="#tab1" id="tab0" class="tab" title="最新交換">最新交換</a></li>
-	      				<li><a href="#tab2" id="tab-b" class="tab" title="最新交易">最新交易</a></li>
-	       					<li><a href="#tab3" id="tab-a" class="tab">TAB 3</a></li>
+	      					<li><a href="#tab2" id="tab-b" class="tab" title="最新交易">最新交易</a></li>
+	       					
 	    				</ul>
    						<div id="container">
     						<div id="tab1" class="tab_content">
            					<h1>交換</h1>
-                            	 You have HTML5 on the brain. Tell the world.
+                            		<% if(list0!=null && list0.size()>0) {%>
+	    	
+	    						<div>
+	    							<% for(int i=0;i<5;i++) {
+	    								Product q = list0.get(i);
+	    							%>
+	    	
+	    						<div class="div-buy" >
+						    		<a href="changeIn.jsp?buyInId=<%= q.getId() %>">
+						    	 	<p><%=i+1%>:<%=q.getName()%>&emsp;(<%=q.getCreateTime()%>)</p></a><br>
+						    	 	
+						    	</div>
+	    							<%} %>
+	    							<%}else{ %>
+	    							<p>查無產品</p>
+	    							<% }%>
+	    						</div>
         					</div>
         					<div id="tab2" class="tab_content">
             				<h1>交易</h1>
             					<% if(list!=null && list.size()>0) {%>
 	    	
 	    						<div>
-	    							<% for(int i=0;i<7;i++) {
+	    							<% for(int i=0;i<5;i++) {
 	    								Product p = list.get(i);
 	    							%>
 	    	
@@ -321,15 +338,12 @@ function stoprattle(which)
 	    							<% }%>
 	    						</div>
         					</div>
-        					<div id="tab3" class="tab_content">
-            				<h1>HTML5 in the Wild</h1>
-            					The HTML5 logo gallery (below) shows off community creativity. We invite you to submit your sightings, whether screen shots or movies or cupcakes.
-        					</div>
+        					
    					 	</div>
 					</nav><br>					
 					<nav id="nav-1">
 						<a href="member/mywork.jsp"><img id="mywork" src="image/psd/myWork.png" title="我的管理"></a>
-						<img id="masage" src="image/psd/masage.png" title="悄悄話">
+						<a href="member/MyOwnerQA.jsp"><img id="masage" src="image/psd/masage.png" title="悄悄話"></a>
 						<a href="buy.jsp"><img id="buy" src="image/psd/buy.png" title="買賣"></a>
 						<a href="pand.jsp"><img id="pand" src="image/psd/pand.png" title="許願池"></a>
 						<a href="change.jsp"><img id="change01" src="image/psd/change01.png" title="交換"></a>

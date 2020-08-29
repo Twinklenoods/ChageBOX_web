@@ -499,14 +499,14 @@ p{color: white;}
 			
 			<%//取ProductSelectService
 	    		ProductSelectService service =new ProductSelectService();
-	    		List<Product> list =service.getUpOwner(member!=null?member.getId():"");
-	    		List<Product> list1 =service.getOwner(member!=null?member.getId():"");
+			List<Product> list1 =service.getdownBOX(member!=null?member.getId():"");
+    		List<Product> list =service.getUpBOX(member!=null?member.getId():"");
 	    	%>
 	<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
 		<input type="button" value="未上架 (<%=list1.size() %>)" class="adminbtn2"
-			onclick= "location.href='all.jsp'"> <input type="button"
+			onclick= "location.href='box.jsp'"> <input type="button"
 			value="已上架 (<%=list.size() %>)" class="adminbtn2"
-			onclick="location.href='up.jsp'"> <input
+			onclick="location.href='upBOX.jsp'"> <input
 			type="button" value="已成交 ()" class="adminbtn2"
 			onclick="location.href='ListMemberProduct?m=y'">
 			
@@ -533,7 +533,7 @@ p{color: white;}
 					<div class="right f14">
 						
 						
-						<form method="post" action="updown.do" style="width: 0px;height: 0px;">	
+						<form method="post" action="updownBOX.do" style="width: 0px;height: 0px;">	
 					<div class="updown">
 						<input id="owner" name="owner" type="text" value="<%= p.getOwner().getId()%>">
 						<input id="productId" name="productId" type="text" value="<%= p.getId() %>">
@@ -544,7 +544,7 @@ p{color: white;}
 						
 						
 						<form style="width: 0px;height: 0px;">	
-						<a href="downIn.jsp?downIn=<%= p.getId() %>"style="position: relative;top:0px; left:63px;">	
+						<a href="boxIn.jsp?downIn=<%= p.getId() %>"style="position: relative;top:0px; left:63px;">	
 						<input type="button" value="修改" class="eventbtn" style="position: relative;top:0px; left:0px;">&nbsp;
 						</a>
 						</form>	
@@ -576,7 +576,7 @@ p{color: white;}
 				上架時間<%=p.getCreateTime() %>
 				</div>
 				<div class="product_divlist_item f14 left">
-				價錢:<%=p.getUnitPrice()%>
+				<%=p.getOwner().getName() %>
 				</div>
 				
 			</div>

@@ -131,7 +131,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    	<%
 	    		
 	    		ProductSelectService service =new ProductSelectService();
-	    		List<Product> list =service.getUpdown("yes");
+	    		List<Product> list =service.getBUY("yes");
 	    	%>
 	    	
 	    	<%
@@ -142,7 +142,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    		list=service.searchProductsByName(search);
 	    		
 	    	}else{
-	    		list =service.getUpdown("yes");
+	    		list =service.getBUY("yes");
 	    	}
 	    	
 	    	%>

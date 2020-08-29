@@ -14,7 +14,7 @@
 <frame src="top.jsp" name="a">
 
 <frameset cols="100%,0%" frameborder="NO">
-<frame src="down.jsp" name="b">
+<frame src="all.jsp" name="b">
 
 
 </frameset>

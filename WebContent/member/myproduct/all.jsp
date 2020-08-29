@@ -505,7 +505,7 @@ p{color: white;}
 	    	%>
 	<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
 		<input type="button" value="未上架 (<%=list.size() %>)" class="adminbtn2"
-			onclick="location.href='down.jsp'"> <input type="button"
+			onclick="location.href='all.jsp'"> <input type="button"
 			value="已上架 (<%=list1.size() %>)" class="adminbtn2"
 			onclick="location.href='up.jsp'""> <input
 			type="button" value="已成交 (0)" class="adminbtn2"
@@ -568,7 +568,7 @@ p{color: white;}
 				</div>
 				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;<%=p.getWantChange() %></div>
 				<div class="product_divlist_item f14">
-					<div class="left">所在地&nbsp;&#10217;&nbsp;<%=p.getOrigin() %></div>
+				<div class="left">所在地&nbsp;&#10217;&nbsp;<%=p.getOrigin() %></div>
 				</div>
 				<%if(p.getBuy()!="yes") {%>
 				<div class="product_divlist_item f14 left" style="display:none;">
@@ -584,7 +584,7 @@ p{color: white;}
 				上架時間<%=p.getCreateTime() %>
 				</div>
 				<div class="product_divlist_item f14 left">
-				<%=p.getOwner().getName() %>
+				價錢:<%=p.getUnitPrice()%>
 				</div>
 				
 			</div>

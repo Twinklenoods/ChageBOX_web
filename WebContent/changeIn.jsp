@@ -75,7 +75,8 @@ function addCart_DoneHandler(data, status, xhr){
 	    		QuestionService service =new QuestionService();
 	    		List<Question> list =service.getQuertionsByProductID(productId);
 	    	%>
-			
+		<div class="divBG">
+	<jsp:include page="/member/subviews/header.jsp" />
 			<div style="padding-top:0px; margin:about;top:50px;text-align: center;" >
 			<% if(product!=null) {%>
 			<div>
@@ -87,9 +88,9 @@ function addCart_DoneHandler(data, status, xhr){
 					<p>價格<%=(int)product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
-					<form id="cartForm" action="add_cart.do" method="post"  onsubmit="return addCart()">
+					<form id="cartForm" action="" method="post" <%//向會員修改依樣提出資料申請 使用者+產品編號 %> >
 					<input type='text' style='width:3em ;display:none;' readonly name='productId' value='<%=  product.getId() %>' >
-					<input type="submit" value="加入購物車" >
+					<input type="submit" value="提出交換申請" onclick="return confirm('確認是否申請?')" >
 					</form>
 				</div>
 			</div>
@@ -169,6 +170,6 @@ function addCart_DoneHandler(data, status, xhr){
 			<p>查無此編號(#<%= productId %>)的產品</p>
 			<% } %>
 		</div>
-	
+	</div>
 </body>
 </html>

@@ -22,14 +22,14 @@ import uuu.vgb.service.ProductService;
 /**
  * Servlet implementation class changeProductServervler
  */
-@WebServlet("/member/myproduct/updown.do")
-public class updownServervler extends HttpServlet {
+@WebServlet("/member/myproduct/BoxUpDate.do")
+public class BoxUpDateServervler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public  updownServervler() {
+    public BoxUpDateServervler() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,9 +41,17 @@ public class updownServervler extends HttpServlet {
 		List<String> errors=new ArrayList<>();
 		request.setCharacterEncoding("utf-8");
 		//1.讀取資料
-		String updown=request.getParameter("updown");
+		String host=request.getParameter("host");
+		String buy=request.getParameter("buy");
+		String changebox=request.getParameter("change");
+		String name=request.getParameter("name");
+		String description=request.getParameter("comment1");
+		String photoUrl=request.getParameter("img");
+		String origin=request.getParameter("origin");
+		double unitPrice=Double.parseDouble(request.getParameter("BuyPrice"));
+		String wantChange=request.getParameter("WantChange");
 		String owner=request.getParameter("owner");
-	
+		//String ownerN=request.getParameter("ownerN");	
 		String id=request.getParameter("productId");	
 	
 
@@ -55,13 +63,30 @@ public class updownServervler extends HttpServlet {
 			ProductService service =new ProductService();
 			try {
 				Product p = service.login(id, owner);
-				p.setUpdown(updown);
-				service.updown(p);
+				
+				
+				p.setHost(host);
+				p.setBuy(buy);
+				p.setChangebox(changebox);
+				p.setName(name);
+				p.setDescription(description);
+				p.setPhotoUrl(photoUrl);
+				p.setOrigin(origin);
+				p.setUnitPrice(unitPrice);
+				p.setWantChange(wantChange);
+				
+			
+				
+				//p.setOwnerN(ownerN);
+				
+				
+				
+				service.update(p);
 				
 				//3.1forward (內部轉交)to註冊成功畫面
 				request.setAttribute("product", p);
 				RequestDispatcher dispatcher = 
-						request.getRequestDispatcher("all.jsp");
+						request.getRequestDispatcher("box.jsp");
 				
 			dispatcher.forward(request,response);
 			return;
@@ -85,7 +110,7 @@ public class updownServervler extends HttpServlet {
 		//3.2顯示失敗畫面
 		request.setAttribute("errors", errors);
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("all.jsp");
+				request.getRequestDispatcher("box.jsp");
 		
 		dispatcher.forward(request,response);
 }

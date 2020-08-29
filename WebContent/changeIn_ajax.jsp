@@ -84,12 +84,12 @@ function addCart_DoneHandler(data, status, xhr){
 				</div>
 				<div class='dataDiv'>
 					<h2>No.<%= product.getId() %><%= product.getName() %></h2>
-					<p>價格<%=(int)product.getUnitPrice() %> </p>
+					<h3>想交換:<%=product.getWantChange() %> </h3>
 					<hr>
 					<%= product.getDescription() %>
-					<form id="cartForm" action="add_cart.do" method="post"  onsubmit="return addCart()">
+					<form id="cartForm" action="" method="post" <%//向會員修改依樣提出資料申請 使用者+產品編號 %> >
 					<input type='text' style='width:3em ;display:none;' readonly name='productId' value='<%=  product.getId() %>' >
-					<input type="submit" value="加入購物車" >
+					<input type="submit" value="提出交換申請" onclick="return confirm('確認是否申請?')" >
 					</form>
 				</div>
 			</div>

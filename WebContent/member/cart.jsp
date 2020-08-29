@@ -35,7 +35,7 @@
 	</style>
 	<script type="text/javascript">
 	function goShopping(){
-		location.href='buy.jsp'
+		location.href='../buy.jsp'
 	}
 	function checkOut(){
 		location.href='check_out.jsp'

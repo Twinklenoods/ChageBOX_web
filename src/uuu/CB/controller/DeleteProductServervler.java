@@ -61,7 +61,7 @@ public class DeleteProductServervler extends HttpServlet {
 				//3.1forward (內部轉交)to註冊成功畫面
 				request.setAttribute("product", p);
 				RequestDispatcher dispatcher = 
-						request.getRequestDispatcher("down.jsp");
+						request.getRequestDispatcher("all.jsp");
 				
 			dispatcher.forward(request,response);
 			return;
@@ -85,7 +85,7 @@ public class DeleteProductServervler extends HttpServlet {
 		//3.2顯示失敗畫面
 		request.setAttribute("errors", errors);
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("down.jsp");
+				request.getRequestDispatcher("all.jsp");
 		
 		dispatcher.forward(request,response);
 }
