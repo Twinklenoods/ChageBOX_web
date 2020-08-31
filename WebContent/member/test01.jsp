@@ -94,17 +94,48 @@ footer{
 	}
 	.none{
 	display: none;
-	
-	color:white;
-	font-size: 15px;
-	
+	background: white;
+	color:black;
 	}
 </style>
 <script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="js/IndexJs.js"></script>
-<script type="text/javascript" src="js/top.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="js/IndexJs.js">
+</script><script type="text/javascript">
+$(document).ready(init011);
+/*alert("test");*/
+function init011(){
+	
+	$(".ch01").click(clickHandler1);
+	$(".ch02").click(clickHandler2);
+	$(".showin-button").click(inHandler);
+	
+	$(".remind").click(clickHandlerTEST);
+	
+}
 
+function clickHandlerTEST(){
+	$(".none").stop().slideToggle( 500 );
+	
+}
+
+
+function clickHandler1(){
+	$(".table01").stop().slideToggle( 500 );
+
+	}
+function clickHandler2(){
+	$(".table02").stop().slideToggle( 500 );
+	}
+function inHandler() {
+	var op = $('.block').css('left');
+
+    if (op == '-550px')
+    	$(".block").animate({left:"0px"},500);
+
+    else if(op == '0px')
+    	$(".block").animate({left:"-550px"},500);        
+
+}
 
 var rector =3;
 var stopit = 0;
@@ -198,79 +229,27 @@ if("POST".equalsIgnoreCase(request.getMethod())) { %>
 <nav >
     	<jsp:include page="/member/subviews/workLeft.jsp" />
 		
-		<nav class="n02">
-		<form autocomplete="off" method="post" action="mywork.do">
-     		<nav class="n03"><br>
-        	<span class="formSpan03">
-      	<span style="color:red">*</span>
-  		<label for="id">帳號:</label>
-  		<input type="text" id="id" name="id" minlength="8" maxlength="16" placeHolder="帳號/ID" readonly ><br><br>
-  		<span style="color:red">*</span>
-  		<label for="name">暱稱:</label>
-  		<input type="text" id="name1" name="name" autofocus  required placeHolder="暱稱/NAME"><br><br>
-  		<span style="color:red">*</span>
-  		<label for="password">密碼:</label>
-  		<input type="password" id="password1" name="pwd1" minlength="6" maxlength="8" required placeHolder="舊密碼/password"><br><br>
-  		<span style="color:red">*</span>
-  		<label for="password">密碼:</label>
-  		<input type="password" id="password2" name="pwd2" minlength="6" maxlength="8" required placeHolder="新密碼/password"><br><br>
-  		<span style="color:red">*</span>
-  		<label for="email">信箱:</label>
-  		<input type="email" id="email" name="email" autocomplete="on"  required placeHolder="<%;out.print("test@gmail.com");%>"><br><br>
-  		</span>
-  		
-        </nav>
-        <nav class="n04"><br>
-        <span class="formSpan04">
-        <span style="color:red"></span>
-        <label for="mySelect">*地區:</label>
-       	<select name="address" id="address" class="address" onchange="changeCity(this)">  
-    				<option value="">請選擇</option>
-    				<option value="基隆市">基隆市</option>
-    				<option value="臺北市">臺北市</option>
-    				<option value="新北市">新北市</option>
-    				<option value="宜蘭縣">宜蘭縣</option>
-    				<option value="新竹市">新竹市</option>
-    				<option value="新竹縣">新竹縣</option>
-    				<option value="桃園市">桃園市</option>
-    				<option value="苗栗縣">苗栗縣</option>
-    				<option value="臺中市">臺中市</option>
-    				<option value="彰化縣">彰化縣</option>
-    				<option value="南投縣">南投縣</option>
-    				<option value="嘉義市">嘉義市</option>
-    				<option value="嘉義縣">嘉義縣</option>
-    				<option value="雲林縣">雲林縣</option>
-    				<option value="臺南市">臺南市</option>
-    				<option value="高雄市">高雄市</option>
-    				<option value="屏東縣">屏東縣</option>
-    				<option value="臺東縣">臺東縣</option>
-    				<option value="花蓮縣">花蓮縣</option>
-    				<option value="金門縣">金門縣</option>
-    				<option value="連江縣">連江縣</option>
-    				<option value="澎湖縣">澎湖縣</option>
-    	</select><br><br>
-  				<span style="color:red">*</span>
-        		<label for="birthday">生日:</label>
-  				<input type="date" id="birthday" name="birthday" readonly max="<%=LocalDate.now().plusYears(-20) %>"><br><br>
-  				<label for="phone">*電話: </label>
-  				<input type="tel" id="phone" name="phone"style="width: 100px;"><br><br>
-  				 <span style="color:red">*</span>
-  				  <label for="gender1">性別:</label>
-  				 <input type="radio" id="M" name="gender" value=<%=Customer.MALE %> >
-				 <label for="gender1">男</label>
-				 <input type="radio" id="F" name="gender" value=<%=Customer.FEMALE %> >
-				 <label for="gender2">女</label>
-				 <br><br>
-  				
-  				<input type="submit" id="submit01" value="確認修改" onclick="return(confirm('確認是否修改?'))"><label for="submit01" class="myDiv1"></label>
-  				<span class="spanerror"><%  List<String> errors = (List<String>)request.getAttribute("errors");	%>
-     			<%out.print(errors!=null?errors:"");%></span>
-			
-				
-        </nav>
-     </form><br>	
-     </nav>
-	</nav>
+		<div class="test01">
+		<button class="test02">test</button>
+		
+		<li class="none">
+		你有一則悄悄話
+		</li>
+		<li class="none">
+		你有一則問答話
+		</li>
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+</nav>
    	<footer style="top: 450px;">footer</footer>
     </div>
     </div>

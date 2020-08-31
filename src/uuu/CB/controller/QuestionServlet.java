@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import uuu.vgb.entity.remind;
 import uuu.vgb.entity.Customer;
 import uuu.vgb.entity.DataInvalidException;
 import uuu.vgb.entity.Product;
 import uuu.vgb.entity.Question;
 import uuu.vgb.entity.VGBException;
 import uuu.vgb.service.QuestionService;
+import uuu.vgb.service.RemindService;
 
 /**
  * Servlet implementation class QuestionServlet
@@ -43,29 +45,40 @@ public class QuestionServlet extends HttpServlet {
 		String user =request.getParameter("user");
 		int productId =Integer.parseInt(request.getParameter("productId"));
 		String question =request.getParameter("question");
+		String owner =request.getParameter("owner");
+		String remind =request.getParameter("remind");
 		//2.若無誤，呼叫商業邏輯
 		if(errors.isEmpty()) {
 			Question q =new Question();
 			Product p = new Product();
 			Customer c= new Customer();
+			remind r = new remind();//忘記取大寫 請忽略
 			try {
+				//set q
 				q.setQuestion(question);
-				
 				c.setId(user);
 				q.setUser(c);
-				
 				p.setId(productId);
 				q.setProductId(p);
+				
 				QuestionService service = new QuestionService();
+				
 				service.register(q);
+				//set r
+				c.setId(owner);
+				r.setUser(remind);
+			
+				r.setOwner(c);
+				RemindService servic2 = new RemindService();
+				
+				 servic2.register(r);
+				
 				//3.1forward (內部轉交)to註冊成功畫面
-				//request.setAttribute("product", c);
-//				RequestDispatcher dispatcher = 
-//						request.getRequestDispatcher("buy.jsp");
-//				
-//				dispatcher.forward(request,response);
+				
 				response.sendRedirect("buy.jsp");
-			return;
+			
+				
+				return;
 			}catch(DataInvalidException e) {
 				errors.add("新增問題失敗"+e.getMessage());
 				this.log("新增問題發生錯誤",e);//開發者

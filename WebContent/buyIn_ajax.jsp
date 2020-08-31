@@ -121,6 +121,8 @@ function addCart_DoneHandler(data, status, xhr){
 				<%}else{ %>
 				<input style="display: none;" type="text" name="user" value="<%=member.getId()%>">
 				<input style="display: none;" type="text" name="productId" value="<%=productId %>">
+				<input style="display: none;" type="text" name="remind" value="<%=member.getId()%>">
+				<input style="display: none;" type="text" name="owner" value="<%=product.getOwner().getId()%>">
 				<textarea style="width: 100%;height:100px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想提出的問題 最多250個字" maxlength="500"></textarea>
 				<input type="submit" name="submit" value="送出">
 				<% } %>
@@ -155,6 +157,8 @@ function addCart_DoneHandler(data, status, xhr){
 				<%}else{ %>
 				<input style="display: none;" type="text" name="user" value="<%=member.getId()%>">
 				<input style="display: none;" type="text" name="productId" value="<%=productId %>">
+				<input style="display: none;" type="text" name="owner" value="<%=product.getOwner().getId()%>">
+				<input style="display: none;" type="text" name="remind" value="<%=member.getId()%>">
 				<textarea style="width: 100%;height:100px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想提出的問題 最多250個字" maxlength="500"></textarea>
 				<input type="submit" name="submit" value="送出">
 				</td><% } %> 

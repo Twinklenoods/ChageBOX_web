@@ -491,6 +491,8 @@ color: white;
 				<textarea style="width: 100%;height:100px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多250個字" maxlength="500"></textarea>
 				<input type="text" name="owner" style="display: none;" value="<%=c.getOwner().getId() %>">
 				<input type="text" name="user" style="display: none;" value="<%=member.getId()%>">
+				<input style="display: none;" type="text" name="remind" value="<%=member.getId()%>">
+				
 				<input type="submit" name="submit" value="送出">
 				</form>
 				</td>

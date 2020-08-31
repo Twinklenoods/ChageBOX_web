@@ -11,6 +11,14 @@
 	left:0;
 	
 }
+.none{
+	display: none;
+	margin-left:620px;
+	color:white;
+	width:110px;
+	font-size: 15px;
+	border-bottom: black;
+	}
 
 	#main {
 		height: 2050px;
@@ -316,7 +324,7 @@ a.tab{
 header ul {
 	margin: 0px;
 	list-style: none;
-	width: 680px;
+	width: 880px;
 	margin: auto;
 }
 .li-01{

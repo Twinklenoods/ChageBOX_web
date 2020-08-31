@@ -9,6 +9,14 @@
 <LINK href="css/IndexDivBG.css" rel="stylesheet" type="text/css">
 <LINK href="css/left.css" rel="stylesheet" type="text/css">
   <style>
+.none{
+	display: none;
+
+	color:white;
+	font-size: 15px;
+
+	
+	}
 
 header li {
 	float: left;
@@ -113,36 +121,10 @@ footer{
 	}
 </style>
 <script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="js/IndexJs.js">
-</script><script type="text/javascript">
-$(document).ready(init7);
-/*alert("test");*/
-function init7(){
-	
-	$(".ch01").click(clickHandler1);
-	$(".ch02").click(clickHandler2);
-	$(".showin-button").click(inHandler);
-	
-}
+<script type="text/javascript" src="js/IndexJs.js"></script>
+<script type="text/javascript" src="js/top.js"></script>
+<script type="text/javascript">
 
-
-function clickHandler1(){
-	$(".table01").stop().slideToggle( 500 );
-
-	}
-function clickHandler2(){
-	$(".table02").stop().slideToggle( 500 );
-	}
-function inHandler() {
-	var op = $('.block').css('left');
-
-    if (op == '-550px')
-    	$(".block").animate({left:"0px"},500);
-
-    else if(op == '0px')
-    	$(".block").animate({left:"-550px"},500);        
-
-}
 
 var rector =3;
 var stopit = 0;

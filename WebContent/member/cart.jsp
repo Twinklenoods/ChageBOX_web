@@ -32,7 +32,11 @@
 	.tr02{
 		border-left: red solid 2px;
 	}
+	
 	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="js/IndexJs.js"></script>
+	<script type="text/javascript" src="js/top.js"></script>
 	<script type="text/javascript">
 	function goShopping(){
 		location.href='../buy.jsp'
@@ -45,29 +49,7 @@
 </head>
 <body>
 			<div class="divBG">
-			<header style="color:white;">
-	    		<ul>
-					<li><a href="/CB">Home</a></li>
-					<li>
-					<form action="<%= request.getContextPath() %>/buy.jsp">
-					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
-					<input type="submit" value="查詢">
-					</form>
-					</li>
-					<li class="li-01"><%Customer member=(Customer)session.getAttribute("member");%>
- 					<%= member!=null?member.getName():""%>
- 					<% if(member == null){ %><a href="<%=request.getContextPath() %>">Login</a>
- 					 <%}else{ %>
- 					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
- 					 <% } %> </li>
- 					 <li><a href="<%= request.getContextPath() %>/cart.jsp">加入購物車</a></li>
-					
-				</ul>
-					
-					
- 					
- 					
-	    	</header>
+		<jsp:include page="/member/subviews/header.jsp" />
 
 <div class="cart01">
 <%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>

@@ -306,7 +306,7 @@ a.tab{
 header ul {
 	margin: 0px;
 	list-style: none;
-	width: 380px;
+	width: 880px;
 	margin: auto;
 }
 .li-01{
@@ -388,3 +388,15 @@ border:2px solid rgb(0,0,0) double;
 	
 }
 	}
+.none{
+	display: none;
+	margin-left:620px;
+	color:white;
+	width:110px;
+	font-size: 15px;
+	border-bottom: black;
+	}
+	
+.none li {
+	border-bottom: black;
+}	

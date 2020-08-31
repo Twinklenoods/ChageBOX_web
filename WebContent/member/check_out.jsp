@@ -34,9 +34,19 @@
 	.tr02{
 		border-left: red solid 2px;
 	}
+	.none{
+	display: none;
+	background: white;
+	color:black;
+	font-size: 15px;
+	border-bottom: black;
+	
+	}
 	</style>
 	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript" src="js/IndexJs.js"></script>
+<script type="text/javascript" src="js/top.js"></script>
+<script type="text/javascript">
 	function goShopping(){
 		location.href='buy.jsp'
 	}
@@ -75,7 +85,12 @@
  					 <%}else{ %>
  					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
  					 <% } %> </li>
- 					 <li><a href="<%= request.getContextPath() %>/cart.jsp">加入購物車</a></li>
+ 					<li class="li-02">
+ 					 <a class="remind"><img style="width: 30px;" id="remind" src="image/remind.png" title="提醒">2</a>
+ 					 	<li class="none">
+							<div>你有一則悄悄話</div><br>
+							<div>你有一則問答話</div><br>
+						</li>
 					
 				</ul>
 					

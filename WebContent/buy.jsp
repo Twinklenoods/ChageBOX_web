@@ -148,7 +148,8 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    	%>
 	    	<% if(list!=null && list.size()>0) {%>
 	    	
-	    	<nav>
+	
+	    	<nav>	<h1 style="margin-left: 100px;">買賣區</h1>
 	    	<% for(int i=0;i<list.size();i++) {
 	    		Product p = list.get(i);
 	    	%>

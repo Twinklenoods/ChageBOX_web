@@ -16,9 +16,11 @@ import uuu.vgb.entity.DataInvalidException;
 import uuu.vgb.entity.OwnerQa;
 import uuu.vgb.entity.Product;
 import uuu.vgb.entity.VGBException;
+import uuu.vgb.entity.remind;
 import uuu.vgb.service.CustomerService;
 import uuu.vgb.service.OwnerQaService;
 import uuu.vgb.service.ProductSelectService;
+import uuu.vgb.service.RemindService;
 
 /**
  * Servlet implementation class QAowner
@@ -45,12 +47,17 @@ public class QAownerServervler extends HttpServlet {
 		String question= request.getParameter("question");
 		String owner= request.getParameter("owner");
 		String user= request.getParameter("user");
+		String remind =request.getParameter("remind");
+		
 		//2.若無誤，呼叫商業邏輯
 				if(errors.isEmpty()) {
 					OwnerQa o = new OwnerQa();
 					Customer c= new Customer();
 					Customer c2= new Customer();
+					remind r = new remind();//忘記取大寫 請忽略
+					
 					try {
+						//SET O  
 						o.setOwnerQA(question);
 						c.setId(owner);
 						c2.setId(user);
@@ -59,13 +66,16 @@ public class QAownerServervler extends HttpServlet {
 						
 						OwnerQaService service = new OwnerQaService();
 						service.register(o);
+						//SET R
+						
+						r.setUser(remind);
+						r.setOwner(c);
+						
+						RemindService servic2 = new RemindService();
+						 servic2.register(r);
+						
 						//3.1forward (內部轉交)to註冊成功畫面
 						
-						
-						
-						
-						
-					
 						response.sendRedirect("ownerQA.jsp?buyIDOwner="+owner);
 						
 						
