@@ -36,27 +36,27 @@
 			color: black;					
 		}		
 </style>
+
 <script type="text/javascript">
-function addCart(){
+function addRmind(){
 	
 	//1.阻擋form submit送出同步請求
 	$.ajax({
-		url:$("#cartForm").attr("action"),
-		method:$("#cartForm").attr("method"),
-		data:$("#cartForm").serialize()
+		url:$("#QForm").attr("action"),
+		method:$("#QForm").attr("method"),
+		data:$("#QForm").serialize()
 		
-	}).done(addCart_DoneHandler);
+	}).done(addRmind_DoneHandler);
 	
-	alert("加入購物車成功");
+	
 	//2.改用非同步請求...
 	return false;
 }
-function addCart_DoneHandler(data, status, xhr){
-
+function addRmind_DoneHandler(data, status, xhr){
+	alert("已送出")
+	location.href="";
 	//$("").html(data);
 }
-
-
 </script>
 </head>
 <body>
@@ -84,29 +84,19 @@ function addCart_DoneHandler(data, status, xhr){
 				</div>
 				<div class='dataDiv'>
 					<h2>No.<%= product.getId() %><%= product.getName() %></h2>
-					<h3>想交換:<%=product.getWantChange() %> </h3>
+					<p>價格<%=(int)product.getUnitPrice() %> </p>
 					<hr>
 					<%= product.getDescription() %>
 					
-					<% if (member!=null) {%>
-					<form id="cartForm" action="WantChange.do" method="post" <%//向會員修改依樣提出資料申請 使用者+產品編號 %> >
-					<input type='text' style='width:3em ;display:none;' readonly name='user' value='<%=  member.getId() %>' >
-					<input type='text' style='width:3em ;display:none;' readonly name='productId' value='<%=  product.getId() %>' >
-					<input type='text' style='width:3em ;display:;' readonly name='owner' value='<%=  product.getOwner().getId() %>' >
-					<input type="submit" value="提出交換申請" onclick="return confirm('確認是否申請?')" >
-					</form>
-					<% }else{%>
-					<br><a href="<%=request.getContextPath() %>"><button>需登入才能提出申請喔!!</button></a>
-					<% }%>
 				</div>
 			</div>
 				<%--= QA --%>
 	<% if(list!=null && list.size()>0) {%>
 	
 		
-	    <form action="question.do" method="post">
+	    <form action="question2.do" id="QForm" onsubmit="return addRmind()" method="post">
 		<table class="table01">
-			
+			<caption>QA</caption>
 			<tr>
 			
 				<th>暱稱</th>
@@ -128,8 +118,6 @@ function addCart_DoneHandler(data, status, xhr){
 				<%}else{ %>
 				<input style="display: none;" type="text" name="user" value="<%=member.getId()%>">
 				<input style="display: none;" type="text" name="productId" value="<%=productId %>">
-				<input style="display: none;" type="text" name="owner" value="<%=product.getOwner().getId()%>">
-				<input style="display: none;" type="text" name="remind" value="<%=member.getId()%>">
 				<textarea style="width: 100%;height:100px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想提出的問題 最多250個字" maxlength="500"></textarea>
 				<input type="submit" name="submit" value="送出">
 				<% } %>
@@ -142,9 +130,9 @@ function addCart_DoneHandler(data, status, xhr){
 	    	
 	    	
 	    	<%}else{ %>
-	    	  <form action="question.do" method="POST">
+	    	  <form action="question2.do" id="QForm" onsubmit="return addRmind()" method="POST">
 		<table class="table01">
-			<caption>問與答</caption>
+			<caption>QA</caption>
 			<tr>
 			
 				<th>暱稱</th>

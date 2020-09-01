@@ -534,7 +534,7 @@ p{color: white;}
 						<textarea style="width: 764px; height: 33px; margin: 0px;" required="required" name="question" id="question" rows="5" cols="50" class="ap_area_w500_h80" placeholder="想交換的遊戲 最多250個字" maxlength="500"></textarea>
 						<input type="text" style="display: none;" name="id" value="<%=o.getId()%>">
 						<input type="text" style="display: none;" name="owner" value="<%=member!=null?member.getId():""%>">
-						<input type="submit" value="回復" class="eventbtn" style="margin:0 0 0 710px;" >&nbsp;
+						<input type="submit" value="修改" class="eventbtn" style="margin:0 0 0 710px;" >&nbsp;
 						</form>
 					</div>
 					

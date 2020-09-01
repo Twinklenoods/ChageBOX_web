@@ -23,14 +23,14 @@ import uuu.vgb.service.RemindService;
 /**
  * Servlet implementation class QuestionServlet
  */
-@WebServlet("/question.do")
-public class QuestionServlet extends HttpServlet {
+@WebServlet("/member/myproduct/question2.do")
+public class QuestionServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QuestionServlet() {
+    public QuestionServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -75,10 +75,10 @@ public class QuestionServlet extends HttpServlet {
 				
 				//3.1forward (內部轉交)to註冊成功畫面
 				
-				response.sendRedirect("buy.jsp");
+				//response.sendRedirect("member/myproduct/QAup.jsp");
 			
 				
-				return;
+				//return;
 			}catch(DataInvalidException e) {
 				errors.add("新增問題失敗"+e.getMessage());
 				this.log("新增問題發生錯誤",e);//開發者
@@ -91,10 +91,10 @@ public class QuestionServlet extends HttpServlet {
 			}	
 		}
 		
-		//3.2顯示失敗畫面
+		//3 顯示畫面
 		request.setAttribute("errors", errors);
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("buy.jsp");
+				request.getRequestDispatcher("/member/myproduct/QAup.jsp");
 		
 		dispatcher.forward(request,response);
 		}

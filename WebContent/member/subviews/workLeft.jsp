@@ -21,7 +21,7 @@
 			</a>
 			<div class="table01">
 			<li>我想交換</li><br>
-			<li>想與我交換</li><br>
+			<a  href="myChange.jsp"><li style="color:black;">想與我交換</li><br></a>
 			</div>
 			<a href=# class="ch02">
 			<li>成交清單</li><br>

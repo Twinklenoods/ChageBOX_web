@@ -1,3 +1,6 @@
+<%@page import="uuu.vgb.entity.WantChange"%>
+<%@page import="uuu.CB.controller.WantChangeServlet"%>
+<%@page import="uuu.vgb.service.WantChangeService"%>
 <%@page import="javafx.scene.control.ListCellBuilder"%>
 <%@page import="uuu.vgb.entity.Product"%>
 <%@page import="uuu.vgb.entity.Customer"%>
@@ -460,7 +463,7 @@ function getProductJSP(PrductId){
 	//非同步GET請求
 	$.ajax({
 		
-		url:"/CB/member/myproduct/QA_ajax.jsp?buyInId="+PrductId,
+		url:"/CB/member/mychange/QA_ajax.jsp?buyInId="+PrductId,
 		meth:'GET'	
 	
 	
@@ -483,8 +486,6 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 		}
 	});
 }
-
-
 
     function product_updown_dmark(){
 
@@ -531,81 +532,80 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			
 			<%//取ProductSelectService
 	    		ProductSelectService service =new ProductSelectService();
+	    		WantChangeService service2 = new WantChangeService();
+				
 	    		List<Product> list =service.getUpOwner(member!=null?member.getId():"");
 	    		List<Product> list1 =service.getOwner(member!=null?member.getId():"");
+	    		
+	    		List<WantChange> list2 =service2.getWantChangeByProductID(member!=null?member.getId():"");
 	    	%>
-	<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
+		<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
 		
 			
 	
-	    	<% if(list!=null && list.size()>0) {%>
+	    	<% if(list!=null && list2.size()>0) {%>
 	
 			
-			<% for(int i=0;i<list.size();i++) {
-	    		Product p = list.get(i);
+			<% for(int i=0;i<list2.size();i++) {
+	    		WantChange w = list2.get(i);
 	    	%>
-		<div id="prodlistid1" class="product_divlist">
+			<%if(w.getCheack()==0) {%>
+			<div id="prodlistid1" class="product_divlist">
 			<div class="product_imglist">
 				<img
-					src="<%=p.getPhotoUrl() %>"
+					src="<%=w.getProductID().getPhotoUrl() %>"
 					border=0>
 			</div>
 			<div class="product_divlistright">
 				<div class="product_divlist_title f18" style="height: 48px;">
 					<div class="left">
 							
-							<span style="color: black;"><%=p.getName()%></span>
+							<span style="color: black;"><%=w.getProductID().getName()%></span>
 					</div>
 					
 					<div class="right f14">
 						<form style="width: 0px;height: 0px;">	
-						<a href="javascript:getProductJSP(<%=p.getId()%>)"style="position: relative;top:0px; left:63px;">	
-						<input type="button" value="問答"  class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
+						<a href="javascript:getProductJSP(<%=w.getProductID().getId()%>)"style="position: relative;top:0px; left:63px;">	
+						<input type="button" value="問答" class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
 						</a>
 						</form>	
+						<form>
+							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="同意" class="eventbtn" onclick="return(confirm('確認是否同意?'))">&nbsp;
+						</form>
+						<form style="width: 0px;height: 0px;">
+							<input type="submit" style="position: relative;top:-30px; left:109px;" value="否決" class="eventbtn" onclick="return(confirm('確認是否否決?'))">&nbsp;
+						</form>
 									
 							
 					</div>
 				</div>
 				<div class="product_divlist_item f14">
 					<div class="left">
-						<a href="/change/Detail.php?pid=4249614" class="tag_c">交換</a><a
-							href="/trade/Detail.php?pid=4249614" class="tag_t">買賣</a>
+						<a href="/change/Detail.php?pid=4249614" class="tag_c">交換</a>
+						<%=w.getProductID().getId()%>	
 					</div>
 				</div>
-				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;<%=p.getWantChange() %></div>
+				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
 				<div class="product_divlist_item f14">
-					<div class="left">所在地&nbsp;&#10217;&nbsp;<%=p.getOrigin() %></div>
+					
 				</div>
-				<%if(p.getBuy()!="yes") {%>
-				<div class="product_divlist_item f14 left" style="display:none;">
 				
-				價錢:<%=p.getUnitPrice()%>
-				
-				</div>
-				<%}else{ %>
-				<div class="product_divlist_item f14 left">
-				價錢:<%=p.getUnitPrice()%></div>
-				<%}%>
-				<div class="product_divlist_item f14 left">
-				上架時間<%=p.getCreateTime() %>
-				</div>
-				<div class="product_divlist_item f14 left">
-				<%=p.getOwner().getName() %>
-				</div>
+		
 				
 			</div>
 		</div>
 		
-		<%} %>
-	    	
-	    	
+		<%}else{ %>
+	
+		<% }%>
+	    	<%} %>
 	    	
 	    	<%}else{ %>
-	    	<p>查無產品</p>
+	    		<p>查無產品</p>
 	    	<% }%>
-		
+	
 	</div>
+	
 </body>
 </html>
 
