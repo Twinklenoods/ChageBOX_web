@@ -114,21 +114,21 @@
 			</tr>	
 			
 			<tr>
-				<td colspan="2" >付款方式:
+				<td colspan="2" >付款方式(案件計算):
 					<select id="pay" name="pay" required onchange="calculateFee()">  
     				<option value="">請選擇</option>
     				<% for(PaymentType pType:PaymentType.values()) { %>
-    				<option value="<%=pType.name()%>" data-fee='<%=pType.getFee()%>'><%=pType.getDescription()%></option>
+    				<option value="<%=pType.name()%>" data-fee='<%=pType.getFee()*cart.size()%>'><%=pType.getDescription()%></option>
     				<%} %>
     				</select>
 				</td>
 				
 				
-				<td colspan="2" >貨運方式:
+				<td colspan="2" >貨運方式(案件計算):
 				<select id="use" name="use" required onchange="calculateFee()">  
     				<option value="">請選擇</option>
     				<% for(ShippingType pType2:ShippingType.values()) {%>
-    				<option value="<%=pType2.name()%>" data-fee='<%=pType2.getFee()%>'><%=pType2.getDescription()%></option>
+    				<option value="<%=pType2.name()%>" data-fee='<%=pType2.getFee()*cart.size()%>'><%=pType2.getDescription()%></option>
     				<% }%>
     				
     				</select>
