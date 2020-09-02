@@ -69,7 +69,14 @@ public class WantChangeServlet extends HttpServlet {
 				
 				service.register(w);
 				//set r
+				
+				c.setId(owner);
+				r.setUser(user);
 			
+				r.setC_owner(c);
+				RemindService servic2 = new RemindService();
+				
+				 servic2.register3(r);
 				
 				//3.1forward (內部轉交)to註冊成功畫面
 				

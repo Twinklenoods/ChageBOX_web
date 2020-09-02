@@ -20,7 +20,7 @@
 		method="POST" onsubmit="return chkchoice()" >
 		<div style="height: 30px; width: 100%; border-bottom: 1px #cccccc solid; margin-bottom: 3px; text-align: left;">
 			<a href='QAup.jsp'target="b"><input type="button" value="所有" class="adminbtn active"> </a>
-		<a href='QAup_1.jsp'target="b"><input type="button" value="同意" class="adminbtn active"> </a>
+		<a href='QAup_1.jsp'target="b"><input type="button" value="被否決" class="adminbtn active"> </a>
 		</div>
 		</form>
 </div>

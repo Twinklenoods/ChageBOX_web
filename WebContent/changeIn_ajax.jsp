@@ -92,7 +92,7 @@ function addCart_DoneHandler(data, status, xhr){
 					<form id="cartForm" action="WantChange.do" method="post" <%//向會員修改依樣提出資料申請 使用者+產品編號 %> >
 					<input type='text' style='width:3em ;display:none;' readonly name='user' value='<%=  member.getId() %>' >
 					<input type='text' style='width:3em ;display:none;' readonly name='productId' value='<%=  product.getId() %>' >
-					<input type='text' style='width:3em ;display:;' readonly name='owner' value='<%=  product.getOwner().getId() %>' >
+					<input type='text' style='width:3em ;display:none;' readonly name='owner' value='<%=  product.getOwner().getId() %>' >
 					<input type="submit" value="提出交換申請" onclick="return confirm('確認是否申請?')" >
 					</form>
 					<% }else{%>

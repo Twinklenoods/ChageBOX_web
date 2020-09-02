@@ -533,11 +533,12 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			<%//取ProductSelectService
 	    		ProductSelectService service =new ProductSelectService();
 	    		WantChangeService service2 = new WantChangeService();
-				
+	    		WantChangeService service3 = new WantChangeService();
 	    		List<Product> list =service.getUpOwner(member!=null?member.getId():"");
 	    		List<Product> list1 =service.getOwner(member!=null?member.getId():"");
 	    		
-	    		List<WantChange> list2 =service2.getWantChangeByProductID(member!=null?member.getId():"");
+	    		List<WantChange> list2 =service2.getWantChangeByUserID(member!=null?member.getId():"");
+	    		List<WantChange> list3 =service3.getWantChangeByProductID(member!=null?member.getId():"");
 	    	%>
 		<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
 		
@@ -549,7 +550,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			<% for(int i=0;i<list2.size();i++) {
 	    		WantChange w = list2.get(i);
 	    	%>
-			<%if(w.getCheack()==0) {%>
+			<%if(w.getCheack()==1) {%>
 			<div id="prodlistid1" class="product_divlist">
 			<div class="product_imglist">
 				<img
@@ -569,15 +570,17 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 						<input type="button" value="問答" class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
 						</a>
 						</form>	
-						<form method="post" action="yes.do">
+						<form method="post" action="ok.do">
 							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>"style="display: none;">
 							<input id="yes" name="yes" type="text" value="<%=w.getUser().getId()%>"style="display: none;">
 							<input id="proID" name="proID" type="text" value="<%=w.getProductID().getId()%>"style="display: none;">
-							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="同意" class="eventbtn" onclick="return(alert('同意後請利用本網站的同意表單裡聯絡'),confirm('確認是否同意?'))">&nbsp;
-						</form>
-						<form method="post" action="no.do" style="width: 0px;height: 0px;">
-							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>" style="display: none;">
-							<input type="submit" style="position: relative;top:-30px; left:109px;" value="否決" class="eventbtn" onclick="return(confirm('確認是否否決?'))">&nbsp;
+							<select id="listrating" name="listrating" required onchange="calculateFee()" style="position: relative;top:0px; left:120px;">  
+    						<option value="">請選擇評價</option>
+    						<option value=1>很好/very good</option>
+    						<option value=2>普通/general</option>
+    						<option value=3>很差/very bad</option>
+    						</select>	
+							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="刪除" class="eventbtn" onclick="return(confirm('確認是否刪除?'))">&nbsp;
 						</form>
 									
 							
@@ -585,12 +588,77 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 				</div>
 				<div class="product_divlist_item f14">
 					<div class="left">
-						<a href="/change/Detail.php?pid=4249614" class="tag_c">交換</a>
+						<a href="" class="tag_c">交換</a>
 					
 							
 					</div>
 				</div>
-				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
+				<div class="product_divlist_item f14">擁有者:&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
+				<div class="product_divlist_item f14">
+					
+				</div>
+				
+		
+				
+			</div>
+		</div>
+		
+		<%}else{ %>
+	
+		<% }%>
+	    	<%} %>
+	    	
+	    	<%}else{ %>
+	    		<p>查無產品</p>
+	    	<% }%>
+	    	
+	    	
+	    	
+	    	<% if(list!=null && list3.size()>0) {%>
+	
+			
+			<% for(int i=0;i<list3.size();i++) {
+	    		WantChange w = list3.get(i);
+	    	%>
+			<%if(w.getCheack()==1) {%>
+			<div id="prodlistid1" class="product_divlist">
+			<div class="product_imglist">
+				<img
+					src="<%=w.getProductID().getPhotoUrl() %>"
+					border=0>
+			</div>
+			<div class="product_divlistright">
+				<div class="product_divlist_title f18" style="height: 48px;">
+					<div class="left">
+							
+							<span style="color: black;"><%=w.getProductID().getName()%></span>
+					</div>
+					
+					<div class="right f14">
+						<form style="width: 0px;height: 0px;">	
+						<a href="javascript:getProductJSP(<%=w.getProductID().getId()%>)"style="position: relative;top:0px; left:63px;">	
+						<input type="button" value="問答" class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
+						</a>
+						</form>	
+						<form method="post" action="">
+							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>"style="display: none;">
+							<input id="yes" name="yes" type="text" value="<%=w.getUser().getId()%>"style="display: none;">
+							<input id="proID" name="proID" type="text" value="<%=w.getProductID().getId()%>"style="display: none;">
+							
+							<input type="submit"  style="position: relative;top:0px; left:-33px;" value="未給評價" class="eventbtn" onclick="return(alert('對方給予評價後將自動刪除'))">&nbsp;
+						</form>
+									
+							
+					</div>
+				</div>
+				<div class="product_divlist_item f14">
+					<div class="left">
+						<a href="" class="tag_c">交換</a>
+					
+							
+					</div>
+				</div>
+				<div class="product_divlist_item f14">擁有者:&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
 				<div class="product_divlist_item f14">
 					
 				</div>

@@ -29,12 +29,15 @@
  					 </li>
 					  <% RemindService service2 =new RemindService();
  						RemindService service3 =new RemindService();
+ 						RemindService service4 =new RemindService();
 		    		if(member != null){
  					 List<remind> list2 =service2.getRemind(member.getId());
- 					 List<remind> list3 =service3.getRemindQ(member.getId());%>
+ 					 List<remind> list3 =service3.getRemindQ(member.getId());
+ 					 List<remind> list4 =service4.getRemindC(member.getId());
+ 					 %>
  				
  					 <%if (list2!=null){ %>
-       						 <a class="remind"><img style="width: 30px;margin-top: 10px;" id="remind" src="image/yellow/remind.png" title="提醒"><%=(list2.size())+(list3.size())%></a>
+       						 <a class="remind"><img style="width: 30px;margin-top: 10px;" id="remind" src="image/yellow/remind.png" title="提醒"><%=(list2.size())+(list3.size())+(list4.size())%></a>
        						 <li class="none">
       						 <% for(int i=0;i<list2.size();i++){
        							 remind r = list2.get(i);
@@ -55,6 +58,18 @@
       						 %>
        						<form id="RmindForm" action="look.do" method="post" onsubmit="return addRmind()">
        						<div>來自<%=r.getQ_owner().getName() %>一筆新的問答</div><br>
+       						
+       						
+       						<input type="text" name="RemindId" style="display: none;" value="<%=r.getRemindId()%>">
+       						<input type="submit" style="" value="確認已讀" onclick="javascript:window.location.reload();" >
+       						</form>	
+       						<% }%>
+      						 <% for(int i=0;i<list4.size();i++){
+       							 remind r = list4.get(i);
+       							
+      						 %>
+       						<form id="RmindForm" action="look.do" method="post" onsubmit="return addRmind()">
+       						<div>來自<%=r.getC_owner().getName() %>一筆新的交換申請</div><br>
        						
        						
        						<input type="text" name="RemindId" style="display: none;" value="<%=r.getRemindId()%>">

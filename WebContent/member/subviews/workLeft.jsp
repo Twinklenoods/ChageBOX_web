@@ -20,14 +20,14 @@
 			<li>交換</li><br>
 			</a>
 			<div class="table01">
-			<li>我想交換</li><br>
+			<a  href="IChange.jsp"><li style="color:black;">我想交換</li><br></a>
 			<a  href="myChange.jsp"><li style="color:black;">想與我交換</li><br></a>
 			</div>
 			<a href=# class="ch02">
 			<li>成交清單</li><br>
 			</a>
 			<div class="table02">
-			<li>交換成功清單</li><br>
+			<a  href="OkChange.jsp"><li style="color:black;">交換成功清單</li><br></a>
 			<li>買賣成功清單</li><br>
 			</div>
 			</div>

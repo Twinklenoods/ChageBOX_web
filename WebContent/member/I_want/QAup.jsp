@@ -537,7 +537,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    		List<Product> list =service.getUpOwner(member!=null?member.getId():"");
 	    		List<Product> list1 =service.getOwner(member!=null?member.getId():"");
 	    		
-	    		List<WantChange> list2 =service2.getWantChangeByProductID(member!=null?member.getId():"");
+	    		List<WantChange> list2 =service2.getWantChangeByUserID(member!=null?member.getId():"");
 	    	%>
 		<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
 		
@@ -569,15 +569,11 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 						<input type="button" value="問答" class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
 						</a>
 						</form>	
-						<form method="post" action="yes.do">
+						<form method="post" action="delet.do">
 							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>"style="display: none;">
 							<input id="yes" name="yes" type="text" value="<%=w.getUser().getId()%>"style="display: none;">
 							<input id="proID" name="proID" type="text" value="<%=w.getProductID().getId()%>"style="display: none;">
-							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="同意" class="eventbtn" onclick="return(alert('同意後請利用本網站的同意表單裡聯絡'),confirm('確認是否同意?'))">&nbsp;
-						</form>
-						<form method="post" action="no.do" style="width: 0px;height: 0px;">
-							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>" style="display: none;">
-							<input type="submit" style="position: relative;top:-30px; left:109px;" value="否決" class="eventbtn" onclick="return(confirm('確認是否否決?'))">&nbsp;
+							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="刪除" class="eventbtn" onclick="return(alert('一旦刪除便無法回復'),confirm('確認是否刪除?'))">&nbsp;
 						</form>
 									
 							
@@ -590,7 +586,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 							
 					</div>
 				</div>
-				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
+				<div class="product_divlist_item f14">擁有者:&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
 				<div class="product_divlist_item f14">
 					
 				</div>

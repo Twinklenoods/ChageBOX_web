@@ -308,12 +308,15 @@ function addRmind_DoneHandler(data, status, xhr){
  					 <% } %> </li>
  					 <% RemindService service2 =new RemindService();
  						RemindService service3 =new RemindService();
+ 						RemindService service4 =new RemindService();
 		    		if(member != null){
  					 List<remind> list2 =service2.getRemind(member.getId());
- 					 List<remind> list3 =service3.getRemindQ(member.getId());%>
+ 					 List<remind> list3 =service3.getRemindQ(member.getId());
+ 					 List<remind> list4 =service4.getRemindC(member.getId());
+ 					 %>
  				
  					 <%if (list2!=null){ %>
-       						 <a class="remind"><img style="width: 30px;margin-top: 10px;" id="remind" src="image/yellow/remind.png" title="提醒"><%=(list2.size())+(list3.size())%></a>
+       						 <a class="remind"><img style="width: 30px;margin-top: 10px;" id="remind" src="image/yellow/remind.png" title="提醒"><%=(list2.size())+(list3.size())+(list4.size())%></a>
        						 <li class="none">
       						 <% for(int i=0;i<list2.size();i++){
        							 remind r = list2.get(i);
@@ -334,6 +337,18 @@ function addRmind_DoneHandler(data, status, xhr){
       						 %>
        						<form id="RmindForm" action="look.do" method="post" onsubmit="return addRmind()">
        						<div>來自<%=r.getQ_owner().getName() %>一筆新的問答</div><br>
+       						
+       						
+       						<input type="text" name="RemindId" style="display: none;" value="<%=r.getRemindId()%>">
+       						<input type="submit" style="" value="確認已讀" onclick="javascript:window.location.reload();" >
+       						</form>	
+       						<% }%>
+      						 <% for(int i=0;i<list4.size();i++){
+       							 remind r = list4.get(i);
+       							
+      						 %>
+       						<form id="RmindForm" action="look.do" method="post" onsubmit="return addRmind()">
+       						<div>來自<%=r.getC_owner().getName() %>一筆新的交換申請</div><br>
        						
        						
        						<input type="text" name="RemindId" style="display: none;" value="<%=r.getRemindId()%>">
@@ -377,6 +392,7 @@ function addRmind_DoneHandler(data, status, xhr){
 							List<Product> list =service.getBUY("yes");
 							List<Product> list0 =service.getBOX("yes");
 	    				%>
+						
 						<ul id="tabs">
 	        				<li><a href="#tab1" id="tab0" class="tab" title="最新交換">最新交換</a></li>
 	      					<li><a href="#tab2" id="tab-b" class="tab" title="最新交易">最新交易</a></li>
@@ -386,17 +402,18 @@ function addRmind_DoneHandler(data, status, xhr){
     						<div id="tab1" class="tab_content">
            					<h1>交換</h1>
                             		<% if(list0!=null && list0.size()>0) {%>
-	    	
+	    							
 	    						<div>
 	    							<% for(int i=0;i<5;i++) {
 	    								Product q = list0.get(i);
 	    							%>
-	    	
+	    								
 	    						<div class="div-buy" >
 						    		<a href="changeIn.jsp?buyInId=<%= q.getId() %>">
 						    	 	<p><%=i+1%>:<%=q.getName()%>&emsp;(<%=q.getCreateTime()%>)</p></a><br>
 						    	 	
 						    	</div>
+	    							
 	    							<%} %>
 	    							<%}else{ %>
 	    							<p>查無產品</p>
@@ -405,13 +422,13 @@ function addRmind_DoneHandler(data, status, xhr){
         					</div>
         					<div id="tab2" class="tab_content">
             				<h1>交易</h1>
-            					<% if(list!=null && list.size()>0) {%>
-	    	
+            					<% if(list!=null && list.size()>5) {%>
+	    							
 	    						<div>
 	    							<% for(int i=0;i<5;i++) {
 	    								Product p = list.get(i);
 	    							%>
-	    	
+	    								
 	    						<div class="div-buy" >
 						    		<a href="buyIn.jsp?buyInId=<%= p.getId() %>">
 						    	 	<p><%=i+1%>:<%=p.getName()%>&emsp;(<%=p.getCreateTime()%>)</p></a><br>

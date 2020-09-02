@@ -487,6 +487,39 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	});
 }
 
+function getProductJSP2(Id){
+	
+	//同步請求
+	<%--location.href="<%=request.getContextPath()%>/buyIn.jsp?buyInId="+PrductId;--%>
+	//非同步GET請求
+	$.ajax({
+		
+		url:"../../ownerBy/QAup_2.jsp?buyIDOwner="+Id,
+		meth:'GET'	
+	
+	
+	}).done(getProductJSP_DonHadler2);
+	
+}
+function getProductJSP_DonHadler2( data, textStatus, jqXHR){
+	
+	
+	$("#productDetail2").html(data);
+	
+	//用fancybox來顯示
+	$.fancybox.open({
+		src  : '#productDetail2',
+		type : 'inline',
+		opts : {
+			afterShow : function( instance, current ) {
+				console.info( 'done!' );
+			}
+		}
+	});
+}
+
+
+    
     function product_updown_dmark(){
 
     	//var nnpage = $('#nnpage').val();
@@ -528,6 +561,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 
 <body  bgproperties=fixed>
 <div id="productDetail"> </div>
+<div id="productDetail2"> </div>
 	<%Customer member=(Customer)session.getAttribute("member");%>
 			
 			<%//取ProductSelectService
@@ -537,7 +571,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    		List<Product> list =service.getUpOwner(member!=null?member.getId():"");
 	    		List<Product> list1 =service.getOwner(member!=null?member.getId():"");
 	    		
-	    		List<WantChange> list2 =service2.getWantChangeByProductID(member!=null?member.getId():"");
+	    		List<WantChange> list2 =service2.getWantChangeByUserID(member!=null?member.getId():"");
 	    	%>
 		<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
 		
@@ -549,7 +583,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			<% for(int i=0;i<list2.size();i++) {
 	    		WantChange w = list2.get(i);
 	    	%>
-			<%if(w.getCheack()==0) {%>
+			<%if(w.getCheack()==2) {%>
 			<div id="prodlistid1" class="product_divlist">
 			<div class="product_imglist">
 				<img
@@ -569,18 +603,12 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 						<input type="button" value="問答" class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
 						</a>
 						</form>	
-						<form method="post" action="yes.do">
+						<form method="post" action="delet.do">
 							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>"style="display: none;">
 							<input id="yes" name="yes" type="text" value="<%=w.getUser().getId()%>"style="display: none;">
 							<input id="proID" name="proID" type="text" value="<%=w.getProductID().getId()%>"style="display: none;">
-							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="同意" class="eventbtn" onclick="return(alert('同意後請利用本網站的同意表單裡聯絡'),confirm('確認是否同意?'))">&nbsp;
-						</form>
-						<form method="post" action="no.do" style="width: 0px;height: 0px;">
-							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>" style="display: none;">
-							<input type="submit" style="position: relative;top:-30px; left:109px;" value="否決" class="eventbtn" onclick="return(confirm('確認是否否決?'))">&nbsp;
-						</form>
-									
-							
+							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="刪除" class="eventbtn" onclick="return(alert('同意後請利用本網站的同意表單裡聯絡'),confirm('確認是否同意?'))">&nbsp;
+						</form>		
 					</div>
 				</div>
 				<div class="product_divlist_item f14">
@@ -590,13 +618,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 							
 					</div>
 				</div>
-				<div class="product_divlist_item f14">想交換&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
-				<div class="product_divlist_item f14">
-					
-				</div>
-				
-		
-				
+				<div class="product_divlist_item f14">擁有者:&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
 			</div>
 		</div>
 		

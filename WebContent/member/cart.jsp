@@ -49,7 +49,26 @@
 </head>
 <body>
 			<div class="divBG">
-		<jsp:include page="/member/subviews/header.jsp" />
+		<header>
+	    	
+	    		<ul>
+					<li><a href="/CB"><img style="width: 100%;margin-top: 10px;" src="image/yellow/home.png" title="home"></a></li>
+					
+					<li class="li-01">
+					<%
+							Customer member=(Customer)session.getAttribute("member");
+					%>
+					
+ 					<%= member!=null?member.getName():""%>
+ 					
+ 					<% if(member == null){ %>
+ 					
+ 					<a href="<%=request.getContextPath() %>">Login</a>
+ 					 <%}else{ %>
+ 					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
+ 					 <% } %> </li>
+ 					 
+	    	</header>
 
 <div class="cart01">
 <%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>

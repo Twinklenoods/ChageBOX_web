@@ -70,41 +70,14 @@
 </head>
 <body>
 <div class="divBG">
-			<header style="color:white;">
-	    		<ul>
-					<li><a href="/CB">Home</a></li>
-					<li>
-					<form action="<%= request.getContextPath() %>/buy.jsp">
-					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
-					<input type="submit" value="查詢">
-					</form>
-					</li>
-					<li class="li-01"><%Customer member=(Customer)session.getAttribute("member");%>
- 					<%= member!=null?member.getName():""%>
- 					<% if(member == null){ %><a href="<%=request.getContextPath() %>">Login</a>
- 					 <%}else{ %>
- 					 <a href="<%=request.getContextPath() %>/logout.do">Logout</a>
- 					 <% } %> </li>
- 					<li class="li-02">
- 					 <a class="remind"><img style="width: 30px;" id="remind" src="image/remind.png" title="提醒">2</a>
- 					 	<li class="none">
-							<div>你有一則悄悄話</div><br>
-							<div>你有一則問答話</div><br>
-						</li>
-					
-				</ul>
-					
-					
- 					
- 					
-	    	</header>
+			<jsp:include page="/member/subviews/header.jsp" />
 
 <div class="cart01">
 <%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>
-
+<%Customer member=(Customer)session.getAttribute("member");%>
 <%if (cart!=null&&cart.size()>0){ %>
 	
-		<form action="" method="GET"> <!-- /vgb/member/update_cart.do -->
+		<form action="buyYes.do" method="post"> <!-- /vgb/member/update_cart.do -->
 		<table class="table01">
 			<caption>結帳明細</caption>
 			<tr>
@@ -120,11 +93,14 @@
 				Product p =item.getProduct();
 			%>
 			<tr class="tr01">
-				<td class="tr02" style="border-left: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;">No.<%=item.getProduct().getId()%></td>
+				<td class="tr02" style="border-left: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;">
+				No.<%=item.getProduct().getId()%></td>
 				<td><img src="<%=item.getProduct().getPhotoUrl() %>"><%=item.getProduct().getName() %></td>
 				<td><%=item.getProduct().getOrigin() %></td>			
 				<td><%=item.getProduct().getHost() %></td>
-				<td>1</td>
+				<td>2</td>
+				<input type="text" name="proID<%=item.hashCode() %>" value="<%=item.getProduct().getId()%>" style="display:none;">
+				<input type="text" name="USER<%=item.hashCode() %>" value="<%=member.getId() %>" style="display:none;">
 				<td><%=(int)item.getProduct().getUnitPrice() %></td>
 				
 				
@@ -161,13 +137,13 @@
 				</td>		
 			</tr>
 			<tr>
-			<td colspan="2" style="text-align:center;font-size:18px;">訂購人<br>
+			<td colspan="2" style="text-align:center;font-size:18px;">收件人<br>
 			<p><textarea style="width: 50%;"placeholder="name/姓名"></textarea></p>
 			<p><textarea style="width: 50%;"placeholder="phone/電話"></textarea></p>
 			<p><textarea style="width: 50%;"placeholder="email"></textarea></p>
 			<p><textarea style="width: 50%;"placeholder="address/地址"></textarea></p>
 			</td>
-			<td colspan="4" style="text-align:center;font-size:18px;">收件人<br>
+			<td colspan="4" style="text-align:center;font-size:18px;">帳單明細預覽<br>
 			<p><textarea name="" style="width: 50%;"placeholder="name/姓名"></textarea></p>
 			<p><textarea name="" style="width: 50%;"placeholder="phone/電話"></textarea></p>
 			<p><textarea name="" style="width: 50%;"placeholder="email"></textarea></p>

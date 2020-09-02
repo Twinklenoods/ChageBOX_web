@@ -85,7 +85,7 @@ function addCart_DoneHandler(data, status, xhr){
 				</div>
 				<div class='dataDiv'>
 					<h2>No.<%= product.getId() %><%= product.getName() %></h2>
-					<p>價格<%=(int)product.getUnitPrice() %> </p>
+					<h3>想交換:<%=product.getWantChange()%> </h3>
 					<hr>
 					<%= product.getDescription() %>
 					<form id="cartForm" action="" method="post" <%//向會員修改依樣提出資料申請 使用者+產品編號 %> >
