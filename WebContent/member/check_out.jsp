@@ -98,9 +98,10 @@
 				<td><img src="<%=item.getProduct().getPhotoUrl() %>"><%=item.getProduct().getName() %></td>
 				<td><%=item.getProduct().getOrigin() %></td>			
 				<td><%=item.getProduct().getHost() %></td>
-				<td>2</td>
+				<td>1</td>
 				<input type="text" name="proID<%=item.hashCode() %>" value="<%=item.getProduct().getId()%>" style="display:none;">
 				<input type="text" name="USER<%=item.hashCode() %>" value="<%=member.getId() %>" style="display:none;">
+				<input type="text" name="chash<%=item.hashCode() %>"  value="<%=(int)item.getProduct().getUnitPrice() %>" style="display:none;">
 				<td><%=(int)item.getProduct().getUnitPrice() %></td>
 				
 				
@@ -138,10 +139,10 @@
 			</tr>
 			<tr>
 			<td colspan="2" style="text-align:center;font-size:18px;">收件人<br>
-			<p><textarea style="width: 50%;"placeholder="name/姓名"></textarea></p>
-			<p><textarea style="width: 50%;"placeholder="phone/電話"></textarea></p>
-			<p><textarea style="width: 50%;"placeholder="email"></textarea></p>
-			<p><textarea style="width: 50%;"placeholder="address/地址"></textarea></p>
+			<p><textarea name="name" style="width: 50%;"placeholder="name/姓名" ><%=member.getName() %></textarea></p>
+			<p><textarea name="phone" style="width: 50%;"placeholder="phone/電話" ><%=member.getPhone() %></textarea></p>
+			<p><textarea name="email" style="width: 50%;"placeholder="email" ><%=member.getEmail()%></textarea></p>
+			<p><textarea name="address" style="width: 50%;"placeholder="address/地址" ><%=member.getAddress()%></textarea></p>
 			</td>
 			<td colspan="4" style="text-align:center;font-size:18px;">帳單明細預覽<br>
 			<p><textarea name="" style="width: 50%;"placeholder="name/姓名"></textarea></p>
