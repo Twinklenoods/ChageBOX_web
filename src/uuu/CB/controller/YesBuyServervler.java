@@ -17,9 +17,12 @@ import javax.servlet.http.HttpSession;
 
 import uuu.vgb.entity.CartItem;
 import uuu.vgb.entity.DataInvalidException;
+import uuu.vgb.entity.Order;
+import uuu.vgb.entity.PaymentType;
 import uuu.vgb.entity.Product;
 import uuu.vgb.entity.ShoppingCart;
 import uuu.vgb.entity.VGBException;
+import uuu.vgb.service.OrderService;
 import uuu.vgb.service.ProductService;
 
 /**
@@ -57,28 +60,62 @@ public class YesBuyServervler extends HttpServlet {
 			HttpSession session = request.getSession();
 			ShoppingCart cart = (ShoppingCart)session.getAttribute("cart");
 			
+			OrderService service1 =new OrderService();
 			ProductService service2 =new ProductService();
 			
 			try {
 				for(CartItem item:cart.getCartItemSet()) {
 					Product p = item.getProduct();
-		String USER=request.getParameter("USER"+item.hashCode());
-		int proID=Integer.parseInt(request.getParameter("proID"+item.hashCode()));	
-				
-				
-				
+					String USER=request.getParameter("USER"+item.hashCode());
+					int proID=Integer.parseInt(request.getParameter("proID"+item.hashCode()));	
+					
 					//寫入買家
 					
 					p.setCustomer(USER);
 					p.setId(proID);
+			
+					
+					
 				}
 					for(CartItem item:cart.getCartItemSet()) {
 						Product p = item.getProduct();
+						Order o =new Order();
+						
+						
+						
+						String USER=request.getParameter("USER"+item.hashCode());
+						int proID=Integer.parseInt(request.getParameter("proID"+item.hashCode()));	
+						int chash=Integer.parseInt(request.getParameter("chash"+item.hashCode()));	
+						//訂單的值
+						String name=request.getParameter("name");
+						String phone=request.getParameter("phone");
+						String email=request.getParameter("email");
+						String address=request.getParameter("address");
+						String pay=request.getParameter("pay");
+						String use=request.getParameter("use");
+						
+						//寫入訂單
+						
+						o.setProductID(proID);
+						o.setUniprice(chash);
+						o.setName(name);
+						o.setEmail(email);
+						o.setPhone(phone);
+						o.setAddress(address);
+						o.setPay(pay);
+						o.setUse(use);
+						
 						service2.BUY(p);
+						service1.register(o);
 					}
+					
+					
 				
 					
-				//丟入垃圾桶
+					
+					
+					
+					//丟入垃圾桶
 					if(cart!=null) {
 						Set<CartItem>trashCan=new HashSet<>();
 						for(CartItem item:cart.getCartItemSet()) {
@@ -122,7 +159,7 @@ public class YesBuyServervler extends HttpServlet {
 		//3.2顯示失敗畫面
 		request.setAttribute("errors", errors);
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("../../CB.jsp");
+				request.getRequestDispatcher("cart.jsp");
 		
 		dispatcher.forward(request,response);
 }

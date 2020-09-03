@@ -85,7 +85,7 @@
     }
     function mapHandler(){
         var mapAddress =  $("#myInput").val();
-		$("#myMap").attr("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+mapAddress+"7-11超商"+"&z=16&output=embed");
+		$("#myMap").attr("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+mapAddress+"超商"+"&z=16&output=embed");
 		//$("#myMap").attr("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+lat+","+lon+"&z=16&output=embed");
 		//window.location.href="http://maps.google.com/maps?q="+lat+","+lon;
     }
@@ -121,35 +121,35 @@
 
        function shippingChange(){
 
-           $("#shippingAddress").removeAttr("list");
+           $("#pay").removeAttr("list");
 
-           $("#shippingAddress").attr("autocomplete","on");
+           $("#pay").attr("autocomplete","on");
 
-           $("#shippingAddress").prop("readonly",false);
+           $("#pay").prop("readonly",false);
 
-           $("#shippingAddress").css("width", parseInt($("#recipientEmail").css("width")));
+           $("#pay").css("width", parseInt($("#recipientEmail").css("width")));
 
             $("#chooseStoreBtn").remove();
 
            
 
-           switch($("#shippingType").val()){
+           switch($("#pay2").val()){
 
-           case 'SHOP':
+           case 'Shop':
 
-               $("#shippingAddress").attr("list", "shopList");
+               $("#pay2").attr("list", "shopList");
 
-               $("#shippingAddress").attr("autocomplete","off");
+               $("#pay2").attr("autocomplete","off");
 
                break;
 
-           case 'STORE':
+           case 'Store':
 
-               $("#shippingAddress").attr("autocomplete","off");
+               $("#pay2").attr("autocomplete","off");
 
-               $("#shippingAddress").prop("readonly",true);
+               $("#pay2").prop("readonly",true);
 
-               $("#shippingAddress").css("width", parseInt($("#recipientEmail").css("width"))-75);
+               $("#pay2").css("width", parseInt($("#recipientEmail").css("width"))-75);
 
                $(chooseStoreBtn).insertAfter($("#shippingAddress"));
 
@@ -213,7 +213,7 @@
 			
 			<tr>
 				<td colspan="2" >付款方式(案件計算):
-					<select id="pay" name="pay" required onchange="calculateFee()" onchange='changeShippingOption()'>  
+					<select id="pay" name="pay" required onchange="calculateFee(),changeShippingOption()" >  
     				<option value="">請選擇</option>
     				<% for(PaymentType pType:PaymentType.values()) { %>
     				<option value="<%=pType.name()%>" data-fee='<%=pType.getFee()*cart.size()%>'><%=pType.getDescription()%></option>
@@ -240,7 +240,7 @@
 			<tr>
 			
 			<td colspan="2" style="text-align:center;font-size:18px;"><br>
-			<input ng-model="name" id="myInput" >(左側同步更新)<br><br>
+			<input ng-model="name" id="myInput"  onchange >(左側同步更新)<br><br>
 			
 			<iframe id="myMap" width='400' height='400' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=台北車站&z=16&output=embed'></iframe><br><br>
 			
@@ -250,10 +250,10 @@
 			
 			</td>
 			<td colspan="4" style="text-align:center;font-size:18px;">收件人<br>
-			<p><textarea name="name" style="width: 50%;"placeholder="name/姓名" ><%=member.getName() %></textarea></p>
-			<p><textarea name="phone" style="width: 50%;"placeholder="phone/電話" ><%=member.getPhone() %></textarea></p>
-			<p><textarea name="email" style="width: 50%;"placeholder="email" ><%=member.getEmail()%></textarea></p>
-			<p><textarea name="address" readonly style="width: 50%;"placeholder="address/地址" >{{name}}</textarea></p>
+			<p><textarea required name="name" style="width: 50%;"placeholder="name/姓名" ><%=member.getName() %></textarea></p>
+			<p><textarea required name="phone" style="width: 50%;"placeholder="phone/電話" ><%=member.getPhone() %></textarea></p>
+			<p><textarea required name="email" id="recipientEmail" style="width: 50%;"placeholder="email" ><%=member.getEmail()%></textarea></p>
+			<p><textarea name="address" id="pay2" readonly style="width: 50%;"placeholder="address/地址" >{{name}}</textarea></p>
 			</td>
 		
 			<tr>
