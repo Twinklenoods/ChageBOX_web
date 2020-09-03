@@ -43,7 +43,9 @@
 	
 	}
 	</style>
-	<script type="text/javascript" src="jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js"></script>
 <script type="text/javascript" src="js/top.js"></script>
 <script type="text/javascript">
@@ -65,6 +67,101 @@
 		
 		$("#TotalAmount").text(totalFee);
 	}
+	
+    var geo = undefined;
+    
+    $(document).ready(init78963);
+    function init78963(){
+        //判斷是否支援Geo Location
+        if(geo = getGeoLocation()){
+            $("#title").text("Geolocation is supported.");
+            /*write code here*/
+            //geo.getCurrentPosition(showCoords);
+            //geo.watchPosition(showCoords,errorHandler);
+       }else{
+            $("#title").text("Geolocation is not supported.");
+        }
+        $("#myInput").change(mapHandler);
+    }
+    function mapHandler(){
+        var mapAddress =  $("#myInput").val();
+		$("#myMap").attr("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+mapAddress+"7-11超商"+"&z=16&output=embed");
+		//$("#myMap").attr("src","http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q="+lat+","+lon+"&z=16&output=embed");
+		//window.location.href="http://maps.google.com/maps?q="+lat+","+lon;
+    }
+    
+    function getGeoLocation()
+    {
+        if(navigator.geolocation){
+            return navigator.geolocation;
+        }else{
+            return undefined;
+        }
+    }
+    
+    function showCoords(e){
+        var lat = e.coords.latitude;
+        var lon = e.coords.longitude;
+        $("#latitude").text(lat.toString());
+        $("#longitude").text(lon.toString());
+    }
+    
+    function errorHandler(error){
+    	alert("Error!");
+    }
+    
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.name = "address/地址輸入";
+    });
+    //老師的
+    var chooseStoreBtn =
+
+           "<input type='button' id='chooseStoreBtn' value='選擇超商' onclick='goEzShip()'>";
+
+       function shippingChange(){
+
+           $("#shippingAddress").removeAttr("list");
+
+           $("#shippingAddress").attr("autocomplete","on");
+
+           $("#shippingAddress").prop("readonly",false);
+
+           $("#shippingAddress").css("width", parseInt($("#recipientEmail").css("width")));
+
+            $("#chooseStoreBtn").remove();
+
+           
+
+           switch($("#shippingType").val()){
+
+           case 'SHOP':
+
+               $("#shippingAddress").attr("list", "shopList");
+
+               $("#shippingAddress").attr("autocomplete","off");
+
+               break;
+
+           case 'STORE':
+
+               $("#shippingAddress").attr("autocomplete","off");
+
+               $("#shippingAddress").prop("readonly",true);
+
+               $("#shippingAddress").css("width", parseInt($("#recipientEmail").css("width"))-75);
+
+               $(chooseStoreBtn).insertAfter($("#shippingAddress"));
+
+               break;
+
+           }
+
+           calculateFee();
+
+       } 
+    
+    
 	</script>
 <title>購物車</title>
 </head>
@@ -77,8 +174,9 @@
 <%Customer member=(Customer)session.getAttribute("member");%>
 <%if (cart!=null&&cart.size()>0){ %>
 	
-		<form action="buyYes.do" method="post"> <!-- /vgb/member/update_cart.do -->
-		<table class="table01">
+		<form action="buyYes.do" method="post" id="cartForm"> <!-- /vgb/member/update_cart.do -->
+		<table class="table01" ng-app="myApp" ng-controller="myCtrl">
+			
 			<caption>結帳明細</caption>
 			<tr>
 				<th style="border-right:none;">No.</th>
@@ -115,41 +213,49 @@
 			
 			<tr>
 				<td colspan="2" >付款方式(案件計算):
-					<select id="pay" name="pay" required onchange="calculateFee()">  
+					<select id="pay" name="pay" required onchange="calculateFee()" onchange='changeShippingOption()'>  
     				<option value="">請選擇</option>
     				<% for(PaymentType pType:PaymentType.values()) { %>
     				<option value="<%=pType.name()%>" data-fee='<%=pType.getFee()*cart.size()%>'><%=pType.getDescription()%></option>
     				<%} %>
     				</select>
 				</td>
-				
+			
 				
 				<td colspan="2" >貨運方式(案件計算):
-				<select id="use" name="use" required onchange="calculateFee()">  
+				
+				<select id="use" name="use" required onchange="calculateFee()" onchange='shippingChange()'>  
     				<option value="">請選擇</option>
     				<% for(ShippingType pType2:ShippingType.values()) {%>
     				<option value="<%=pType2.name()%>" data-fee='<%=pType2.getFee()*cart.size()%>'><%=pType2.getDescription()%></option>
     				<% }%>
     				
-    				</select>
+    			</select>
 				</td>				
 				<td colspan="2" style="text-align: right; border-right-color: red ;border-left-color: red; ">
 				總金額含運費為<span id="TotalAmount"><%= (int)cart.getTotalAmount()%></span>元
 				</td>		
 			</tr>
+			
 			<tr>
-			<td colspan="2" style="text-align:center;font-size:18px;">收件人<br>
+			
+			<td colspan="2" style="text-align:center;font-size:18px;"><br>
+			<input ng-model="name" id="myInput" >(左側同步更新)<br><br>
+			
+			<iframe id="myMap" width='400' height='400' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=台北車站&z=16&output=embed'></iframe><br><br>
+			
+			
+			
+			
+			
+			</td>
+			<td colspan="4" style="text-align:center;font-size:18px;">收件人<br>
 			<p><textarea name="name" style="width: 50%;"placeholder="name/姓名" ><%=member.getName() %></textarea></p>
 			<p><textarea name="phone" style="width: 50%;"placeholder="phone/電話" ><%=member.getPhone() %></textarea></p>
 			<p><textarea name="email" style="width: 50%;"placeholder="email" ><%=member.getEmail()%></textarea></p>
-			<p><textarea name="address" style="width: 50%;"placeholder="address/地址" ><%=member.getAddress()%></textarea></p>
+			<p><textarea name="address" readonly style="width: 50%;"placeholder="address/地址" >{{name}}</textarea></p>
 			</td>
-			<td colspan="4" style="text-align:center;font-size:18px;">帳單明細預覽<br>
-			<p><textarea name="" style="width: 50%;"placeholder="name/姓名"></textarea></p>
-			<p><textarea name="" style="width: 50%;"placeholder="phone/電話"></textarea></p>
-			<p><textarea name="" style="width: 50%;"placeholder="email"></textarea></p>
-			<p><textarea name="" style="width: 50%;"placeholder="address/地址" name="address"></textarea></p>
-			</td>
+		
 			<tr>
 				<td colspan="6" style="text-align: right; border-right-color: red ;border-left-color: red; border-bottom-color: red;">
 					
