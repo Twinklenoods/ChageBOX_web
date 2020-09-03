@@ -160,7 +160,8 @@
            calculateFee();
 
        } 
-    
+   	
+	
     
 	</script>
 <title>購物車</title>
@@ -198,8 +199,10 @@
 				<td><%=item.getProduct().getHost() %></td>
 				<td>1</td>
 				<input type="text" name="proID<%=item.hashCode() %>" value="<%=item.getProduct().getId()%>" style="display:none;">
+				<input type="text" name="ownerID<%=item.hashCode() %>" value="<%=item.getProduct().getOwner().getId()%>" style="display:none;">
 				<input type="text" name="USER<%=item.hashCode() %>" value="<%=member.getId() %>" style="display:none;">
 				<input type="text" name="chash<%=item.hashCode() %>"  value="<%=(int)item.getProduct().getUnitPrice() %>" style="display:none;">
+				<input type="text" name="proName<%=item.hashCode() %>"  value="<%=item.getProduct().getName() %>" style="display:none;">
 				<td><%=(int)item.getProduct().getUnitPrice() %></td>
 				
 				
@@ -214,10 +217,17 @@
 			<tr>
 				<td colspan="2" >付款方式(案件計算):
 					<select id="pay" name="pay" required onchange="calculateFee(),changeShippingOption()" >  
-    				<option value="">請選擇</option>
-    				<% for(PaymentType pType:PaymentType.values()) { %>
-    				<option value="<%=pType.name()%>" data-fee='<%=pType.getFee()*cart.size()%>'><%=pType.getDescription()%></option>
-    				<%} %>
+    				<option value="" data-fee="0">請選擇</option>
+    				<option value="0" data-fee="0">面交</option>
+    				<option value="60" data-fee="60">貨到付款-60</option>
+    				<option value="0" data-fee="0">超商付款</option>
+    				<option value="0"data-fee="0">信用卡</option>
+    				
+    				<%-- for(PaymentType pType:PaymentType.values()) { --%>
+    				<%--=pType.name()--%><%--=pType.getFee()*cart.size()--%>'><%--=pType.getDescription()--%>
+    				<%--} --%>
+    				
+    				
     				</select>
 				</td>
 			
@@ -226,9 +236,12 @@
 				
 				<select id="use" name="use" required onchange="calculateFee()" onchange='shippingChange()'>  
     				<option value="">請選擇</option>
-    				<% for(ShippingType pType2:ShippingType.values()) {%>
-    				<option value="<%=pType2.name()%>" data-fee='<%=pType2.getFee()*cart.size()%>'><%=pType2.getDescription()%></option>
-    				<% }%>
+    				<option value="0" data-fee="0">面交</option>
+    				<option value="100"data-fee="100">宅配-100</option>
+    				<option value="0"data-fee="0">超商取貨</option>
+    				<%-- for(ShippingType pType2:ShippingType.values()) {--%>
+    				<%--=pType2.name()--%><%--=pType2.getFee()*cart.size()--%><%--=pType2.getDescription()--%>
+    				<%-- }--%>
     				
     			</select>
 				</td>				

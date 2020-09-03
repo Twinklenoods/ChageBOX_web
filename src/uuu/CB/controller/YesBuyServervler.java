@@ -82,10 +82,12 @@ public class YesBuyServervler extends HttpServlet {
 						Order o =new Order();
 						
 						
-						
 						String USER=request.getParameter("USER"+item.hashCode());
+						String proName=request.getParameter("proName"+item.hashCode());
+						String ownerID=request.getParameter("ownerID"+item.hashCode());
 						int proID=Integer.parseInt(request.getParameter("proID"+item.hashCode()));	
 						int chash=Integer.parseInt(request.getParameter("chash"+item.hashCode()));	
+						
 						//訂單的值
 						String name=request.getParameter("name");
 						String phone=request.getParameter("phone");
@@ -104,7 +106,9 @@ public class YesBuyServervler extends HttpServlet {
 						o.setAddress(address);
 						o.setPay(pay);
 						o.setUse(use);
-						
+						o.setName(proName);
+						o.setUserID(USER);
+						o.setOwnerID(ownerID);
 						service2.BUY(p);
 						service1.register(o);
 					}
