@@ -1,3 +1,5 @@
+<%@page import="uuu.vgb.entity.Order"%>
+<%@page import="uuu.vgb.service.OrderService"%>
 <%@page import="uuu.vgb.entity.WantChange"%>
 <%@page import="uuu.CB.controller.WantChangeServlet"%>
 <%@page import="uuu.vgb.service.WantChangeService"%>
@@ -451,7 +453,20 @@ a.tag_t:visited {
 }
 p{color: white;}
 .updown{display: none;}
+th{border: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;color:white;}
+		td{border: lightgray solid 2px; padding:5px 10px;}
+		
+		table{box-shadow: gray 1px 1px 3px; padding:2px 5px; background-color: black;color:white;}		
+		table{border-collapse: collapse;width:85%;margin:auto}
+		table img{width:48px;vertical-align: middle;}
+	.stockShortage{box-shadow:red 0 0 3px;border: darkred 1px solid;padding-left: 2px}
+	.table01 .tr01:hover {
+			background-color: white;
+			color: black;					
+		}		
 </style>
+
+
  <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="js/IndexJs.js"></script>
 <script type="text/javascript" src="fancybox/jquery.fancybox.js"></script>
@@ -531,154 +546,96 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	<%Customer member=(Customer)session.getAttribute("member");%>
 			
 			<%//取ProductSelectService
-	    		ProductSelectService service =new ProductSelectService();
-	    		WantChangeService service2 = new WantChangeService();
-	    		WantChangeService service3 = new WantChangeService();
-	    		List<Product> list =service.getUpOwner(member!=null?member.getId():"");
-	    		List<Product> list1 =service.getOwner(member!=null?member.getId():"");
 	    		
-	    		List<WantChange> list2 =service2.getWantChangeByUserID(member!=null?member.getId():"");
-	    		List<WantChange> list3 =service3.getWantChangeByProductID(member!=null?member.getId():"");
+			OrderService service4 =new OrderService();
+	    	List<Order> list4 =service4.getOrderBuyByUserID(member!=null?member.getId():"");
+	    	List<Order> list5 =service4.getOrderBuyByOwnerID(member!=null?member.getId():"");
 	    	%>
-		<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
+	
 		
-			
 	
-	    	<% if(list!=null && list2.size()>0) {%>
-	
+	    	<% if(list4!=null && list4.size()>0) {%>
+			<% for(int i=0;i<list4.size();i++) {
+	    		Order o= list4.get(i);
+			%>
+	    	<%if(o.getPay_fee()==1){ %>
+	    	  	<table class="table01">
+		
+			<tr>
+				<th>遊戲名稱</th>
+				<th>訂單狀態</th>
+				<th>運費</th>
+				<th>總金額</th>
+				<th>建立時間</th>
+			</tr>
 			
-			<% for(int i=0;i<list2.size();i++) {
-	    		WantChange w = list2.get(i);
-	    	%>
-			<%if(w.getCheack()==1) {%>
-			<div id="prodlistid1" class="product_divlist">
-			<div class="product_imglist">
-				<img
-					src="<%=w.getProductID().getPhotoUrl() %>"
-					border=0>
-			</div>
-			<div class="product_divlistright">
-				<div class="product_divlist_title f18" style="height: 48px;">
-					<div class="left">
-							
-							<span style="color: black;"><%=w.getProductID().getName()%></span>
-					</div>
-					
-					<div class="right f14">
-						<form style="width: 0px;height: 0px;">	
-						<a href="javascript:getProductJSP(<%=w.getProductID().getId()%>)"style="position: relative;top:0px; left:63px;">	
-						<input type="button" value="問答" class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
-						</a>
-						</form>	
-						<form method="post" action="ok.do">
-							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>"style="display: none;">
-							<input id="yes" name="yes" type="text" value="<%=w.getUser().getId()%>"style="display: none;">
-							<input id="proID" name="proID" type="text" value="<%=w.getProductID().getId()%>"style="display: none;">
-							<select id="listrating" name="listrating" required onchange="calculateFee()" style="position: relative;top:0px; left:120px;">  
-    						<option value="">請選擇評價</option>
-    						<option value=1>很好/very good</option>
-    						<option value=2>普通/general</option>
-    						<option value=3>很差/very bad</option>
-    						</select>	
-							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="刪除" class="eventbtn" onclick="return(confirm('確認是否刪除?'))">&nbsp;
-						</form>
-									
-							
-					</div>
-				</div>
-				<div class="product_divlist_item f14">
-					<div class="left">
-						<a href="" class="tag_c">交換</a>
-					
-							
-					</div>
-				</div>
-				<div class="product_divlist_item f14">擁有者:&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
-				<div class="product_divlist_item f14">
-					
-				</div>
+			<tr class="tr01">
+				<td><%=o.getProName() %></td>
+				<td>我還沒付款</td>
+				<td><%=o.getPay()+o.getUse() %></td>
+				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
+				<td><%=o.getCreateTime() %></td>
+			<tr>
+				
 				
 		
 				
-			</div>
-		</div>
-		
-		<%}else{ %>
+			</tr>	
+			
+		</table><br>
 	
-		<% }%>
-	    	<%} %>
-	    	
 	    	<%}else{ %>
-	    		<p>查無產品</p>
+	    	
+	    	<%} %>
+	    	<% }%>
+	    	<%}else{ %>
+			<p>無商品</p>
+			<% }%>
+	
+			
+			
+			
+			
+			<% if(list5!=null && list5.size()>0) {%>
+				<% for(int i=0;i<list5.size();i++) {
+	    		Order o= list5.get(i);
+			%>
+	    	<%if(o.getPay_fee()==1){ %>
+	    	  	<table class="table01">
+		
+			<tr>
+				<th>遊戲名稱</th>
+				<th>訂單狀態</th>
+				<th>運費</th>
+				<th>總金額</th>
+				<th>建立時間</th>
+			</tr>
+			
+			<tr class="tr01">
+				<td><%=o.getProName() %></td>
+				<td> 對方未付款</td>
+				<td><%=o.getPay()+o.getUse() %></td>
+				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
+				<td><%=o.getCreateTime() %></td>
+			<tr>
+				
+				
+		
+				
+			</tr>	
+			
+		</table><br>
+	
+	    	<%}else{ %>
+	    	
+	    	<%} %>
 	    	<% }%>
 	    	
-	    	
-	    	
-	    	<% if(list!=null && list3.size()>0) {%>
-	
-			
-			<% for(int i=0;i<list3.size();i++) {
-	    		WantChange w = list3.get(i);
-	    	%>
-			<%if(w.getCheack()==1) {%>
-			<div id="prodlistid1" class="product_divlist">
-			<div class="product_imglist">
-				<img
-					src="<%=w.getProductID().getPhotoUrl() %>"
-					border=0>
-			</div>
-			<div class="product_divlistright">
-				<div class="product_divlist_title f18" style="height: 48px;">
-					<div class="left">
-							
-							<span style="color: black;"><%=w.getProductID().getName()%></span>
-					</div>
-					
-					<div class="right f14">
-						<form style="width: 0px;height: 0px;">	
-						<a href="javascript:getProductJSP(<%=w.getProductID().getId()%>)"style="position: relative;top:0px; left:63px;">	
-						<input type="button" value="問答" class="eventbtn" style="position: relative;top:0px; left:-63px;">&nbsp;
-						</a>
-						</form>	
-						<form method="post" action="">
-							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>"style="display: none;">
-							<input id="yes" name="yes" type="text" value="<%=w.getUser().getId()%>"style="display: none;">
-							<input id="proID" name="proID" type="text" value="<%=w.getProductID().getId()%>"style="display: none;">
-							
-							<input type="submit"  style="position: relative;top:0px; left:-33px;" value="未給評價" class="eventbtn" onclick="return(alert('對方給予評價後將自動刪除'))">&nbsp;
-						</form>
-									
-							
-					</div>
-				</div>
-				<div class="product_divlist_item f14">
-					<div class="left">
-						<a href="" class="tag_c">交換</a>
-					
-							
-					</div>
-				</div>
-				<div class="product_divlist_item f14">擁有者:&nbsp;&#10217;&nbsp;<%=w.getUser().getName()%></div>
-				<div class="product_divlist_item f14">
-					
-				</div>
-				
-		
-				
-			</div>
-		</div>
-		
-		<%}else{ %>
-	
-		<% }%>
-	    	<%} %>
-	    	
 	    	<%}else{ %>
-	    		<p>查無產品</p>
-	    	<% }%>
-	
-	</div>
-	
+			<p>無商品</p>
+			<% }%>
+			
+			
+			
 </body>
 </html>
-

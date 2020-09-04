@@ -555,44 +555,11 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 		
 	
 	    	<% if(list4!=null && list4.size()>0) {%>
-			
-			
 			<% for(int i=0;i<list4.size();i++) {
 	    		Order o= list4.get(i);
 			%>
-	    	<%if(o.getPay_fee()==0){ %>
-	    	<table class="table01">
-		
-			<tr>
-				<th>遊戲名稱</th>
-				<th>訂單狀態</th>
-				<th>運費</th>
-				<th>總金額</th>
-				<th>建立時間</th>
-			</tr>
-			
-			<tr class="tr01">
-				<td><%=o.getProName() %></td>
-				<td>對方未發貨</td>
-				<td><%=o.getPay()+o.getUse() %></td>
-				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
-				<td><%=o.getCreateTime() %></td>
-			<tr>
-			
-			</tr>	
-			
-		</table><br>
-	    	
-	    	<%}else{ %>
-	    
-	    	<%} %>
-	    	
-	    	<% }%>
-	    	<% for(int i=0;i<list4.size();i++) {
-	    		Order o= list4.get(i);
-			%>
 	    	<%if(o.getPay_fee()==4){ %>
-	    	<form method="post" action="buyok.do">
+	    	  	<form method="post" action="buyok.do">
 	    	<table class="table01">
 		
 			<tr>
@@ -629,15 +596,11 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			
 		</table>
 		</form><br>
-	    	
-	    	
+	
 	    	<%}else{ %>
 	    	
 	    	<%} %>
-	    	
 	    	<% }%>
-	    	
-
 	    	<%}else{ %>
 		
 			<% }%>
@@ -646,54 +609,12 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			
 			
 			
-		<% if(list5!=null && list5.size()>0) {%>
-			
-			
-			<% for(int i=0;i<list5.size();i++) {
-	    		Order o= list5.get(i);
-			%>
-	    	<%if(o.getPay_fee()==0){ %>
-	    	<table class="table01">
-		
-			<tr>
-				<th>遊戲名稱</th>
-				<th>訂單狀態</th>
-				<th>運費</th>
-				<th>總金額</th>
-				<th>建立時間</th>
-				<th>狀態</th>
-			</tr>
-			
-			<tr class="tr01">
-				<td><%=o.getProName() %></td>
-				<td>我未發貨</td>
-				<td><%=o.getPay()+o.getUse() %></td>
-				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
-				<td><%=o.getCreateTime() %></td>
-				<td>
-				<form method="post" action="useok.do">
-				<input id="buyID" name="buyID" type="text" value="<%= o.getId() %>"style="display: none;">
-							<input id="yes" name="yes" type="text" value=""style="display:none ;">
-							<input id="proID" name="proID" type="text" value="<%=o.getProductID()%>"style="display: none;">
-				<input type="submit"  style="position: relative;top:0px; left:0px;" value="出貨" class="eventbtn" onclick="return(confirm('確認是否出貨?'))">&nbsp;
-				</form>
-				</td>
-			<tr>
-			
-			</tr>	
-			
-		</table><br>
-	    	
-	    	<%}else{ %>
-	    
-	    	<%} %>
-	    	
-	    	<% }%>
-	    	<% for(int i=0;i<list5.size();i++) {
+			<% if(list5!=null && list5.size()>0) {%>
+				<% for(int i=0;i<list5.size();i++) {
 	    		Order o= list5.get(i);
 			%>
 	    	<%if(o.getPay_fee()==4){ %>
-	    	<table class="table01">
+	    	  	<table class="table01">
 		
 			<tr>
 				<th>遊戲名稱</th>
@@ -705,25 +626,24 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			
 			<tr class="tr01">
 				<td><%=o.getProName() %></td>
-				<td>已發貨</td>
+				<td> 我已出貨</td>
 				<td><%=o.getPay()+o.getUse() %></td>
 				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
 				<td><%=o.getCreateTime() %></td>
 			<tr>
-			
+				
+				
+		
+				
 			</tr>	
 			
 		</table><br>
-	    	
-	    	
+	
 	    	<%}else{ %>
 	    	
 	    	<%} %>
-	    	
 	    	<% }%>
 	    	
-
-	   
 	    	<%}else{ %>
 			<p>無商品</p>
 			<% }%>
@@ -732,4 +652,3 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			
 </body>
 </html>
-
