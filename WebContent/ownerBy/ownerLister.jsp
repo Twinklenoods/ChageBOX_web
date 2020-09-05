@@ -1,4 +1,9 @@
-<%@ page   pageEncoding="UTF-8"%>
+
+<%@page import="uuu.vgb.entity.Customer"%>
+<%@page import="uuu.vgb.entity.Product"%>
+<%@page import="uuu.vgb.service.ProductSelectService"%>
+<%@page import="java.util.List"%>
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -409,10 +414,82 @@ color: white;
 </style>
 </head>
 <body>
-<div style="height: 50px; width:80%; margin-bottom: 3px; text-align: left; font-size: 22px; color: #ffffff; background: rgba(230,230,230,0.9);">
-				<a href=""><img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0</a>
-				<a href=""><img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;0</a>
-				<a href=""><img src="../image/listrating/A.png" border=0 width=48>極差&nbsp;0</a>
-</div>
+
+
+			<% 
+			Customer member=(Customer)session.getAttribute("member");
+			ProductSelectService service =new ProductSelectService();
+			List<Product> list =service.getlistrating(member!=null?member.getId():"",1);
+			List<Product> list2 =service.getlistrating(member!=null?member.getId():"",2);
+			List<Product> list3 =service.getlistrating(member!=null?member.getId():"",3);
+			%>
+			
+
+		<div class="breadcrumb">
+		
+		</div>
+		<div class="madmin_content">
+			<div style="height: 30px; width: 100%; border-bottom: 1px #cccccc solid; margin-bottom: 3px; text-align: left;">
+				<input type="button" value="評價" class="adminbtn">				
+			</div>
+			
+			
+		
+			<% if(list!=null && list.size()>0) {%>
+			<img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;<%=list.size() %>
+			<%}else{ %>
+			<img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0
+			<% }%>
+			
+			<% if(list!=null && list3.size()>0) {%>
+			<img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;<%=list2.size() %>
+			
+			
+			<%}else{ %>
+			<img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;0
+			<% }%>
+			
+			<% if(list!=null && list3.size()>0) {%>
+			<img src="../image/listrating/A.png" border=0 width=48>濫倒不行&nbsp;<%=list3.size() %>
+			
+			<%}else{ %>
+			<img src="../image/listrating/A.png" border=0 width=48>濫倒不行&nbsp;0
+			<% }%>
+			<%for(int i=0;i<list.size();i++){ 
+			Product p =new Product();
+			%>
+			<br><br>有人覺得你這件商品還不錯!!<br>
+			<%}%>
+			<%for(int i=0;i<list2.size();i++){ 
+			Product p =new Product();
+			%>
+			<br><br>有人覺得你這件商品還可以!!<br>
+			<%}%>
+			<%for(int i=0;i<list3.size();i++){ 
+			Product p =new Product();
+			%>
+			<br><br>有人覺得你這件商品爛到不行!!<br>
+			<%}%>
+			<br>總筆數：<%=list.size()+list2.size()+list3.size() %>
+			
+		
+			<div>	
+			</div>
+			
+			
+				
+				
+				
+				
+				
+			
+			
+			
+		</div>
+		<div>
+			<input type="hidden" id="c" value="trade">
+		</div>
+	
+	</div>
 </body>
 </html>

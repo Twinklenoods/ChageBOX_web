@@ -415,56 +415,64 @@ color: white;
 
 <body>
 
-<body background="test-1.jpg" bgproperties=fixed>
+
 			<% 
 			Customer member=(Customer)session.getAttribute("member");
 			ProductSelectService service =new ProductSelectService();
-			List<Product> list =service.getlistrating(member!=null?member.getName():"");
+			List<Product> list =service.getlistrating(member!=null?member.getId():"",1);
+			List<Product> list2 =service.getlistrating(member!=null?member.getId():"",2);
+			List<Product> list3 =service.getlistrating(member!=null?member.getId():"",3);
 			%>
 			
 
 		<div class="breadcrumb">
-			
+		
 		</div>
 		<div class="madmin_content">
 			<div style="height: 30px; width: 100%; border-bottom: 1px #cccccc solid; margin-bottom: 3px; text-align: left;">
 				<input type="button" value="評價" class="adminbtn">				
 			</div>
-			<% for(int i=0;i<list.size();i++) {
-	    		Product p= list.get(i);
-			%>
-			<br>總筆數：<%=list.size() %>
 			
+			
+		
 			<% if(list!=null && list.size()>0) {%>
-			
-			<br>總筆數：<%=list.size() %>
-			<%if(p.getListrating()==1){ %>
-			<a href="/CB"><img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;<%=list.size() %></a>
+			<img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;<%=list.size() %>
 			<%}else{ %>
-			<a href="/CB"><img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0</a>
+			<img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0
 			<% }%>
 			
-			<%if(p.getListrating()==2){ %>
-			<a href=""><img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;<%=list.size() %></a>
+			<% if(list!=null && list3.size()>0) {%>
+			<img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;<%=list2.size() %>
+			
+			
 			<%}else{ %>
-			<a href=""><img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;0</a>
+			<img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;0
 			<% }%>
-			<%if(p.getListrating()==3){ %>
-			<a href=""><img src="../image/listrating/A.png" border=0 width=48>普通&nbsp;<%=list.size() %></a>
+			
+			<% if(list!=null && list3.size()>0) {%>
+			<img src="../image/listrating/A.png" border=0 width=48>濫倒不行&nbsp;<%=list3.size() %>
+			
 			<%}else{ %>
-			<a href=""><img src="../image/listrating/A.png" border=0 width=48>普通&nbsp;0</a>
+			<img src="../image/listrating/A.png" border=0 width=48>濫倒不行&nbsp;0
 			<% }%>
-			<br>總筆數：<%=list.size() %>
-			<%}else{ %>
-			<a href="/CB"><img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0</a>
-				<a href=""><img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;0</a>
-				<a href=""><img src="../image/listrating/A.png" border=0 width=48>極差&nbsp;0</a>
-			<br>總筆數：0
-			<% }%>
+			<%for(int i=0;i<list.size();i++){ 
+			Product p =new Product();
+			%>
+			<br><br>有人覺得你這件商品還不錯!!<br>
+			<%}%>
+			<%for(int i=0;i<list2.size();i++){ 
+			Product p =new Product();
+			%>
+			<br><br>有人覺得你這件商品還可以!!<br>
+			<%}%>
+			<%for(int i=0;i<list3.size();i++){ 
+			Product p =new Product();
+			%>
+			<br><br>有人覺得你這件商品爛到不行!!<br>
+			<%}%>
+			<br>總筆數：<%=list.size()+list2.size()+list3.size() %>
 			
-			<% }%>
-			
-			
+		
 			<div>	
 			</div>
 			

@@ -447,7 +447,6 @@ function addRmind_DoneHandler(data, status, xhr){
 						<a href="member/mywork.jsp"><img id="mywork" src="image/psd/myWork.png" title="我的管理"></a>
 						<a href="member/MyOwnerQA.jsp"><img id="masage" src="image/psd/masage.png" title="悄悄話"></a>
 						<a href="buy.jsp"><img id="buy" src="image/psd/buy.png" title="買賣"></a>
-						<a href="pand.jsp"><img id="pand" src="image/psd/pand.png" title="許願池"></a>
 						<a href="change.jsp"><img id="change01" src="image/psd/change01.png" title="交換"></a>
 					</nav>
 					
