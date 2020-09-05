@@ -551,7 +551,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    	List<Order> list4 =service4.getOrderBuyByUserID(member!=null?member.getId():"");
 	    	List<Order> list5 =service4.getOrderBuyByOwnerID(member!=null?member.getId():"");
 	    	%>
-	
+	<h1 style="margin-left: 50px;color: white;">商品動態</h1>
 		
 	
 	    	<% if(list4!=null && list4.size()>0) {%>

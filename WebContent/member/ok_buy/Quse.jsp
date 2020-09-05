@@ -552,7 +552,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    	List<Order> list5 =service4.getOrderBuyByOwnerID(member!=null?member.getId():"");
 	    	%>
 	
-		
+		<h1 style="margin-left: 50px;color: white;">已出貨/待評價</h1>
 	
 	    	<% if(list4!=null && list4.size()>0) {%>
 			<% for(int i=0;i<list4.size();i++) {

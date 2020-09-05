@@ -496,6 +496,7 @@ p{color: white;}
 
 <body>
 <body background="test-1.jpg" bgproperties=fixed>
+<h1 style="margin-top: -10px;margin-left: 20px;color: white;">交換區</h1>
 	<%Customer member=(Customer)session.getAttribute("member");%>
 			
 			<%//取ProductSelectService
@@ -504,12 +505,11 @@ p{color: white;}
 	    		List<Product> list1 =service.getUpBOX(member!=null?member.getId():"");
 	    	%>
 	<div style="height: 30px; width: 100%; margin-bottom: 10px; text-align: right;">
-		<input type="button" value="未上架 (<%=list.size() %>)" class="adminbtn2"
-			onclick="location.href='box.jsp'"> <input type="button"
+		<input style="position: relative;right:15px;" type="button" value="未上架 (<%=list.size() %>)" class="adminbtn2"
+			onclick="location.href='box.jsp'"> 
+		<input style="position: relative;right:15px;" type="button"
 			value="已上架 (<%=list1.size() %>)" class="adminbtn2"
-			onclick="location.href='upBOX.jsp'""> <input
-			type="button" value="已成交 (0)" class="adminbtn2"
-			onclick="location.href='ListMemberProduct?m=y'">
+			onclick="location.href='upBOX.jsp'""> 
 			
 	
 	    	<% if(list!=null && list.size()>0) {%>

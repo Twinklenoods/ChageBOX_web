@@ -553,7 +553,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    	%>
 	
 		
-	
+	<h1 style="margin-left: 50px;color: white;">待發貨區</h1>
 	    	<% if(list4!=null && list4.size()>0) {%>
 			<% for(int i=0;i<list4.size();i++) {
 	    		Order o= list4.get(i);
