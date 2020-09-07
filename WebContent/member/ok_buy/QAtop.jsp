@@ -23,7 +23,7 @@
 
 			<a href='Qunuse.jsp'target="b"><input type="button" value="待發貨" class="adminbtn active"> </a>
 			<a href='Quse.jsp'target="b"><input type="button" value="已發貨" class="adminbtn active"> </a>
-
+			<a href='Qlist.jsp'target="b"><input type="button" value="已評價" class="adminbtn active"> </a>
 		
 		</div>
 		</form>
