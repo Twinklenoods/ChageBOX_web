@@ -5,9 +5,6 @@
         <dependent-module archiveName="ChageBOX_Lib.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ChageBOX_Lib/ChageBOX_Lib">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="TestJavaMail_withFreeMaker.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/TestJavaMail_withFreeMaker/TestJavaMail_withFreeMaker">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="CB"/>
         <property name="java-output-path" value="/ChangeBox_Web/build/classes"/>
     </wb-module>

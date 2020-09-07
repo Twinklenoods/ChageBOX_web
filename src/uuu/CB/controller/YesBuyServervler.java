@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import uuu.demo.service.MailService;
+import uuu.vgb.service.MailService;
 import uuu.vgb.entity.CartItem;
 import uuu.vgb.entity.DataInvalidException;
 import uuu.vgb.entity.Order;
@@ -59,16 +59,15 @@ public class YesBuyServervler extends HttpServlet {
 			
 			OrderService service1 =new OrderService();
 			ProductService service2 =new ProductService();
-			//MailService service3 =new MailService();
-		
+
+			String receiverEmail =request.getParameter("receiverEmail");
 			
 			
 			
 			
 			try {
 				
-					//String receiverEmail =request.getParameter("receiverEmail");
-					//service3.sendHelloMailWithLogo(receiverEmail);
+					
 				
 			
 				for(CartItem item:cart.getCartItemSet()) {
@@ -98,6 +97,8 @@ public class YesBuyServervler extends HttpServlet {
 						int proID=Integer.parseInt(request.getParameter("proID"+item.hashCode()));	
 						int chash=Integer.parseInt(request.getParameter("chash"+item.hashCode()));	
 						
+						
+						
 						//訂單的值
 						String name=request.getParameter("name");
 						String phone=request.getParameter("phone");
@@ -122,7 +123,10 @@ public class YesBuyServervler extends HttpServlet {
 						o.setOwnerID(ownerID);
 						service2.BUY(p);
 						service1.register(o);
+					
 					}
+					MailService.sendHelloMailWithLogo(receiverEmail);
+					
 					
 					
 				
