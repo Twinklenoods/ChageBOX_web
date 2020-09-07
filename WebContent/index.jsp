@@ -145,6 +145,17 @@
 	}
 	.class2{color: red;}
 	.my-class{display: none;}
+	footer{
+		background:url("image/testbg/09.png") center top no-repeat ,	
+				url("image/testbg/foot.png") center top no-repeat;
+		
+		top:-770px;position:relative;
+		background-size: 100%;
+		width: 100%;
+		height: 770px;
+		
+		
+	}
 	</style>
 	
 	 <script type="text/javascript" src="jquery.js"></script>

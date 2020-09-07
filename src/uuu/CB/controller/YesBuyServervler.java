@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import uuu.demo.service.MailService;
 import uuu.vgb.entity.CartItem;
 import uuu.vgb.entity.DataInvalidException;
 import uuu.vgb.entity.Order;
@@ -43,17 +44,13 @@ public class YesBuyServervler extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	/**
+	 *
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<String> errors=new ArrayList<>();
 		request.setCharacterEncoding("utf-8");
 		//1.讀取資料
-		
-		
-		
-		
-
-		
-		
 		
 		//2.若無誤，呼叫商業邏輯
 		if(errors.isEmpty()) {
@@ -62,18 +59,31 @@ public class YesBuyServervler extends HttpServlet {
 			
 			OrderService service1 =new OrderService();
 			ProductService service2 =new ProductService();
+			//MailService service3 =new MailService();
+		
+			
+			
+			
 			
 			try {
+				
+					//String receiverEmail =request.getParameter("receiverEmail");
+					//service3.sendHelloMailWithLogo(receiverEmail);
+				
+			
 				for(CartItem item:cart.getCartItemSet()) {
 					Product p = item.getProduct();
+					
 					String USER=request.getParameter("USER"+item.hashCode());
 					int proID=Integer.parseInt(request.getParameter("proID"+item.hashCode()));	
-					
+					String ownerID=request.getParameter("ownerID"+item.hashCode());
+					String proName=request.getParameter("proName"+item.hashCode());
+					int chash=Integer.parseInt(request.getParameter("chash"+item.hashCode()));	
 					//寫入買家
 					
 					p.setCustomer(USER);
 					p.setId(proID);
-			
+					p.setName(proName);
 					
 					
 				}

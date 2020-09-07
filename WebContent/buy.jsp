@@ -32,6 +32,11 @@ min-width: 1430px;
 footer{
 position: relative;
 top:0px;
+background:url("image/testbg/07.png") center top no-repeat ,	
+				url("image/testbg/foot.png") center top no-repeat;
+background-size: 100%;
+width: 100%;
+	height: 700px;
 }
 
 .nav001{

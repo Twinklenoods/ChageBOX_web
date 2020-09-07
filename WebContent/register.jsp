@@ -1,5 +1,13 @@
 <%@page import="java.time.LocalDate"%>
-<%@page import="uuu.vgb.entity.Customer"%>
+<%@page import="uuu.vgb.service.RemindService"%>
+<%@page import="uuu.vgb.entity.remind"%>
+<%@page import="uuu.vgb.service.RemindDAO"%>
+<%@page import="uuu.vgb.entity.ShoppingCart"%>
+<%@page import="sun.security.util.Length"%>
+<%@page import="uuu.vgb.entity.Product"%>
+<%@page import="uuu.vgb.service.ProductSelectService"%>
+<%@page import="uuu.vgb.entity.Customer" %>
+<%@page errorPage="error.jsp"  %>
 <%@page import="java.util.List"%>
 <%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -56,7 +64,7 @@
 	}
 
 	footer{
-	background:url("image/testbg/05.png") center top no-repeat ,	
+	background:url("image/testbg/06.png") center top no-repeat ,	
 				url("image/testbg/foot.png") center top no-repeat;
 		position:relative;
 		top:-450px;
@@ -106,14 +114,14 @@
  	header ul {
 	margin: 0px;
 	list-style: none;
-	width: 280px;
+	width: 880px;
 	margin: auto;
 	}
 
 	header li {
 	float: left;
 	padding: 5px 10px;
-	border-left: 1px solid white;
+	
 	}
 	
 	a {
@@ -321,16 +329,24 @@
 </head>
 <body>
     <div class="divBG">
-    <header>
-    <ul>
-		<li><a href="/CB">Home</a></li>
-		<li><a href=#>Products</a></li>
-		<li><a href=#>Service</a></li>
-		<li id="lastLi"><a href=#>Support</a></li>
-	</ul>
-    </header>
+     	<header>
+	    	<%ShoppingCart cart = (ShoppingCart)session.getAttribute("cart") ;%>
+	    		<ul>
+					<li><a href="/CB"><img style="width: 100%;margin-top: 10px;" src="image/yellow/home.png" title="home"></a></li>
+					<li>
+					<form style="position: relative;top:-10px;" action="<%= request.getContextPath() %>/buy.jsp">
+					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
+					<input type="submit" value=""  style="background-image:url(image/yellow/3-1.png);width:30px;height:30px;margin-top: 10px;background-size: 100%;position: relative;top:10px;border: none;">
+					</form>
+					</li>	
+				</ul>
+					
+					
+ 					
+ 					
+	    	</header>
     <div id="main">
-        <nav>nav</nav>
+        <nav></nav>
         <article>
         	
 		<form autocomplete="off" method="post" action="register.do">
@@ -403,9 +419,9 @@
      </form><br>	
      	
         </article>
-        <aside>aside</aside>
+        <aside></aside>
     </div>
-    <footer>footer</footer>
+    <footer></footer>
     </div>
 </body>
 </html>

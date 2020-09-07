@@ -177,7 +177,7 @@
 	
 		<form action="buyYes.do" method="post" id="cartForm"> <!-- /vgb/member/update_cart.do -->
 		<table class="table01" ng-app="myApp" ng-controller="myCtrl">
-			
+			<input type="text" name="receiverEmail" value="<%=member.getEmail()%>" style="display:none;">
 			<caption>結帳明細</caption>
 			<tr>
 				<th style="border-right:none;">No.</th>

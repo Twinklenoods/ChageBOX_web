@@ -52,7 +52,7 @@ function addCart(){
 	return false;
 }
 function addCart_DoneHandler(data, status, xhr){
-
+	location.href="";
 	//$("").html(data);
 }
 
@@ -104,7 +104,7 @@ function addCart_DoneHandler(data, status, xhr){
 	<% if(list!=null && list.size()>0) {%>
 	
 		
-	    <form action="question.do" method="post">
+	    <form action="question4.do" method="post">
 		<table class="table01">
 			
 			<tr>
@@ -142,7 +142,7 @@ function addCart_DoneHandler(data, status, xhr){
 	    	
 	    	
 	    	<%}else{ %>
-	    	  <form action="question.do" method="POST">
+	    	  <form action="question4.do" method="POST">
 		<table class="table01">
 			<caption>問與答</caption>
 			<tr>

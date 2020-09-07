@@ -30,8 +30,8 @@ min-width: 600px;
  
 .showin-button{ position:relative; }
 footer{
-	background: url("image/testbg/pa.png") center top no-repeat,
-	url("testbg/foot.png") center top no-repeat;
+	background: url("image/testbg/06.png") center top no-repeat,
+		url("image/testbg/foot.png") center top no-repeat;
 	top:-70px;
 	position:relative;
 	background-size: 100%;

@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>ChageBOX_Lib</project>
+		<project>TestJavaMail_withFreeMaker</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

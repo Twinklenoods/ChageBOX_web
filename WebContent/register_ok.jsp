@@ -95,14 +95,14 @@
  	header ul {
 	margin: 0px;
 	list-style: none;
-	width: 280px;
+	width: 880px;
 	margin: auto;
 	}
 
 	header li {
 	float: left;
 	padding: 5px 10px;
-	border-left: 1px solid white;
+	
 	}
 	
 	a {
@@ -239,14 +239,21 @@
 <body>
 <div class="divBG">
 <header>
-
-	<ul>
-		<li><a href="/CB">Home</a></li>
-		<li><a href=#>Products</a></li>
-		<li><a href=#>Service</a></li>
-		<li id="lastLi"><a href=#>Support</a></li>
-	</ul>
-</header>
+	    	
+	    		<ul>
+					<li><a href="/CB"><img style="width: 100%;margin-top: 10px;" src="image/yellow/home.png" title="home"></a></li>
+					<li>
+					<form style="position: relative;top:-10px;" action="<%= request.getContextPath() %>/buy.jsp">
+					<input type="search" name="search" placeholder="請輸入關鍵字..." style="width: 120px;height: 30px;">
+					<input type="submit" value=""  style="background-image:url(image/yellow/3-1.png);width:30px;height:30px;margin-top: 10px;background-size: 100%;position: relative;top:10px;border: none;">
+					</form>
+					</li>	
+				</ul>
+					
+					
+ 					
+ 					
+	    	</header>
 	 <article>
 	<%Customer c =(Customer)request.getAttribute("customer");out.print(c.getName());%>
 	<article class="article-1">
