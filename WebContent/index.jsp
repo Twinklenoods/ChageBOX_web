@@ -87,6 +87,7 @@
 		}
 		footer{
 		position: static;
+		margin-top: 600px;
 		}
 	}
 	
