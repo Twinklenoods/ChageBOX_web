@@ -597,7 +597,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 	    		Order o= list5.get(i);
 			%>
 	    	<%if(o.getPay_fee()==0){ %>
-	       <form method="post" action="useok.do">	<table class="table01">
+	    <form method="get" action="">	<table class="table01">
 		
 			<tr>
 				<th>遊戲名稱</th>
@@ -632,6 +632,10 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 				
 				
 			</tr>	
+			<tr>
+				<td>出貨單號</td>
+				<td colspan="5"><input type="text" name="ord" value="">  </td>
+			</tr>
 			
 		</table></form><br>
 	

@@ -463,7 +463,11 @@ th{border: red solid 2px; padding:5px 10px; border-bottom-color:lightgray;color:
 	.table01 .tr01:hover {
 			background-color: white;
 			color: black;					
-		}		
+		}	
+		
+		
+h3 {color: white;}
+.title2{color: white;}		
 </style>
 
 
@@ -542,109 +546,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 
 
 <body  bgproperties=fixed>
-<div id="productDetail"> </div>
-	<%Customer member=(Customer)session.getAttribute("member");%>
-			
-			<%//取ProductSelectService
-	    		
-			OrderService service4 =new OrderService();
-	    	List<Order> list4 =service4.getOrderBuyByUserID(member!=null?member.getId():"");
-	    	List<Order> list5 =service4.getOrderBuyByOwnerID(member!=null?member.getId():"");
-	    	%>
+	<iframe src="https://www.hct.com.tw/Search/SearchGoods_n.aspx" name="a"  target="a"style="width: 100%;height: 900px;"></iframe>
 	
-		
-	<h1 style="margin-left: 50px;color: white;">待發貨區</h1>
-	    	<% if(list4!=null && list4.size()>0) {%>
-			<% for(int i=0;i<list4.size();i++) {
-	    		Order o= list4.get(i);
-			%>
-	    	<%if(o.getPay_fee()==0){ %>
-	    	  	<table class="table01">
-		
-			<tr>
-				<th>遊戲名稱</th>
-				<th>訂單狀態</th>
-				<th>運費</th>
-				<th>總金額</th>
-				<th>建立時間</th>
-			</tr>
-			
-			<tr class="tr01">
-				<td><%=o.getProName() %></td>
-				<td>對方未出貨</td>
-				<td><%=o.getPay()+o.getUse() %></td>
-				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
-				<td><%=o.getCreateTime() %></td>
-			</tr>	
-			
-			
-		</table><br>
-	
-	    	<%}else{ %>
-	    	
-	    	<%} %>
-	    	<% }%>
-	    	<%}else{ %>
-			
-			<% }%>
-	
-			
-			
-			
-			
-			<% if(list5!=null && list5.size()>0) {%>
-				<% for(int i=0;i<list5.size();i++) {
-	    		Order o= list5.get(i);
-			%>
-	    	<%if(o.getPay_fee()==0){ %>
-	       <form method="post" action="useok.do">	<table class="table01">
-		
-			<tr>
-				<th>遊戲名稱</th>
-				<th>訂單狀態</th>
-				<th>運費</th>
-				<th>總金額</th>
-				<th>建立時間</th>
-				<th>狀態</th>
-			</tr>
-			
-			<tr class="tr01">
-				<td><%=o.getProName() %></td>
-				<td>我未發貨</td>
-				<td><%=o.getPay()+o.getUse() %></td>
-				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
-				<td><%=o.getCreateTime() %></td>
-				<td>
-				
-				<input id="buyID" name="buyID" type="text" value="<%= o.getId() %>"style="display: none;">
-							<input id="yes" name="yes" type="text" value=""style="display:none ;">
-							<input id="proID" name="proID" type="text" value="<%=o.getProductID()%>"style="display: none;">
-				
-				<input type="submit"  style="position: relative;top:0px; left:0px;" value="出貨" class="eventbtn" onclick="return(confirm('確認是否出貨?'))">&nbsp;
-				
-				</td>
-			</tr>	
-			<tr>
-			
-				
-				<td>地址</td>
-				<td colspan="5"><%=o.getAddress() %></td>
-				
-				
-			</tr>	
-			
-		</table></form><br>
-	
-	    	<%}else{ %>
-	    	
-	    	<%} %>
-	    	<% }%>
-	    	
-	    	<%}else{ %>
-			<p>無商品</p>
-			<% }%>
-			
-			
-			
 </body>
 </html>

@@ -163,9 +163,7 @@ z-index: 0;
 	    	<iframe src="ownerBy/ownerQA.jsp?buyIDOwner=<%=c.getOwner().getId() %>" name="a"  target="a"style="width: 40%;height: 400px;margin-top: 100px;"></iframe>
 	    	</div>
 	    	<%} %>
-		
-	    	
-	    	<% for(int i=0;i<list.size();i++) {
+			<% for(int i=0;i<list.size();i++) {
 	    		Product p = list.get(i);
 	    	%>
 	    	

@@ -112,7 +112,7 @@
     
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope) {
-        $scope.name = "address/地址輸入";
+        $scope.name = "";
     });
     //老師的
     var chooseStoreBtn =
@@ -253,7 +253,7 @@
 			<tr>
 			
 			<td colspan="2" style="text-align:center;font-size:18px;"><br>
-			<input ng-model="name" id="myInput"  onchange >(左側同步更新)<br><br>
+			<input ng-model="name" id="myInput"  onchange placeholder="address/地址">(左側同步更新)<br><br>
 			
 			<iframe id="myMap" width='400' height='400' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=台北車站&z=16&output=embed'></iframe><br><br>
 			

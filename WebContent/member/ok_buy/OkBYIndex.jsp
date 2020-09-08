@@ -8,6 +8,10 @@
 
 <head>
 <title>新網頁</title>
+<style type="text/css">
+h3 {color: white;}
+.title2{color: white;}	
+</style>
 </head>
 
 <frameset rows="10%,75%" frameborder="NO">
