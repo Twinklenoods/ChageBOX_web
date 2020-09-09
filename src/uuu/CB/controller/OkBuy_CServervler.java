@@ -43,6 +43,7 @@ public class OkBuy_CServervler extends HttpServlet {
 		//1.讀取資料
 		
 		int buyID=Integer.parseInt(request.getParameter("buyID"));
+		String use_fee =request.getParameter("use_fee");
 		//String yes=request.getParameter("yes");
 	
 		
@@ -56,12 +57,17 @@ public class OkBuy_CServervler extends HttpServlet {
 			
 			try {
 				Order o= new Order();
+				Order o2= new Order();
 				Product p =new Product();
 				o.setId(buyID);
 				o.setPay_fee(4);
 				
 				service.update(o);
 				
+				o2.setId(buyID);
+				o2.setUse_fee(use_fee);
+				
+				service.updateUse(o2);
 				
 				//寫入買家
 				

@@ -634,7 +634,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			</tr>	
 			<tr>
 				<td>出貨單號</td>
-				<td colspan="5"><input type="text" name="ord" value="">  </td>
+				<td colspan="5"><input type="text" name="use_fee" >  </td>
 			</tr>
 			
 		</table></form><br>

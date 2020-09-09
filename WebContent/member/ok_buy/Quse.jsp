@@ -631,9 +631,12 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
 				<td><%=o.getCreateTime() %></td>
 			<tr>
-				
-				
-		
+				<td>出貨單號</td>
+				<% if(o.getUse_fee()!=null){%>
+				<td colspan="5"><%=o.getUse_fee() %></td>
+				<%}else{ %>
+				<td colspan="5">面交</td>
+		<%} %>
 				
 			</tr>	
 			
