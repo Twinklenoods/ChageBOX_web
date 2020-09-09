@@ -546,7 +546,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 
 
 <body  bgproperties=fixed>
-	<iframe src="https://www.hct.com.tw/Search/SearchGoods_n.aspx" name="a"  target="a"style="width: 100%;height: 900px;"></iframe>
+	<a href="https://www.hct.com.tw/Search/SearchGoods_n.aspx">新竹物流單號查詢</a>
 	
 </body>
 </html>

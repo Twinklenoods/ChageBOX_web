@@ -573,7 +573,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			
 			<tr class="tr01">
 				<td><%=o.getProName() %></td>
-				<td>對方已發貨<br>
+				<td>交易完成<br>
 				
 							<input id="buyID" name="buyID" type="text" value="<%= o.getId() %>"style="display: none;">
 							<input id="yes" name="yes" type="text" value=""style="display: none;">
@@ -621,7 +621,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 			
 			<tr class="tr01">
 				<td><%=o.getProName() %></td>
-				<td> 我已評價</td>
+				<td> 對方已評價</td>
 				<td><%=o.getPay()+o.getUse() %></td>
 				<td><%=o.getUniprice()+o.getUse()+o.getPay() %></td>			
 				<td><%=o.getCreateTime() %></td>

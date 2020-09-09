@@ -29,6 +29,7 @@
 			<div class="table02">
 			<a  href="OkChange.jsp"><li style="color:black;">交換成功清單</li><br></a>
 			<a  href="OkBuy.jsp"><li style="color:black;">買賣成功清單</li><br></a>			
+			<a href="https://www.hct.com.tw/Search/SearchGoods_n.aspx"><li style="color:black;">單號查詢</li><br></a>
 			</div>
 			</div>
 		</nav>

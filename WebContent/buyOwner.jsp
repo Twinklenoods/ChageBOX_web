@@ -161,6 +161,7 @@ z-index: 0;
 	    	<div class="ownerS01">
 	    	<iframe src="ownerBy/ownerLister.jsp?buyIDOwner=<%=c.getOwner().getId() %>" name="a"  target="a"style="width: 40%;height: 400px;margin-top: 100px;background-color:rgba(250, 50, 50, 0.6);"></iframe>
 	    	<iframe src="ownerBy/ownerQA.jsp?buyIDOwner=<%=c.getOwner().getId() %>" name="a"  target="a"style="width: 40%;height: 400px;margin-top: 100px;"></iframe>
+	    	
 	    	</div>
 	    	<%} %>
 			<% for(int i=0;i<list.size();i++) {

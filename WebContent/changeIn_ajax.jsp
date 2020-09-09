@@ -84,7 +84,7 @@ function addCart_DoneHandler(data, status, xhr){
 				</div>
 				<div class='dataDiv'>
 					<h2>No.<%= product.getId() %><%= product.getName() %></h2>
-										<iframe src="https://chart.googleapis.com/chart?chs=120x120&cht=qr&chl=<%= java.net.InetAddress.getLocalHost().getHostAddress()%>:8080<%=request.getContextPath()%>/changeIn.jsp?buyInId=<%= product.getId() %>&choe=UTF-8" name="a"  target="a"style="width:125px;height: 125px;margin-top: 100px;background-color:rgba(250, 50, 50, 0.6);"></iframe>
+										<iframe src="https://chart.googleapis.com/chart?chs=120x120&cht=qr&chl=http://<%= java.net.InetAddress.getLocalHost().getHostAddress()%>:8080<%=request.getContextPath()%>/changeIn.jsp?buyInId=<%= product.getId() %>&choe=UTF-8" name="a"  target="a"style="width:125px;height: 125px;margin-top: 100px;background-color:rgba(250, 50, 50, 0.6);"></iframe>
 					<h3>想交換:<%=product.getWantChange() %> </h3>
 					<hr>
 					<%= product.getDescription() %>

@@ -441,7 +441,7 @@ color: white;
 			<img src="../image/listrating/S.png" border=0 width=48>良好&nbsp;0
 			<% }%>
 			
-			<% if(list!=null && list3.size()>0) {%>
+			<% if(list!=null && list2.size()>0) {%>
 			<img src="../image/listrating/N.png" border=0 width=48>普通&nbsp;<%=list2.size() %>
 			
 			
@@ -491,5 +491,6 @@ color: white;
 		</div>
 	
 	</div>
+	
 </body>
 </html>
