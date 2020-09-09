@@ -417,11 +417,12 @@ color: white;
 
 
 			<% 
+			String productOwner = request.getParameter("buyIDOwner");
 			Customer member=(Customer)session.getAttribute("member");
 			ProductSelectService service =new ProductSelectService();
-			List<Product> list =service.getlistrating(member!=null?member.getId():"",1);
-			List<Product> list2 =service.getlistrating(member!=null?member.getId():"",2);
-			List<Product> list3 =service.getlistrating(member!=null?member.getId():"",3);
+			List<Product> list =service.getlistrating(productOwner!=null?productOwner:"",1);
+			List<Product> list2 =service.getlistrating(productOwner!=null?productOwner:"",2);
+			List<Product> list3 =service.getlistrating(productOwner!=null?productOwner:"",3);
 			%>
 			
 
