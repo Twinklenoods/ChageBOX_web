@@ -624,8 +624,14 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 				<td><%=o.getCreateTime() %></td>
 				<td><input type="submit"  style="position: relative;top:0px; left:0px;" value="刪除" class="eventbtn" onclick="return(confirm('確認是否刪除?'))">&nbsp;</td>
 			<tr>
-			
-			</tr>	
+				<td>出貨單號</td>
+				<% if(o.getUse_fee()!=null){%>
+				<td colspan="5"><%=o.getUse_fee() %></td>
+				<%}else{ %>
+				<td colspan="5">面交</td>
+		<%} %>
+				
+			</tr>			
 			
 		</table>
 		</form><br>
