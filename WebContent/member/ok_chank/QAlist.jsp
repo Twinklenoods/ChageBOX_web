@@ -581,7 +581,7 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
     						<option value=2>普通/general</option>
     						<option value=3>很差/very bad</option>
     						</select>	
-							<input type="submit"  style="position: relative;top:0px; left:-63px;" value="重新評價" class="eventbtn" onclick="return(confirm('確認是否重新評價?'))">&nbsp;
+							<input type="submit"  style="position: relative;top:-20px; left:-33px;" value="重新評價" class="eventbtn" onclick="return(confirm('確認是否重新評價?'))">&nbsp;
 						</form>
 									
 							
