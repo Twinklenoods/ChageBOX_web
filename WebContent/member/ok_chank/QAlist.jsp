@@ -645,8 +645,8 @@ function getProductJSP_DonHadler( data, textStatus, jqXHR){
 							<input id="ChangesID" name="ChangesID" type="text" value="<%= w.getChangesID() %>"style="display: none;">
 							<input id="yes" name="yes" type="text" value="<%=w.getUser().getId()%>"style="display: none;">
 							<input id="proID" name="proID" type="text" value="<%=w.getProductID().getId()%>"style="display: none;">
-							
 							<input type="submit"  style="position: relative;top:0px; left:-33px;" value="已給評價" class="eventbtn" onclick="return(alert('對方給予評價後將自動刪除'))">&nbsp;
+							
 						</form>
 									
 							
